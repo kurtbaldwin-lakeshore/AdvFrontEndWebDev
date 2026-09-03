@@ -383,3 +383,55 @@ footer a {
     display: block;
     clear: both;
 }
+
+
+/* NAVIGATION DEMO FIXES
+   Override the site's general nav rules inside the dropdown demo. */
+.demo-dropdown-nav ul {
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+}
+
+.demo-dropdown-nav .demo-menu > li {
+    float: left;
+    position: relative;
+}
+
+.demo-dropdown-nav .submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 220px;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background-color: #0a2351;
+    border: 1px solid #ffffff;
+    z-index: 500;
+}
+
+.demo-dropdown-nav .submenu li {
+    float: none;
+    width: 100%;
+    position: relative;
+}
+
+.demo-dropdown-nav .submenu a {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 10px 14px;
+    white-space: nowrap;
+}
+
+.demo-dropdown-nav .demo-menu li:hover > .submenu,
+.demo-dropdown-nav .demo-menu li:focus-within > .submenu {
+    display: block;
+}
+
+.demo-dropdown-nav .submenu-level-2 {
+    left: 100%;
+    top: 0;
+}
