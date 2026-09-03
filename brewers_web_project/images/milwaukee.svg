@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" role="img" aria-labelledby="t d">
+<title id="t">Milwaukee skyline illustration</title><desc id="d">Simple skyline beside Lake Michigan</desc>
+<rect width="700" height="400" fill="#dceaf5"/><rect y="310" width="700" height="90" fill="#8bbbd8"/>
+<rect x="70" y="175" width="70" height="135" fill="#17365d"/><rect x="155" y="120" width="90" height="190" fill="#294d73"/>
+<polygon points="200,70 175,120 225,120" fill="#294d73"/><rect x="270" y="205" width="100" height="105" fill="#17365d"/>
+<rect x="395" y="145" width="80" height="165" fill="#294d73"/><rect x="500" y="195" width="110" height="115" fill="#17365d"/>
+<circle cx="585" cy="75" r="40" fill="#ffc52f"/><text x="350" y="360" text-anchor="middle" font-size="30" font-family="Arial" fill="#0a2351">MILWAUKEE</text></svg>

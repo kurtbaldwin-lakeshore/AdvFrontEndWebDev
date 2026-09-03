@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact form for the Milwaukee Brewers educational fan guide demonstration project.">
+    <title>Contact | Milwaukee Brewers Fan Guide</title>
+    <!-- REQUIREMENT: External stylesheet; no inline or embedded CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <p id="site-title">Milwaukee Brewers Fan Guide</p>
+    <nav aria-label="Main navigation">
+        <!-- REQUIREMENT: Horizontal navigation created with a UL on every page -->
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="ballpark.html">Ballpark</a></li>
+            <li><a href="legends.html">Legends</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="clear"></div>
+</header>
+
+<main>
+    <h1>Contact the Fan Guide</h1>
+    <p>This demonstration form does not submit to a real server. It is included to practice HTML form controls, required fields, labels, and browser validation.</p>
+
+    <div id="contact-box">
+        <h2>Before You Send</h2>
+        <p>Please keep messages related to Brewers history, ballpark experiences, or suggestions for this educational site.</p>
+    </div>
+
+    <!-- REQUIREMENT: Contact page form with at least 3 required text fields -->
+    <form action="#" method="post">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Deliberate Lighthouse accessibility issue:
+             phone field has placeholder text but no associated label. -->
+        <input type="text" id="phone" name="phone" placeholder="Optional phone number">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="7"></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <section class="card validator-demo">
+        <h2>Other Ways to Reach Us</h2>
+        <p>General questions: <a href="mailto:fanmail@example.com">fanmail@example.com</a></p>
+        <p>Research corrections: <a href="mailto:research@example.com">research@example.com</a></p>
+    </section>
+</main>
+<footer>
+    <p>Unofficial educational fan project created for an Intro to Web Development demonstration.</p>
+    <!-- REQUIREMENT: Linked email addresses #1 and #2 -->
+    <p>Email: <a href="mailto:fanmail@example.com">fanmail@example.com</a> |
+       Research: <a href="mailto:research@example.com">research@example.com</a></p>
+</footer>
+</body>
+</html>

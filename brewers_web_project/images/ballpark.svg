@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9bc8e8"/><stop offset="1" stop-color="#e9f2f7"/></linearGradient></defs>
+<rect width="1000" height="500" fill="url(#sky)"/><path d="M60 350 Q500 80 940 350" fill="none" stroke="#0a2351" stroke-width="30"/>
+<path d="M80 350 Q500 130 920 350" fill="none" stroke="#ffc52f" stroke-width="12"/>
+<rect x="110" y="350" width="780" height="95" fill="#435b72"/><path d="M300 445 L500 300 L700 445 Z" fill="#58a55c"/>
+<circle cx="830" cy="90" r="42" fill="#ffc52f"/><text x="500" y="475" text-anchor="middle" font-family="Arial" font-size="34" fill="white">MILWAUKEE BASEBALL</text></svg>

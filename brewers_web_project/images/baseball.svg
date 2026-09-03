@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+<rect width="500" height="500" fill="#f5f0e6"/><circle cx="250" cy="250" r="175" fill="white" stroke="#0a2351" stroke-width="8"/>
+<path d="M145 120 C210 180,210 320,145 380" fill="none" stroke="#ffc52f" stroke-width="12"/>
+<path d="M355 120 C290 180,290 320,355 380" fill="none" stroke="#ffc52f" stroke-width="12"/>
+<text x="250" y="265" text-anchor="middle" font-size="40" font-family="Arial" font-weight="bold" fill="#0a2351">BREW CREW</text></svg>
