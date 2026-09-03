@@ -9,22 +9,24 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to main content</a>
 <header>
     <p id="site-title">Milwaukee Brewers Fan Guide</p>
     <nav aria-label="Main navigation">
         <!-- REQUIREMENT: Horizontal navigation created with a UL on every page -->
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="history.html">History</a></li>
             <li><a href="ballpark.html">Ballpark</a></li>
             <li><a href="legends.html">Legends</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="navigation-demo.html">Navigation Demo</a></li>
         </ul>
     </nav>
     <div class="clear"></div>
 </header>
 
-<main>
+<main id="main">
     <!-- REQUIREMENT: Semantic main element and ID usage -->
     <section class="hero" id="hero">
         <div class="hero-text">

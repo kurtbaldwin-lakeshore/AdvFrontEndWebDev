@@ -20,6 +20,25 @@ body {
     line-height: 1.6;
 }
 
+
+/* ACCESSIBILITY REQUIREMENT: Skip link appears when keyboard-focused */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+}
+
+.skip-link:focus {
+    left: 10px;
+    top: 10px;
+    background-color: #ffffff;
+    color: #0a2351;
+    padding: 10px;
+    border: 2px solid #0a2351;
+    z-index: 1000;
+}
+
+
 header {
     background-color: #0a2351; /* REQUIREMENT: background color #2 */
     color: #ffffff;            /* REQUIREMENT: font color #2 */
@@ -277,4 +296,90 @@ footer {
 
 footer a {
     color: #ffc52f;
+}
+
+
+/* =========================================================
+   NAVIGATION DEMO PAGE
+   Basic nested UL dropdown navigation for classroom use.
+   No JavaScript or framework is required.
+   ========================================================= */
+
+.demo-nav-area {
+    width: 90%;
+    max-width: 1050px;
+    margin: 25px auto 0 auto;
+}
+
+.demo-nav-title {
+    margin-bottom: 10px;
+}
+
+.demo-dropdown-nav {
+    background-color: #0a2351;
+    border: 3px solid #ffc52f;
+}
+
+.demo-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.demo-menu > li {
+    float: left;
+    position: relative;
+}
+
+.demo-menu a {
+    display: block;
+    padding: 12px 18px;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #0a2351;
+}
+
+.demo-menu a:hover,
+.demo-menu a:focus {
+    background-color: #7a0019;
+    color: #ffffff;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 210px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 500;
+    border: 1px solid #ffffff;
+}
+
+.submenu li {
+    position: relative;
+}
+
+.submenu a {
+    border-bottom: 1px solid #45607f;
+}
+
+/* Display dropdown with either mouse hover or keyboard focus */
+.demo-menu li:hover > .submenu,
+.demo-menu li:focus-within > .submenu {
+    display: block;
+}
+
+.submenu-level-2 {
+    left: 100%;
+    top: 0;
+}
+
+/* Clear the floated top-level menu items */
+.demo-dropdown-nav::after {
+    content: "";
+    display: block;
+    clear: both;
 }

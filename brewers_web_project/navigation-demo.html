@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A demonstration page showing nested navigation, dropdown menus, keyboard tab order, and skip links.">
+    <title>Navigation Demo | Milwaukee Brewers Fan Guide</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header>
+    <p id="site-title">Milwaukee Brewers Fan Guide</p>
+
+    <!-- Regular site navigation used on the other pages -->
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="ballpark.html">Ballpark</a></li>
+            <li><a href="legends.html">Legends</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="navigation-demo.html" aria-current="page">Navigation Demo</a></li>
+        </ul>
+    </nav>
+    <div class="clear"></div>
+</header>
+
+<!--
+    CLASSROOM DEMO:
+    This navigation is intentionally much larger than the rest of the site.
+    It demonstrates why a skip link is useful for keyboard users.
+-->
+<section class="demo-nav-area">
+    <h1 class="demo-nav-title">Large Navigation Demonstration</h1>
+
+    <nav class="demo-dropdown-nav" aria-label="Demonstration navigation">
+        <ul class="demo-menu">
+
+            <li>
+                <a href="#">Team</a>
+                <ul class="submenu">
+                    <li><a href="#">40-Man Roster</a></li>
+                    <li><a href="#">Coaches</a></li>
+                    <li><a href="#">Front Office</a></li>
+                    <li><a href="#">Injury Report</a></li>
+                    <li><a href="#">Transactions</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Schedule</a>
+                <ul class="submenu">
+                    <li><a href="#">Home Games</a></li>
+                    <li><a href="#">Away Games</a></li>
+                    <li><a href="#">Promotions</a></li>
+                    <li><a href="#">Printable Schedule</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Tickets</a>
+                <ul class="submenu">
+                    <li><a href="#">Single Game Tickets</a></li>
+                    <li><a href="#">Season Tickets</a></li>
+                    <li>
+                        <a href="#">Group Tickets</a>
+                        <ul class="submenu submenu-level-2">
+                            <li><a href="#">School Groups</a></li>
+                            <li><a href="#">Corporate Groups</a></li>
+                            <li><a href="#">Birthday Groups</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Suites</a></li>
+                    <li><a href="#">Ticket Policies</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Ballpark</a>
+                <ul class="submenu">
+                    <li><a href="#">Getting Here</a></li>
+                    <li><a href="#">Parking</a></li>
+                    <li><a href="#">Food and Beverage</a></li>
+                    <li>
+                        <a href="#">Guest Services</a>
+                        <ul class="submenu submenu-level-2">
+                            <li><a href="#">Accessibility</a></li>
+                            <li><a href="#">Lost and Found</a></li>
+                            <li><a href="#">Guest Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Ballpark Tours</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Fans</a>
+                <ul class="submenu">
+                    <li><a href="#">Kids Club</a></li>
+                    <li><a href="#">Fantasy Baseball</a></li>
+                    <li><a href="#">Fan Photos</a></li>
+                    <li><a href="#">Community Events</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">History</a>
+                <ul class="submenu">
+                    <li><a href="#">Franchise Timeline</a></li>
+                    <li><a href="#">Retired Numbers</a></li>
+                    <li><a href="#">Hall of Fame</a></li>
+                    <li><a href="#">Postseason History</a></li>
+                    <li><a href="#">Records</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+</section>
+
+<main id="main">
+    <section class="feature-box">
+        <h1>You Made It to the Main Content</h1>
+        <p>This page exists only for classroom demonstration. The oversized navigation above gives keyboard users many links to move through before they reach this content.</p>
+
+        <p>Reload the page and use only the keyboard. On the first press of <strong>Tab</strong>, the skip link should appear. Press <strong>Enter</strong> and the browser moves directly here instead of requiring you to tab through the regular site navigation and all of the demonstration menu links.</p>
+    </section>
+
+    <section class="card">
+        <h2>What to Demonstrate</h2>
+        <ol>
+            <li>Reload the page and press Tab once.</li>
+            <li>Show the visible "Skip to main content" link.</li>
+            <li>Press Enter and show that focus jumps to the main content.</li>
+            <li>Reload again and ignore the skip link.</li>
+            <li>Continue pressing Tab and observe how many navigation links must be visited.</li>
+        </ol>
+    </section>
+
+    <section class="card">
+        <h2>Nested Navigation</h2>
+        <p>The dropdowns are built with nested unordered lists. No JavaScript, Bootstrap, animations, or other advanced frameworks are used. The CSS uses basic positioning plus <code>:hover</code> and <code>:focus-within</code> so the menu can be demonstrated with both a mouse and keyboard.</p>
+    </section>
+</main>
+
+<footer>
+    <p>Unofficial educational fan project created for an Intro to Web Development demonstration.</p>
+    <p>Email: <a href="mailto:fanmail@example.com">fanmail@example.com</a> |
+       Research: <a href="mailto:research@example.com">research@example.com</a></p>
+</footer>
+
+</body>
+</html>
