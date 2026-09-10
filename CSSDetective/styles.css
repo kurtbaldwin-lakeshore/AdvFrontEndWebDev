@@ -80,12 +80,6 @@ main {
     padding-bottom: 10px;
 }
 
-/*
-   This rule is intentionally duplicated.
-
-   There is another .lesson-title rule above and
-   another one in the <style> section of index.html.
-*/
 
 .lesson-title {
     color: red;
@@ -99,10 +93,6 @@ main {
     border-radius: 12px;
 }
 
-/*
-   This duplicate rule intentionally changes the
-   background color.
-*/
 
 .demo-card {
     background-color: #dcfce7;
@@ -130,11 +120,6 @@ main {
     font-weight: bold;
 }
 
-/*
-   Same selector.
-
-   Because this rule comes later, its color wins.
-*/
 
 .duplicate-text {
     color: crimson;
@@ -166,20 +151,12 @@ main {
 }
 
 
-/*
-   Even more specific.
-*/
 
 div.specificity-demo p.specific-text {
     color: orange;
 }
 
 
-/*
-   This class is intentionally used on the second paragraph.
-
-   Notice what happens in DevTools when you inspect it.
-*/
 
 .important-text {
     color: purple !important;
@@ -222,21 +199,6 @@ div.specificity-demo p.specific-text {
 }
 
 
-/*
-   The internal <style> section contains:
-
-       main .box {
-           background-color: #e8f5e9;
-       }
-
-   That rule is more specific than:
-
-       .box {
-           background-color: #fee2e2;
-       }
-
-   Inspect the box to see which one wins.
-*/
 
 .box-content {
     background-color: white;
