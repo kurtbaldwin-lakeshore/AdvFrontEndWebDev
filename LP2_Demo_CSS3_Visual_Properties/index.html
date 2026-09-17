@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 Visual Properties — Today's Target</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>CSS3 Visual Properties</h1>
+    <p>Today's target — border-radius, box-shadow, gradients, and transforms. We'll build every section on this page from scratch.</p>
+  </header>
+
+  <main>
+
+    <!-- ============================================== -->
+    <section class="demo-section">
+      <h2>1. border-radius</h2>
+      <p class="section-note">One property, three completely different looks depending on the value and the element's proportions.</p>
+      <div class="demo-row">
+        <div class="shape shape-rounded">
+          <span>Rounded<br>Corners</span>
+        </div>
+        <div class="shape shape-circle">
+          <span>Circle</span>
+        </div>
+        <div class="shape shape-pill">
+          <span>Pill Shape</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <section class="demo-section">
+      <h2>2. box-shadow</h2>
+      <p class="section-note">A single shadow reads as flat. Two layered shadows — one tight and dark, one soft and diffuse — read as genuine depth.</p>
+      <div class="demo-row">
+        <div class="shape shape-flat">
+          <span>No Shadow</span>
+        </div>
+        <div class="shape shape-shadow-single">
+          <span>Single Shadow</span>
+        </div>
+        <div class="shape shape-shadow-layered">
+          <span>Layered Shadow</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <section class="demo-section">
+      <h2>3. text-shadow</h2>
+      <p class="section-note">The same idea as box-shadow, applied to type — great for headings over busy backgrounds.</p>
+      <div class="text-shadow-demo">
+        <h3 class="shadowed-text">Wisconsin Nights</h3>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <section class="demo-section">
+      <h2>4. Gradients</h2>
+      <p class="section-note">Linear gradients flow in a direction; radial gradients radiate from a point. Both can sit behind text — as long as contrast holds up at the gradient's lightest point.</p>
+      <div class="demo-row">
+        <div class="shape gradient-linear">
+          <span>Linear Gradient</span>
+        </div>
+        <div class="shape gradient-radial">
+          <span>Radial Gradient</span>
+        </div>
+      </div>
+
+      <div class="gradient-card">
+        <div class="gradient-card-overlay">
+          <h3>Door County Sunset</h3>
+          <p>A dark gradient laid over a background photo keeps this text readable at every point — check the lightest corner, not just the average.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <section class="demo-section">
+      <h2>5. Transforms — Try Tabbing and Hovering</h2>
+      <p class="section-note">Every effect below responds identically to :hover and :focus-visible — keyboard users get the same feedback as mouse users.</p>
+      <div class="demo-row">
+        <button class="shape transform-translate">Translate</button>
+        <button class="shape transform-rotate">Rotate</button>
+        <button class="shape transform-scale">Scale</button>
+        <button class="shape transform-skew">Skew</button>
+        <button class="shape transform-combo">Combined</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>Advanced Front-End Development · Learning Plan 2 · Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

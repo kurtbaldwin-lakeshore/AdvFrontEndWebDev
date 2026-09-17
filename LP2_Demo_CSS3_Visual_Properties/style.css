@@ -1,0 +1,239 @@
+/* ==========================================================================
+   CSS3 Visual Properties — LP2 Live Build Demo
+   This is the FINISHED reference. Rebuild each section from scratch with
+   students, section by section, using this as the target.
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: #1b2a35;
+  background: #f4f7f8;
+  line-height: 1.6;
+}
+
+.page-header {
+  background: #0b3d54;
+  color: #fff;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  margin: 0 0 0.5rem;
+}
+
+.page-header p {
+  margin: 0;
+  color: #cfe0e6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.demo-section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #dbe7ea;
+}
+
+.demo-section h2 {
+  color: #0b3d54;
+  margin-bottom: 0.25rem;
+}
+
+.section-note {
+  color: #5c7480;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  max-width: 65ch;
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* Shared base for every demo box/button in this page */
+.shape {
+  width: 160px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #145a78;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  font-family: inherit;
+  cursor: default;
+}
+
+/* ==========================================================================
+   1. border-radius
+   ========================================================================== */
+
+.shape-rounded {
+  border-radius: 16px;
+}
+
+.shape-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.shape-pill {
+  border-radius: 999px;
+}
+
+/* ==========================================================================
+   2. box-shadow
+   ========================================================================== */
+
+.shape-flat {
+  border-radius: 10px;
+}
+
+.shape-shadow-single {
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.shape-shadow-layered {
+  border-radius: 10px;
+  /* Two layered values: a tight, darker shadow close to the element,
+     plus a soft, diffuse shadow further out — this combination is what
+     reads as "real" depth instead of a flat drop shadow. */
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.25),
+    0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* ==========================================================================
+   3. text-shadow
+   ========================================================================== */
+
+.text-shadow-demo {
+  background: linear-gradient(135deg, #0b3d54, #1b6b8c);
+  border-radius: 10px;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.shadowed-text {
+  margin: 0;
+  color: #fff;
+  font-size: 2.25rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   4. Gradients
+   ========================================================================== */
+
+.gradient-linear {
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0b3d54, #d97b29);
+}
+
+.gradient-radial {
+  border-radius: 10px;
+  background: radial-gradient(circle, #1b6b8c, #0b2733);
+}
+
+.gradient-card {
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  /* Standing in for a background photo — in class, swap this for a real
+     background-image: url('...') and layer the same darkening gradient
+     on top for contrast. */
+  background: linear-gradient(160deg, #d97b29 0%, #0b3d54 100%);
+}
+
+.gradient-card-overlay {
+  /* This darkening overlay is what keeps text readable no matter how
+     light the underlying image or gradient gets. */
+  background: linear-gradient(rgba(11, 39, 51, 0.55), rgba(11, 39, 51, 0.75));
+  padding: 2rem;
+  color: #fff;
+}
+
+.gradient-card-overlay h3 {
+  margin-top: 0;
+}
+
+.gradient-card-overlay p {
+  margin-bottom: 0;
+  max-width: 55ch;
+}
+
+/* Contrast check note (say this out loud in class):
+   White text on the DARKEST point of this overlay is comfortably above
+   4.5:1. Always check the LIGHTEST point of any gradient a heading sits
+   on, not the average color — that's where contrast actually fails. */
+
+/* ==========================================================================
+   5. Transforms
+   ========================================================================== */
+
+.shape[class*="transform-"] {
+  background: #0b3d54;
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.transform-translate:hover,
+.transform-translate:focus-visible {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.25);
+}
+
+.transform-rotate:hover,
+.transform-rotate:focus-visible {
+  transform: rotate(8deg);
+}
+
+.transform-scale:hover,
+.transform-scale:focus-visible {
+  transform: scale(1.12);
+}
+
+.transform-skew:hover,
+.transform-skew:focus-visible {
+  transform: skewX(-8deg);
+}
+
+.transform-combo:hover,
+.transform-combo:focus-visible {
+  /* Combined transforms are space-separated and applied right to left. */
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Every transform gets an identical, clearly visible focus-visible ring
+   so keyboard users get the same feedback mouse users get on hover. */
+.shape[class*="transform-"]:focus-visible {
+  outline: 3px solid #d97b29;
+  outline-offset: 3px;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #5c7480;
+  font-size: 0.9rem;
+}
