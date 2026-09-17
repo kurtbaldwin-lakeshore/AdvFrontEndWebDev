@@ -1,0 +1,146 @@
+/* ==========================================================================
+   Wisconsin Cheese Curd Festival — stylesheet
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #2b2118;
+  line-height: 1.6;
+}
+
+header {
+  background: #7a1f1f;
+  color: #fff;
+  padding: 1.5rem 2rem;
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Intended to style every nav link on hover, but an ID rule further down
+   with higher specificity silently wins for the Events link. */
+nav a:hover {
+  color: #f4c95d;
+}
+
+#nav-events-link:hover {
+  color: #ffffff;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.hero img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.vendor-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.vendor-card img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 6px;
+}
+
+.btn {
+  display: inline-block;
+  background: #7a1f1f;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+/* This rule was meant to darken the button on hover, but the .cta a
+   selector below has higher specificity and overrides the color,
+   so the hover effect never actually shows. */
+.btn:hover {
+  background: #591616;
+}
+
+.cta a {
+  background: #7a1f1f;
+  color: #fff;
+}
+
+.day {
+  margin-bottom: 2rem;
+}
+
+.day ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.day li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.signup input,
+.signup button {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.signup button {
+  background: #7a1f1f;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Removes the default focus ring for a "cleaner" look —
+   without providing any replacement. This fails keyboard accessibility
+   and is one of the bugs students are expected to find and fix. */
+a,
+button,
+input {
+  outline: none;
+}
+
+footer {
+  background: #2b2118;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
