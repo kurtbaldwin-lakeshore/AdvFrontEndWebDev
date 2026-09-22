@@ -66,6 +66,45 @@
       gap: 1.25rem;
     }
 
+    .starter-card {
+      display: block;
+      background: linear-gradient(135deg, var(--navy), var(--teal-light));
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      text-decoration: none;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      transition: transform 0.15s ease;
+      position: relative;
+    }
+    .starter-card:hover,
+    .starter-card:focus-visible {
+      transform: translateY(-2px);
+    }
+    .starter-badge {
+      display: inline-block;
+      background: var(--rust);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 0.6rem;
+    }
+    .starter-card h2 {
+      margin: 0 0 0.4rem;
+      font-family: 'Consolas', monospace;
+      font-size: 1.3rem;
+      color: #fff;
+    }
+    .starter-card p {
+      margin: 0;
+      color: #cfe0e6;
+      font-size: 0.95rem;
+      max-width: 640px;
+    }
+
     .lp-card {
       display: block;
       background: #fff;
@@ -157,6 +196,12 @@
   </header>
 
   <main>
+    <a class="starter-card" href="Starter-Template/index.html">
+      <span class="starter-badge">Start Here</span>
+      <h2>Starter Template</h2>
+      <p>The baseline HTML/CSS shell for every project this semester — semantic structure, a working skip link, and the CSS foundation this course expects everywhere.</p>
+    </a>
+
     <div class="lp-grid">
 
       <a class="lp-card is-live" href="LP1/index.html">

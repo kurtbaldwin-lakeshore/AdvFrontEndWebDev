@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starter Template — Advanced Front-End Development</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .st-tab-zone {
+      position: relative;
+      overflow: hidden;
+      min-height: 70px;
+      padding: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .st-click-start {
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      border: 1px dashed #a65314;
+      background: #fff;
+      color: var(--text);
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .st-skip-link {
+      position: absolute;
+      top: -60px;
+      left: 0;
+      background: #0b3d54;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: top 0.2s ease;
+    }
+    .st-skip-link:focus {
+      top: 0;
+    }
+    .st-landmarks { display: flex; flex-direction: column; gap: 0.5rem; max-width: 500px; }
+    .st-region {
+      padding: 1rem;
+      border-radius: 6px;
+      font-family: 'Consolas', monospace;
+      font-size: 0.9rem;
+      color: #fff;
+      font-weight: 600;
+    }
+    .st-header { background: #0b3d54; }
+    .st-nav { background: #145a78; }
+    .st-main { background: #1b6b8c; padding: 2rem 1rem; }
+    .st-footer { background: #0b3d54; }
+    .st-code-block pre { max-height: 560px; overflow-y: auto; }
+    .st-note {
+      background: #fef3c7;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      color: #78350f;
+      font-size: 0.9rem;
+    }
+    .st-note strong { color: #78350f; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-home" aria-current="page">← All LPs</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">Starter Template</span>
+    <h1>Your Starting Point, Every Project</h1>
+    <p>The baseline HTML and CSS shell you should reach for at the start of any assignment this semester — semantic structure, a working skip link, and the CSS foundation this course expects everywhere.</p>
+  </header>
+
+  <main>
+
+    <div class="demo-block">
+      <h2>Skip Link — Try Tabbing to It</h2>
+      <p class="demo-note">Required on every page, before anything else in the body. Click the label below, then press Tab — the link is the very next stop and will slide into view the instant it's focused.</p>
+      <div class="st-tab-zone">
+        <button class="st-click-start" type="button">1. Click here first</button>
+        <a class="st-skip-link" href="#st-main">2. Skip to main content</a>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>The Four Landmarks</h2>
+      <p class="demo-note">Every page starts with these, empty, before a single line of real content gets written.</p>
+      <div class="st-landmarks">
+        <div class="st-region st-header">&lt;header&gt;</div>
+        <div class="st-region st-nav">&lt;nav&gt;</div>
+        <div class="st-region st-main" id="st-main">&lt;main id="main"&gt;</div>
+        <div class="st-region st-footer">&lt;footer&gt;</div>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>The Full HTML Shell</h2>
+      <p class="demo-note">Copy this as-is to start any new page. Nothing in it is optional.</p>
+      <div class="code-panel st-code-block">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tok-tag">&lt;html</span> <span class="tok-attr">lang</span>=<span class="tok-attrval">"en"</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;head&gt;</span>
+  <span class="tok-tag">&lt;meta</span> <span class="tok-attr">charset</span>=<span class="tok-attrval">"UTF-8"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;meta</span> <span class="tok-attr">name</span>=<span class="tok-attrval">"viewport"</span> <span class="tok-attr">content</span>=<span class="tok-attrval">"width=device-width, initial-scale=1.0"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;title&gt;</span><span class="tok-text">Page Title</span><span class="tok-tag">&lt;/title&gt;</span>
+  <span class="tok-tag">&lt;link</span> <span class="tok-attr">rel</span>=<span class="tok-attrval">"stylesheet"</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"style.css"</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/head&gt;</span>
+<span class="tok-tag">&lt;body&gt;</span>
+
+  <span class="tok-comment">&lt;!-- Skip link: the FIRST focusable element on the page. --&gt;</span>
+  <span class="tok-comment">&lt;!-- Lets keyboard users jump past the nav straight to main content. --&gt;</span>
+  <span class="tok-tag">&lt;a</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"skip-link"</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"#main"</span><span class="tok-tag">&gt;</span><span class="tok-text">Skip to main content</span><span class="tok-tag">&lt;/a&gt;</span>
+
+  <span class="tok-tag">&lt;header&gt;</span>
+    <span class="tok-comment">&lt;!-- Site branding / logo goes here --&gt;</span>
+  <span class="tok-tag">&lt;/header&gt;</span>
+
+  <span class="tok-tag">&lt;nav&gt;</span>
+    <span class="tok-comment">&lt;!-- Primary site navigation goes here --&gt;</span>
+  <span class="tok-tag">&lt;/nav&gt;</span>
+
+  <span class="tok-tag">&lt;main</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"main"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-comment">&lt;!-- This page's unique content goes here --&gt;</span>
+  <span class="tok-tag">&lt;/main&gt;</span>
+
+  <span class="tok-tag">&lt;footer&gt;</span>
+    <span class="tok-comment">&lt;!-- Copyright, secondary links, contact info --&gt;</span>
+  <span class="tok-tag">&lt;/footer&gt;</span>
+
+<span class="tok-tag">&lt;/body&gt;</span>
+<span class="tok-tag">&lt;/html&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>The Full CSS Shell</h2>
+      <p class="demo-note">Reset, custom properties, base styles, the skip link, focus visibility, and the reduced-motion reset — every project starts here, every time.</p>
+      <div class="code-panel st-code-block">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* ============================================
+   RESET &amp; BOX MODEL
+   Apply to every project, every time.
+   ============================================ */</span>
+<span class="tok-sel">*, *::before, *::after</span> {
+  <span class="tok-prop">box-sizing</span>: <span class="tok-val">border-box</span>;
+}
+
+<span class="tok-sel">body</span> {
+  <span class="tok-prop">margin</span>: <span class="tok-val">0</span>;
+}
+
+<span class="tok-comment">/* ============================================
+   CUSTOM PROPERTIES
+   Define your palette and fonts once, here.
+   ============================================ */</span>
+<span class="tok-sel">:root</span> {
+  <span class="tok-prop">--color-primary</span>: <span class="tok-val">#0B3D54</span>;
+  <span class="tok-prop">--color-text</span>: <span class="tok-val">#1B2A35</span>;
+  <span class="tok-prop">--color-bg</span>: <span class="tok-val">#FFFFFF</span>;
+  <span class="tok-prop">--font-body</span>: <span class="tok-val">system-ui, sans-serif</span>;
+}
+
+<span class="tok-comment">/* ============================================
+   BASE STYLES
+   ============================================ */</span>
+<span class="tok-sel">body</span> {
+  <span class="tok-prop">font-family</span>: <span class="tok-val">var(--font-body)</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">var(--color-text)</span>;
+  <span class="tok-prop">background</span>: <span class="tok-val">var(--color-bg)</span>;
+  <span class="tok-prop">line-height</span>: <span class="tok-val">1.6</span>;
+}
+
+<span class="tok-comment">/* ============================================
+   SKIP LINK
+   Hidden off-screen until it receives keyboard focus.
+   ============================================ */</span>
+<span class="tok-sel">.skip-link</span> {
+  <span class="tok-prop">position</span>: <span class="tok-val">absolute</span>;
+  <span class="tok-prop">top</span>: <span class="tok-val">-60px</span>;
+  <span class="tok-prop">left</span>: <span class="tok-val">0</span>;
+  <span class="tok-prop">background</span>: <span class="tok-val">var(--color-primary)</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">#fff</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">0.75rem 1.25rem</span>;
+  <span class="tok-prop">z-index</span>: <span class="tok-val">100</span>;
+  <span class="tok-prop">text-decoration</span>: <span class="tok-val">none</span>;
+}
+
+<span class="tok-sel">.skip-link:focus</span> {
+  <span class="tok-prop">top</span>: <span class="tok-val">0</span>;
+}
+
+<span class="tok-comment">/* ============================================
+   FOCUS VISIBILITY
+   Never remove this without a replacement.
+   ============================================ */</span>
+<span class="tok-sel">a:focus-visible,
+button:focus-visible,
+input:focus-visible</span> {
+  <span class="tok-prop">outline</span>: <span class="tok-val">3px solid var(--color-primary)</span>;
+  <span class="tok-prop">outline-offset</span>: <span class="tok-val">2px</span>;
+}
+
+<span class="tok-comment">/* ============================================
+   REDUCED MOTION
+   Required on every project with any animation.
+   ============================================ */</span>
+<span class="tok-sel">@media (prefers-reduced-motion: reduce)</span> {
+  <span class="tok-sel">*, *::before, *::after</span> {
+    <span class="tok-prop">animation-duration</span>:        <span class="tok-val">0.01ms !important</span>;
+    <span class="tok-prop">animation-iteration-count</span>: <span class="tok-val">1     !important</span>;
+    <span class="tok-prop">transition-duration</span>:       <span class="tok-val">0.01ms !important</span>;
+    <span class="tok-prop">scroll-behavior</span>:           <span class="tok-val">auto   !important</span>;
+  }
+}</pre>
+      </div>
+    </div>
+
+    <div class="st-note">
+      <strong>Why this exists:</strong> every one of these pieces is taught individually across Learning Plan 1 (semantic HTML, skip links, box-sizing, focus-visible) and Learning Plan 3 (reduced motion) — this page just puts them together in the order you'll actually type them, so you have one place to copy from instead of hunting across nine Learning Plans every time you start something new.
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>Advanced Front-End Development &middot; Starter Template &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>
