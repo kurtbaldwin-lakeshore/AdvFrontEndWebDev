@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendor Prefixes — CSS3 Visual Properties</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .vp-stroke {
+      -webkit-text-stroke: 1px #a65314;
+      color: transparent;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: none;
+      width: auto;
+      height: auto;
+    }
+    .vp-gradient-text {
+      background: linear-gradient(90deg, #145a78, #a65314);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 2rem;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="border-radius.html">border-radius</a>
+    <a href="box-shadow.html">box-shadow</a>
+    <a href="text-shadow.html">text-shadow</a>
+    <a href="gradients.html">Gradients</a>
+    <a href="opacity-rgba.html">opacity & rgba</a>
+    <a href="transforms.html">Transforms</a>
+    <a href="transform-origin.html">transform-origin</a>
+    <a href="vendor-prefixes.html" aria-current="page">Vendor Prefixes</a>
+    <a href="filter.html">filter</a>
+    <a href="clip-path.html">clip-path</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 2.3</span>
+    <h1>Vendor Prefixes</h1>
+    <p>What still commonly needs -webkit- today, and what doesn't.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Vendor Prefixes — What Still Needs One</h2>
+      <p class="demo-note">Most properties from this Learning Plan need zero prefixes today. A few specific properties — shown below — still commonly need <code>-webkit-</code>. Always verify on caniuse.com before assuming.</p>
+      <div class="demo-row">
+        <div class="vp-stroke">Outlined Text</div>
+      </div>
+      <div class="demo-row">
+        <h3 class="vp-gradient-text">Gradient Heading Text</h3>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"vp-stroke"</span><span class="tok-tag">&gt;</span><span class="tok-text">Outlined Text</span><span class="tok-tag">&lt;/div&gt;</span>
+
+<span class="tok-tag">&lt;h3</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"vp-gradient-text"</span><span class="tok-tag">&gt;</span><span class="tok-text">Gradient Heading Text</span><span class="tok-tag">&lt;/h3&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* Outlined text effect — still needs -webkit- */</span>
+<span class="tok-sel">.vp-stroke</span> {
+  <span class="tok-prop">-webkit-text-stroke</span>: <span class="tok-val">1px #a65314</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">transparent</span>;
+}
+
+<span class="tok-comment">/* Gradient text — the -webkit- prefix is still required */</span>
+<span class="tok-sel">.vp-gradient-text</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">linear-gradient(90deg, #145a78, #a65314)</span>;
+  <span class="tok-prop">-webkit-background-clip</span>: <span class="tok-val">text</span>;
+  <span class="tok-prop">background-clip</span>: <span class="tok-val">text</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">transparent</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="transform-origin.html">← transform-origin</a>
+      <a href="index.html">All Topics</a>
+      <a href="filter.html">filter →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 2 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

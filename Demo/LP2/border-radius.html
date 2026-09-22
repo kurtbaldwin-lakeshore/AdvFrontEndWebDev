@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>border-radius — CSS3 Visual Properties</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .br-rounded { border-radius: 12px; }
+    .br-circle { width: 100px; height: 100px; border-radius: 50%; }
+    .br-pill { border-radius: 999px; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="border-radius.html" aria-current="page">border-radius</a>
+    <a href="box-shadow.html">box-shadow</a>
+    <a href="text-shadow.html">text-shadow</a>
+    <a href="gradients.html">Gradients</a>
+    <a href="opacity-rgba.html">opacity & rgba</a>
+    <a href="transforms.html">Transforms</a>
+    <a href="transform-origin.html">transform-origin</a>
+    <a href="vendor-prefixes.html">Vendor Prefixes</a>
+    <a href="filter.html">filter</a>
+    <a href="clip-path.html">clip-path</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 2.1</span>
+    <h1>border-radius</h1>
+    <p>One property, three completely different looks depending on the value and the element's proportions.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>border-radius</h2>
+      <p class="demo-note">One property, three completely different looks depending on the value and the element's proportions.</p>
+      <div class="demo-row">
+        <div class="shape br-rounded">Rounded<span class="shape-label">12px</span></div>
+        <div class="shape br-circle">Circle<span class="shape-label">50%</span></div>
+        <div class="shape br-pill">Pill<span class="shape-label">999px</span></div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape br-rounded"</span><span class="tok-tag">&gt;</span><span class="tok-text">Rounded</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape br-circle"</span><span class="tok-tag">&gt;</span><span class="tok-text">Circle</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape br-pill"</span><span class="tok-tag">&gt;</span><span class="tok-text">Pill</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* All four corners equally */</span>
+<span class="tok-sel">.br-rounded</span> { <span class="tok-prop">border-radius</span>: <span class="tok-val">12px</span>; }
+
+<span class="tok-comment">/* Perfect circle — requires equal width and height */</span>
+<span class="tok-sel">.br-circle</span> {
+  <span class="tok-prop">width</span>: <span class="tok-val">100px</span>;
+  <span class="tok-prop">height</span>: <span class="tok-val">100px</span>;
+  <span class="tok-prop">border-radius</span>: <span class="tok-val">50%</span>;
+}
+
+<span class="tok-comment">/* A large value simply clips at the shortest side */</span>
+<span class="tok-sel">.br-pill</span> { <span class="tok-prop">border-radius</span>: <span class="tok-val">999px</span>; }</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="index.html">All Topics</a>
+      <a href="box-shadow.html">box-shadow →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 2 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>opacity & rgba — CSS3 Visual Properties</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .op-backdrop {
+      background: linear-gradient(135deg, #145a78, #a65314);
+      border-radius: 10px;
+      padding: 1.5rem;
+      width: 200px;
+    }
+    .op-box { padding: 1rem; border-radius: 6px; }
+    .op-opacity { background-color: black; opacity: 0.5; }
+    .op-rgba { background-color: rgba(0, 0, 0, 0.5); }
+    .op-inner-text { margin: 0; color: #fff; font-weight: 600; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="border-radius.html">border-radius</a>
+    <a href="box-shadow.html">box-shadow</a>
+    <a href="text-shadow.html">text-shadow</a>
+    <a href="gradients.html">Gradients</a>
+    <a href="opacity-rgba.html" aria-current="page">opacity & rgba</a>
+    <a href="transforms.html">Transforms</a>
+    <a href="transform-origin.html">transform-origin</a>
+    <a href="vendor-prefixes.html">Vendor Prefixes</a>
+    <a href="filter.html">filter</a>
+    <a href="clip-path.html">clip-path</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 2.1</span>
+    <h1>opacity & rgba</h1>
+    <p>Two ways to fade an element — and why they behave very differently on child content.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>opacity vs. rgba — Two Different Fades</h2>
+      <p class="demo-note"><code>opacity</code> fades the element AND everything inside it. <code>rgba()</code> fades only the color it's applied to — child text stays fully opaque. Both boxes below sit on the same backdrop so the difference is visible.</p>
+      <div class="demo-row">
+        <div class="op-backdrop">
+          <div class="op-box op-opacity">
+            <p class="op-inner-text">opacity: 0.5</p>
+          </div>
+        </div>
+        <div class="op-backdrop">
+          <div class="op-box op-rgba">
+            <p class="op-inner-text">rgba(0,0,0,.5)</p>
+          </div>
+        </div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"op-backdrop"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"op-box op-opacity"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;p&gt;</span><span class="tok-text">opacity: 0.5</span><span class="tok-tag">&lt;/p&gt;</span>
+  <span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span>
+
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"op-backdrop"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"op-box op-rgba"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;p&gt;</span><span class="tok-text">rgba(0,0,0,.5)</span><span class="tok-tag">&lt;/p&gt;</span>
+  <span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* opacity affects the element AND all its children — */</span>
+<span class="tok-comment">/* the text inside fades right along with the background */</span>
+<span class="tok-sel">.op-opacity</span> {
+  <span class="tok-prop">background-color</span>: <span class="tok-val">black</span>;
+  <span class="tok-prop">opacity</span>: <span class="tok-val">0.5</span>;
+}
+
+<span class="tok-comment">/* rgba() affects ONLY the background — child text stays crisp */</span>
+<span class="tok-sel">.op-rgba</span> {
+  <span class="tok-prop">background-color</span>: <span class="tok-val">rgba(0, 0, 0, 0.5)</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="gradients.html">← Gradients</a>
+      <a href="index.html">All Topics</a>
+      <a href="transforms.html">Transforms →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 2 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

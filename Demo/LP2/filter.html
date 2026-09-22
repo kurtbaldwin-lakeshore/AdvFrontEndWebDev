@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filter — CSS3 Visual Properties</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ft-base, .ft-blur, .ft-bright, .ft-gray { border-radius: 10px; transition: filter 0.2s ease; }
+    .ft-blur { filter: blur(3px); }
+    .ft-bright { filter: brightness(1.4); }
+    .ft-gray { filter: grayscale(100%); background: linear-gradient(135deg, #145a78, #a65314); }
+    .ft-gray:hover, .ft-gray:focus-visible { filter: grayscale(0%); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="border-radius.html">border-radius</a>
+    <a href="box-shadow.html">box-shadow</a>
+    <a href="text-shadow.html">text-shadow</a>
+    <a href="gradients.html">Gradients</a>
+    <a href="opacity-rgba.html">opacity & rgba</a>
+    <a href="transforms.html">Transforms</a>
+    <a href="transform-origin.html">transform-origin</a>
+    <a href="vendor-prefixes.html">Vendor Prefixes</a>
+    <a href="filter.html" aria-current="page">filter</a>
+    <a href="clip-path.html">clip-path</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 2.3</span>
+    <h1>filter</h1>
+    <p>Blur, brightness, grayscale, and more — visual effects with no image editor required.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>filter — Visual Effects, No Image Editor</h2>
+      <p class="demo-note">Apply one filter or combine several in a single declaration. Hover the last box to see grayscale-to-color, a common gallery pattern.</p>
+      <div class="demo-row">
+        <div class="shape ft-base">Original</div>
+        <div class="shape ft-blur">blur(3px)</div>
+        <div class="shape ft-bright">brightness(1.4)</div>
+        <div class="shape ft-gray">Hover me<span class="shape-label">grayscale → color</span></div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape ft-base"</span><span class="tok-tag">&gt;</span><span class="tok-text">Original</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape ft-blur"</span><span class="tok-tag">&gt;</span><span class="tok-text">blur(3px)</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape ft-bright"</span><span class="tok-tag">&gt;</span><span class="tok-text">brightness(1.4)</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape ft-gray"</span><span class="tok-tag">&gt;</span><span class="tok-text">Hover me</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.ft-blur</span>   { <span class="tok-prop">filter</span>: <span class="tok-val">blur(3px)</span>; }
+<span class="tok-sel">.ft-bright</span> { <span class="tok-prop">filter</span>: <span class="tok-val">brightness(1.4)</span>; }
+
+<span class="tok-comment">/* Hover effect: full color fades in from grayscale */</span>
+<span class="tok-sel">.ft-gray</span> { <span class="tok-prop">filter</span>: <span class="tok-val">grayscale(100%)</span>; }
+<span class="tok-sel">.ft-gray:hover,
+.ft-gray:focus-visible</span> { <span class="tok-prop">filter</span>: <span class="tok-val">grayscale(0%)</span>; }</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="vendor-prefixes.html">← Vendor Prefixes</a>
+      <a href="index.html">All Topics</a>
+      <a href="clip-path.html">clip-path →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 2 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>box-shadow — CSS3 Visual Properties</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .bs-flat { border-radius: 10px; }
+    .bs-single { border-radius: 10px; box-shadow: 0 10px 15px rgba(0,0,0,.3); }
+    .bs-layered {
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,.25), 0 12px 24px rgba(0,0,0,.18);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="border-radius.html">border-radius</a>
+    <a href="box-shadow.html" aria-current="page">box-shadow</a>
+    <a href="text-shadow.html">text-shadow</a>
+    <a href="gradients.html">Gradients</a>
+    <a href="opacity-rgba.html">opacity & rgba</a>
+    <a href="transforms.html">Transforms</a>
+    <a href="transform-origin.html">transform-origin</a>
+    <a href="vendor-prefixes.html">Vendor Prefixes</a>
+    <a href="filter.html">filter</a>
+    <a href="clip-path.html">clip-path</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 2.1</span>
+    <h1>box-shadow</h1>
+    <p>A single shadow reads as flat. Two layered shadows read as genuine depth.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>box-shadow</h2>
+      <p class="demo-note">A single shadow reads as flat. Two layered shadows — one tight and dark, one soft and diffuse — read as genuine depth.</p>
+      <div class="demo-row">
+        <div class="shape bs-flat">No Shadow</div>
+        <div class="shape bs-single">Single Shadow</div>
+        <div class="shape bs-layered">Layered Shadow</div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape bs-flat"</span><span class="tok-tag">&gt;</span><span class="tok-text">No Shadow</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape bs-single"</span><span class="tok-tag">&gt;</span><span class="tok-text">Single Shadow</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape bs-layered"</span><span class="tok-tag">&gt;</span><span class="tok-text">Layered Shadow</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.bs-flat</span> { <span class="tok-prop">border-radius</span>: <span class="tok-val">10px</span>; }
+
+<span class="tok-sel">.bs-single</span> {
+  <span class="tok-prop">border-radius</span>: <span class="tok-val">10px</span>;
+  <span class="tok-prop">box-shadow</span>: <span class="tok-val">0 10px 15px rgba(0,0,0,.3)</span>;
+}
+
+<span class="tok-comment">/* Tight dark shadow close in, plus a soft diffuse shadow */</span>
+<span class="tok-comment">/* further out — this combination reads as REAL depth */</span>
+<span class="tok-sel">.bs-layered</span> {
+  <span class="tok-prop">border-radius</span>: <span class="tok-val">10px</span>;
+  <span class="tok-prop">box-shadow</span>:
+    <span class="tok-val">0 2px 4px rgba(0,0,0,.25)</span>,
+    <span class="tok-val">0 12px 24px rgba(0,0,0,.18)</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="border-radius.html">← border-radius</a>
+      <a href="index.html">All Topics</a>
+      <a href="text-shadow.html">text-shadow →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 2 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

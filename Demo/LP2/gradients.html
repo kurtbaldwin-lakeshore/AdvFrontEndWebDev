@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradients — CSS3 Visual Properties</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .grad-linear { background: linear-gradient(135deg, #0b3d54, #a65314); border-radius: 10px; }
+    .grad-radial { background: radial-gradient(circle, #1b6b8c, #0b2733); border-radius: 10px; }
+    .grad-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(160deg, #a65314 0%, #0b3d54 100%);
+    }
+    .grad-card-overlay {
+      background: linear-gradient(rgba(11,39,51,.55), rgba(11,39,51,.75));
+      padding: 2rem;
+      color: #fff;
+    }
+    .grad-card-overlay h3 { margin-top: 0; }
+    .grad-card-overlay p { margin-bottom: 0; max-width: 55ch; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="border-radius.html">border-radius</a>
+    <a href="box-shadow.html">box-shadow</a>
+    <a href="text-shadow.html">text-shadow</a>
+    <a href="gradients.html" aria-current="page">Gradients</a>
+    <a href="opacity-rgba.html">opacity & rgba</a>
+    <a href="transforms.html">Transforms</a>
+    <a href="transform-origin.html">transform-origin</a>
+    <a href="vendor-prefixes.html">Vendor Prefixes</a>
+    <a href="filter.html">filter</a>
+    <a href="clip-path.html">clip-path</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 2.1</span>
+    <h1>Gradients</h1>
+    <p>Linear and radial color transitions, plus a photo-overlay pattern for readable text.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Gradients</h2>
+      <p class="demo-note">Linear gradients flow in a direction; radial gradients radiate from a point. Both can sit behind text — as long as contrast holds up at the gradient's lightest point.</p>
+      <div class="demo-row">
+        <div class="shape grad-linear">Linear</div>
+        <div class="shape grad-radial">Radial</div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape grad-linear"</span><span class="tok-tag">&gt;</span><span class="tok-text">Linear</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape grad-radial"</span><span class="tok-tag">&gt;</span><span class="tok-text">Radial</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.grad-linear</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">linear-gradient(135deg, #0b3d54, #a65314)</span>;
+}
+
+<span class="tok-sel">.grad-radial</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">radial-gradient(circle, #1b6b8c, #0b2733)</span>;
+}</pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>Gradient Overlay — Photo Pattern</h2>
+      <p class="demo-note">A darkening gradient layered over a background image keeps text readable no matter how light the photo gets — check the lightest corner, not just the average.</p>
+      <div class="grad-card">
+        <div class="grad-card-overlay">
+          <h3>Door County Sunset</h3>
+          <p>Text stays readable at every point because the overlay is darkest exactly where the photo is lightest.</p>
+        </div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"grad-card"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"grad-card-overlay"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;h3&gt;</span><span class="tok-text">Door County Sunset</span><span class="tok-tag">&lt;/h3&gt;</span>
+    <span class="tok-tag">&lt;p&gt;</span><span class="tok-text">Text stays readable at every point…</span><span class="tok-tag">&lt;/p&gt;</span>
+  <span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* Standing in for a real photo — swap for background-image: url() */</span>
+<span class="tok-sel">.grad-card</span> {
+  <span class="tok-prop">border-radius</span>: <span class="tok-val">12px</span>;
+  <span class="tok-prop">overflow</span>: <span class="tok-val">hidden</span>;
+  <span class="tok-prop">background</span>: <span class="tok-val">linear-gradient(160deg, #a65314 0%, #0b3d54 100%)</span>;
+}
+
+<span class="tok-comment">/* The darkening overlay that keeps the heading readable */</span>
+<span class="tok-sel">.grad-card-overlay</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">linear-gradient(rgba(11,39,51,.55), rgba(11,39,51,.75))</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">2rem</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">#fff</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="text-shadow.html">← text-shadow</a>
+      <a href="index.html">All Topics</a>
+      <a href="opacity-rgba.html">opacity & rgba →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 2 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS3 Visual Properties — CSS3 Visual Properties</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .topic-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #dbe7ea;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .topic-card:hover,
+    .topic-card:focus-visible {
+      border-color: var(--rust);
+      transform: translateY(-2px);
+    }
+    .topic-card h2 {
+      margin: 0 0 0.4rem;
+      color: var(--navy);
+      font-family: 'Consolas', monospace;
+      font-size: 1.15rem;
+    }
+    .topic-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home" aria-current="page">Home</a>
+    <a href="border-radius.html">border-radius</a>
+    <a href="box-shadow.html">box-shadow</a>
+    <a href="text-shadow.html">text-shadow</a>
+    <a href="gradients.html">Gradients</a>
+    <a href="opacity-rgba.html">opacity & rgba</a>
+    <a href="transforms.html">Transforms</a>
+    <a href="transform-origin.html">transform-origin</a>
+    <a href="vendor-prefixes.html">Vendor Prefixes</a>
+    <a href="filter.html">filter</a>
+    <a href="clip-path.html">clip-path</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">Learning Plan 2</span>
+    <h1>CSS3 Visual Properties</h1>
+    <p>Every property from this Learning Plan, live — pick a topic below to see it in action alongside the exact CSS that builds it.</p>
+  </header>
+
+  <main>
+    <div class="topic-grid">
+    <a class="topic-card" href="border-radius.html">
+      <h2>border-radius</h2>
+      <p>Rounded corners, circles, and pill shapes from one property.</p>
+    </a>
+    <a class="topic-card" href="box-shadow.html">
+      <h2>box-shadow</h2>
+      <p>Layered shadows that read as real depth, not a flat drop shadow.</p>
+    </a>
+    <a class="topic-card" href="text-shadow.html">
+      <h2>text-shadow</h2>
+      <p>The same idea as box-shadow, applied to type.</p>
+    </a>
+    <a class="topic-card" href="gradients.html">
+      <h2>Gradients</h2>
+      <p>Linear and radial color transitions, and a photo-overlay pattern.</p>
+    </a>
+    <a class="topic-card" href="opacity-rgba.html">
+      <h2>opacity & rgba</h2>
+      <p>Two ways to fade an element — and why they behave differently.</p>
+    </a>
+    <a class="topic-card" href="transforms.html">
+      <h2>Transforms</h2>
+      <p>Move, rotate, scale, and skew — keyboard-accessible on every example.</p>
+    </a>
+    <a class="topic-card" href="transform-origin.html">
+      <h2>transform-origin</h2>
+      <p>Changing the pivot point a transform rotates or scales from.</p>
+    </a>
+    <a class="topic-card" href="vendor-prefixes.html">
+      <h2>Vendor Prefixes</h2>
+      <p>What still needs a -webkit- prefix today, and what doesn’t.</p>
+    </a>
+    <a class="topic-card" href="filter.html">
+      <h2>filter</h2>
+      <p>Visual effects — blur, brightness, grayscale — with no image editor.</p>
+    </a>
+    <a class="topic-card" href="clip-path.html">
+      <h2>clip-path</h2>
+      <p>Cropping an element into a custom shape, right in CSS.</p>
+    </a>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="border-radius.html">Start with border-radius →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 2 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>
