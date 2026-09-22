@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion and Dropdown — Bootstrap</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="grid-system.html">12-Column Grid</a>
+    <a href="navbar.html">Navbar</a>
+    <a href="forms.html">Forms</a>
+    <a href="core-components.html">Card/Button/Modal/Alert</a>
+    <a href="more-components.html">Badge/Breadcrumb/Progress</a>
+    <a href="interactive-components.html" aria-current="page">Carousel/Accordion/Dropdown</a>
+    <a href="customization.html">Customization</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 7.4</span>
+    <h1>Accordion and Dropdown</h1>
+    <p>Genuinely interactive — powered by Bootstrap's JS, with ARIA state that updates automatically as you click.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Accordion — Click to Expand</h2>
+      <p class="demo-note">Genuinely collapses and expands via Bootstrap's JS — aria-expanded updates automatically as you click.</p>
+      <div class="accordion" id="faq-accordion" style="max-width: 500px;">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-one" aria-expanded="true" aria-controls="faq-one">
+              What is web development?
+            </button>
+          </h2>
+          <div id="faq-one" class="accordion-collapse collapse show" data-bs-parent="#faq-accordion">
+            <div class="accordion-body">Building and maintaining websites — everything from layout to interactivity.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-two" aria-expanded="false" aria-controls="faq-two">
+              What is Bootstrap?
+            </button>
+          </h2>
+          <div id="faq-two" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+            <div class="accordion-body">A CSS framework with pre-built components like this one.</div>
+          </div>
+        </div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"accordion"</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"faq-accordion"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"accordion-item"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;h2</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"accordion-header"</span><span class="tok-tag">&gt;</span>
+      <span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"accordion-button"</span> <span class="tok-attr">data-bs-toggle</span>=<span class="tok-attrval">"collapse"</span>
+              <span class="tok-attr">data-bs-target</span>=<span class="tok-attrval">"#faq-one"</span> <span class="tok-attr">aria-expanded</span>=<span class="tok-attrval">"true"</span> <span class="tok-attr">aria-controls</span>=<span class="tok-attrval">"faq-one"</span><span class="tok-tag">&gt;</span>
+        <span class="tok-text">What is web development?</span>
+      <span class="tok-tag">&lt;/button&gt;</span>
+    <span class="tok-tag">&lt;/h2&gt;</span>
+    <span class="tok-tag">&lt;div</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"faq-one"</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"accordion-collapse collapse show"</span><span class="tok-tag">&gt;</span>
+      <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"accordion-body"</span><span class="tok-tag">&gt;</span>...<span class="tok-tag">&lt;/div&gt;</span>
+    <span class="tok-tag">&lt;/div&gt;</span>
+  <span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>Dropdown — Click to Open</h2>
+      <p class="demo-note">aria-haspopup and aria-expanded tell assistive tech this button controls a menu, and whether it's currently open.</p>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Options
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"dropdown"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"btn btn-primary dropdown-toggle"</span> <span class="tok-attr">data-bs-toggle</span>=<span class="tok-attrval">"dropdown"</span>
+          <span class="tok-attr">aria-haspopup</span>=<span class="tok-attrval">"true"</span> <span class="tok-attr">aria-expanded</span>=<span class="tok-attrval">"false"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-text">Options</span>
+  <span class="tok-tag">&lt;/button&gt;</span>
+  <span class="tok-tag">&lt;ul</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"dropdown-menu"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;li&gt;&lt;a</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"dropdown-item"</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"#"</span><span class="tok-tag">&gt;</span><span class="tok-text">Profile</span><span class="tok-tag">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="tok-tag">&lt;/ul&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="more-components.html">← Badge/Breadcrumb/Progress</a>
+      <a href="index.html">All Topics</a>
+      <a href="customization.html">Customization →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 7 &middot; Live Build Demo</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

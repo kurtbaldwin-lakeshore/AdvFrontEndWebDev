@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid — CSS Grid</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .topic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+    .topic-card { display: block; background: #fff; border: 1px solid #dbe7ea; border-radius: 10px; padding: 1.5rem; text-decoration: none; color: inherit; transition: border-color 0.15s ease, transform 0.15s ease; }
+    .topic-card:hover, .topic-card:focus-visible { border-color: var(--rust); transform: translateY(-2px); }
+    .topic-card h2 { margin: 0 0 0.4rem; color: var(--navy); font-family: 'Consolas', monospace; font-size: 1.05rem; }
+    .topic-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home" aria-current="page">Home</a>
+    <a href="grid-template-columns.html">grid-template-columns</a>
+    <a href="auto-fit-auto-fill.html">auto-fit/auto-fill</a>
+    <a href="grid-column-row.html">grid-column/row</a>
+    <a href="grid-template-areas.html">grid-template-areas</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">Learning Plan 6</span>
+    <h1>CSS Grid</h1>
+    <p>Every property from this Learning Plan, live — pick a topic below to see it in action alongside the exact CSS that builds it.</p>
+  </header>
+
+  <main>
+    <div class="topic-grid">
+    <a class="topic-card" href="grid-template-columns.html">
+      <h2>grid-template-columns</h2>
+      <p>Defining tracks with the fr unit and repeat() — the foundation of every grid.</p>
+    </a>
+    <a class="topic-card" href="auto-fit-auto-fill.html">
+      <h2>auto-fit/auto-fill</h2>
+      <p>A responsive grid that adds or removes columns automatically — zero media queries.</p>
+    </a>
+    <a class="topic-card" href="grid-column-row.html">
+      <h2>grid-column/row</h2>
+      <p>Placing one item across specific tracks, even spanning multiple.</p>
+    </a>
+    <a class="topic-card" href="grid-template-areas.html">
+      <h2>grid-template-areas</h2>
+      <p>Naming regions of the grid so the layout reads like a diagram in your CSS.</p>
+    </a>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="grid-template-columns.html">Start with grid-template-columns →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 6 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Badge, Breadcrumb, Progress, List Group — Bootstrap</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="grid-system.html">12-Column Grid</a>
+    <a href="navbar.html">Navbar</a>
+    <a href="forms.html">Forms</a>
+    <a href="core-components.html">Card/Button/Modal/Alert</a>
+    <a href="more-components.html" aria-current="page">Badge/Breadcrumb/Progress</a>
+    <a href="interactive-components.html">Carousel/Accordion/Dropdown</a>
+    <a href="customization.html">Customization</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 7.4</span>
+    <h1>Badge, Breadcrumb, Progress, List Group</h1>
+    <p>Four smaller components, each with its own ARIA requirement for accessibility.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Badge</h2>
+      <p class="demo-note">A small count or status label, usually paired with another element.</p>
+      <button class="btn btn-primary" type="button">
+        Inbox <span class="badge bg-danger">4</span>
+      </button>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"btn btn-primary"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-text">Inbox</span> <span class="tok-tag">&lt;span</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"badge bg-danger"</span><span class="tok-tag">&gt;</span><span class="tok-text">4</span><span class="tok-tag">&lt;/span&gt;</span>
+<span class="tok-tag">&lt;/button&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>Breadcrumb</h2>
+      <p class="demo-note">aria-label="breadcrumb" and aria-current="page" make the trail meaningful to screen readers, not just sighted users.</p>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="#">Products</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Current Item</li>
+        </ol>
+      </nav>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;nav</span> <span class="tok-attr">aria-label</span>=<span class="tok-attrval">"breadcrumb"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;ol</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"breadcrumb"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;li</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"breadcrumb-item"</span><span class="tok-tag">&gt;</span><span class="tok-tag">&lt;a</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"/"</span><span class="tok-tag">&gt;</span><span class="tok-text">Home</span><span class="tok-tag">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tok-tag">&lt;li</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"breadcrumb-item active"</span> <span class="tok-attr">aria-current</span>=<span class="tok-attrval">"page"</span><span class="tok-tag">&gt;</span><span class="tok-text">Current Item</span><span class="tok-tag">&lt;/li&gt;</span>
+  <span class="tok-tag">&lt;/ol&gt;</span>
+<span class="tok-tag">&lt;/nav&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>Progress Bar</h2>
+      <p class="demo-note">role and the aria-value* attributes let assistive tech announce the percentage — the visual bar alone isn't enough.</p>
+      <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" style="width: 60%">60%</div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"progress"</span> <span class="tok-attr">role</span>=<span class="tok-attrval">"progressbar"</span>
+     <span class="tok-attr">aria-valuenow</span>=<span class="tok-attrval">"60"</span> <span class="tok-attr">aria-valuemin</span>=<span class="tok-attrval">"0"</span> <span class="tok-attr">aria-valuemax</span>=<span class="tok-attrval">"100"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"progress-bar"</span> <span class="tok-attr">style</span>=<span class="tok-attrval">"width: 60%"</span><span class="tok-tag">&gt;</span><span class="tok-text">60%</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>List Group</h2>
+      <p class="demo-note">aria-current marks the active item, matching the same pattern used in navbar and breadcrumb.</p>
+      <ul class="list-group" style="max-width: 300px;">
+        <li class="list-group-item active" aria-current="true">Active item</li>
+        <li class="list-group-item">Second item</li>
+        <li class="list-group-item">Third item</li>
+      </ul>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;ul</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"list-group"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;li</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"list-group-item active"</span> <span class="tok-attr">aria-current</span>=<span class="tok-attrval">"true"</span><span class="tok-tag">&gt;</span><span class="tok-text">Active item</span><span class="tok-tag">&lt;/li&gt;</span>
+  <span class="tok-tag">&lt;li</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"list-group-item"</span><span class="tok-tag">&gt;</span><span class="tok-text">Second item</span><span class="tok-tag">&lt;/li&gt;</span>
+<span class="tok-tag">&lt;/ul&gt;</span></pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="core-components.html">← Card/Button/Modal/Alert</a>
+      <a href="index.html">All Topics</a>
+      <a href="interactive-components.html">Carousel/Accordion/Dropdown →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 7 &middot; Live Build Demo</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

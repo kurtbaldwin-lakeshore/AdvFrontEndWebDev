@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox & Responsive Design — Flexbox & Responsive Design</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .topic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+    .topic-card { display: block; background: #fff; border: 1px solid #dbe7ea; border-radius: 10px; padding: 1.5rem; text-decoration: none; color: inherit; transition: border-color 0.15s ease, transform 0.15s ease; }
+    .topic-card:hover, .topic-card:focus-visible { border-color: var(--rust); transform: translateY(-2px); }
+    .topic-card h2 { margin: 0 0 0.4rem; color: var(--navy); font-family: 'Consolas', monospace; font-size: 1.05rem; }
+    .topic-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home" aria-current="page">Home</a>
+    <a href="media-queries.html">Media Queries</a>
+    <a href="css-columns.html">CSS Columns</a>
+    <a href="flex-container-item.html">Flex Container/Item</a>
+    <a href="flex-wrap.html">flex-wrap</a>
+    <a href="align-self-order.html">align-self/order</a>
+    <a href="flex-grow-shrink-basis.html">flex-grow/shrink/basis</a>
+    <a href="clamp.html">clamp()</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">Learning Plan 5</span>
+    <h1>Flexbox & Responsive Design</h1>
+    <p>Every property from this Learning Plan, live — pick a topic below to see it in action alongside the exact CSS that builds it.</p>
+  </header>
+
+  <main>
+    <div class="topic-grid">
+    <a class="topic-card" href="media-queries.html">
+      <h2>Media Queries</h2>
+      <p>The mobile-first pattern — base styles first, min-width breakpoints add on top.</p>
+    </a>
+    <a class="topic-card" href="css-columns.html">
+      <h2>CSS Columns</h2>
+      <p>Flowing text into newspaper-style columns — a different layout problem than Grid or Flex.</p>
+    </a>
+    <a class="topic-card" href="flex-container-item.html">
+      <h2>Flex Container/Item</h2>
+      <p>The full flex property landscape — container properties, item properties, and the shorthand.</p>
+    </a>
+    <a class="topic-card" href="flex-wrap.html">
+      <h2>flex-wrap</h2>
+      <p>Building a responsive card grid with zero media queries.</p>
+    </a>
+    <a class="topic-card" href="align-self-order.html">
+      <h2>align-self/order</h2>
+      <p>Overriding alignment or visual order for one specific item.</p>
+    </a>
+    <a class="topic-card" href="flex-grow-shrink-basis.html">
+      <h2>flex-grow/shrink/basis</h2>
+      <p>The three numbers that decide exactly how a flex item resizes.</p>
+    </a>
+    <a class="topic-card" href="clamp.html">
+      <h2>clamp()</h2>
+      <p>Fluid typography that scales smoothly between a minimum and maximum.</p>
+    </a>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="media-queries.html">Start with Media Queries →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 5 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

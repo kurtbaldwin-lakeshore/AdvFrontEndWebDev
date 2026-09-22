@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Tags — Web Trends, SEO & Accessibility</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="See exactly which meta tag controls the browser tab, the search snippet, and the social media preview.">
+  <style>
+    .serp-preview { max-width: 560px; font-family: Arial, sans-serif; }
+    .serp-url { color: #202124; font-size: 0.85rem; margin-bottom: 0.2rem; }
+    .serp-title { color: #1a0dab; font-size: 1.2rem; margin-bottom: 0.2rem; cursor: pointer; }
+    .serp-title:hover { text-decoration: underline; }
+    .serp-desc { color: #4d5156; font-size: 0.9rem; line-height: 1.4; }
+
+    .social-preview { max-width: 500px; border: 1px solid #dbe7ea; border-radius: 8px; overflow: hidden; font-family: system-ui, sans-serif; }
+    .social-image { background: var(--teal); color: #fff; height: 140px; display: flex; align-items: center; justify-content: center; font-family: 'Consolas', monospace; font-weight: 600; }
+    .social-body { padding: 0.9rem 1rem; background: #f7f9fa; }
+    .social-title { font-weight: 700; color: var(--text); font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .social-desc { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.4rem; }
+    .social-domain { color: var(--muted); font-size: 0.75rem; letter-spacing: 0.03em; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="meta-tags.html" aria-current="page">Meta Tags</a>
+    <a href="aria-attributes.html">ARIA Attributes</a>
+    <a href="aria-labelledby.html">aria-labelledby</a>
+    <a href="aria-live.html">aria-live</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 8.2</span>
+    <h1>Meta Tags</h1>
+    <p>The title tag and meta description you're looking at right now are the exact source for the preview below.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Search Result Preview</h2>
+      <p class="demo-note">This mock-up shows exactly the title and description declared in THIS page's own &lt;head&gt; — check your browser tab to see the &lt;title&gt; in action too.</p>
+      <div class="serp-preview">
+        <div class="serp-url">example.com › meta-tags</div>
+        <div class="serp-title">Meta Tags — Web Trends, SEO &amp; Accessibility</div>
+        <div class="serp-desc">See exactly which meta tag controls the browser tab, the search snippet, and the social media preview.</div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;head&gt;</span>
+  <span class="tok-comment">&lt;!-- Controls the browser tab AND the search result's clickable headline --&gt;</span>
+  <span class="tok-tag">&lt;title&gt;</span><span class="tok-text">Meta Tags — Web Trends, SEO &amp; Accessibility</span><span class="tok-tag">&lt;/title&gt;</span>
+
+  <span class="tok-comment">&lt;!-- Controls the gray snippet text under the search result --&gt;</span>
+  <span class="tok-tag">&lt;meta</span> <span class="tok-attr">name</span>=<span class="tok-attrval">"description"</span>
+        <span class="tok-attr">content</span>=<span class="tok-attrval">"See exactly which meta tag controls the browser tab, the search snippet, and the social media preview."</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/head&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>Social Media Preview</h2>
+      <p class="demo-note">A completely separate set of tags controls what shows when this page is shared on social platforms — without them, the platform guesses, often badly.</p>
+      <div class="social-preview">
+        <div class="social-image">og:image</div>
+        <div class="social-body">
+          <div class="social-title">Meta Tags — Web Trends, SEO &amp; Accessibility</div>
+          <div class="social-desc">See exactly which meta tag controls the browser tab, the search snippet, and the social preview.</div>
+          <div class="social-domain">EXAMPLE.COM</div>
+        </div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;meta</span> <span class="tok-attr">property</span>=<span class="tok-attrval">"og:title"</span> <span class="tok-attr">content</span>=<span class="tok-attrval">"Meta Tags — Web Trends, SEO &amp; Accessibility"</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;meta</span> <span class="tok-attr">property</span>=<span class="tok-attrval">"og:description"</span> <span class="tok-attr">content</span>=<span class="tok-attrval">"See exactly which meta tag controls..."</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;meta</span> <span class="tok-attr">property</span>=<span class="tok-attrval">"og:image"</span> <span class="tok-attr">content</span>=<span class="tok-attrval">"https://example.com/preview.jpg"</span><span class="tok-tag">&gt;</span></pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="index.html">All Topics</a>
+      <a href="aria-attributes.html">ARIA Attributes →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 8 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

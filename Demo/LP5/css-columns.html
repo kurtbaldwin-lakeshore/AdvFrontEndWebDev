@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Columns — Flexbox & Responsive Design</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .article {
+      column-count: 2;
+      column-gap: 2rem;
+      column-rule: 1px solid #dbe7ea;
+      max-width: 600px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="media-queries.html">Media Queries</a>
+    <a href="css-columns.html" aria-current="page">CSS Columns</a>
+    <a href="flex-container-item.html">Flex Container/Item</a>
+    <a href="flex-wrap.html">flex-wrap</a>
+    <a href="align-self-order.html">align-self/order</a>
+    <a href="flex-grow-shrink-basis.html">flex-grow/shrink/basis</a>
+    <a href="clamp.html">clamp()</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 5.1</span>
+    <h1>CSS Columns</h1>
+    <p>Multi-column layout flows one block of text across several columns automatically — no wrapper elements needed.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>CSS Columns — Flowing Text</h2>
+      <p class="demo-note">Multi-column layout flows one block of text across several columns automatically — no wrapper elements needed.</p>
+      <div class="article">
+        <p>Wisconsin's Door County peninsula stretches nearly eighty miles into Lake Michigan, its shoreline broken into dozens of small bays and harbors. Cherry orchards line the county roads in spring, their blossoms giving way to fruit by midsummer. Lighthouses mark the rockier stretches of coast, several still operating more than a century after they were built.</p>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"article"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;p&gt;</span><span class="tok-text">Wisconsin's Door County peninsula stretches…</span><span class="tok-tag">&lt;/p&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.article</span> {
+  <span class="tok-prop">column-count</span>: <span class="tok-val">2</span>;
+  <span class="tok-prop">column-gap</span>: <span class="tok-val">2rem</span>;
+  <span class="tok-prop">column-rule</span>: <span class="tok-val">1px solid #dbe7ea</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="media-queries.html">← Media Queries</a>
+      <a href="index.html">All Topics</a>
+      <a href="flex-container-item.html">Flex Container/Item →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 5 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

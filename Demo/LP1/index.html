@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML/CSS Review & Git — HTML/CSS Review & Git</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .topic-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #dbe7ea;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .topic-card:hover,
+    .topic-card:focus-visible {
+      border-color: var(--rust);
+      transform: translateY(-2px);
+    }
+    .topic-card h2 {
+      margin: 0 0 0.4rem;
+      color: var(--navy);
+      font-family: 'Consolas', monospace;
+      font-size: 1.1rem;
+    }
+    .topic-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home" aria-current="page">Home</a>
+    <a href="semantic-html.html">Semantic HTML5</a>
+    <a href="css-baseline.html">CSS Baseline</a>
+    <a href="forms-review.html">Forms Review</a>
+    <a href="specificity-box-model.html">Specificity & Box Model</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">Learning Plan 1</span>
+    <h1>HTML/CSS Review & Git</h1>
+    <p>A fast, precise refresher on the four foundations everything else in this course builds on.</p>
+  </header>
+
+  <main>
+    <div class="topic-grid">
+    <a class="topic-card" href="semantic-html.html">
+      <h2>Semantic HTML5</h2>
+      <p>The structural baseline every page needs — landmarks, skip links, and accessible names.</p>
+    </a>
+    <a class="topic-card" href="css-baseline.html">
+      <h2>CSS Baseline</h2>
+      <p>Custom properties, box-sizing, rem units, and :focus-visible — expected on every project from here on.</p>
+    </a>
+    <a class="topic-card" href="forms-review.html">
+      <h2>Forms Review</h2>
+      <p>Labels, fieldset grouping, and required fields — the highest-stakes accessibility surface on any page.</p>
+    </a>
+    <a class="topic-card" href="specificity-box-model.html">
+      <h2>Specificity & Box Model</h2>
+      <p>The two Course 1 concepts that quietly cause the most CSS debugging headaches.</p>
+    </a>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="semantic-html.html">Start with Semantic HTML5 →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 1 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARIA Attributes — Web Trends, SEO & Accessibility</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .icon-btn { width: 44px; height: 44px; border-radius: 6px; border: 1px solid #dbe7ea; background: #fff; font-size: 1.5rem; line-height: 1; cursor: pointer; }
+    .toggle-btn { padding: 0.6rem 1.1rem; border-radius: 6px; border: none; background: var(--teal); color: #fff; font-weight: 600; cursor: pointer; }
+    .text-input { padding: 0.6rem 0.9rem; border-radius: 6px; border: 1px solid #dbe7ea; font-size: 0.95rem; width: 240px; display: block; }
+    .error-text { color: #dc2626; font-size: 0.85rem; margin-top: 0.3rem; }
+    .stars-demo { font-size: 1.3rem; color: var(--rust); }
+    .sr-only-visible { font-size: 0.85rem; color: var(--muted); margin-left: 0.5rem; vertical-align: middle; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="meta-tags.html">Meta Tags</a>
+    <a href="aria-attributes.html" aria-current="page">ARIA Attributes</a>
+    <a href="aria-labelledby.html">aria-labelledby</a>
+    <a href="aria-live.html">aria-live</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 8.3</span>
+    <h1>ARIA Attributes</h1>
+    <p>Four attributes, four different jobs — a name, a state, a linked description, and a removal from the tree entirely.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>aria-label — Name With No Visible Text</h2>
+      <p class="demo-note">An icon-only button has nothing for a screen reader to announce — aria-label supplies the missing name.</p>
+      <button class="icon-btn" aria-label="Close dialog">&times;</button>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;button</span> <span class="tok-attr">aria-label</span>=<span class="tok-attrval">"Close dialog"</span><span class="tok-tag">&gt;</span>&amp;times;<span class="tok-tag">&lt;/button&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>aria-expanded — Communicates State</h2>
+      <p class="demo-note">Click to toggle — aria-expanded genuinely flips between true and false, exactly what a screen reader announces.</p>
+      <button class="toggle-btn" id="exp-btn" aria-expanded="false">Toggle Menu</button>
+      <p class="demo-note" id="exp-readout" style="margin-top: 0.5rem;">aria-expanded is currently: <strong>false</strong></p>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;button</span> <span class="tok-attr">aria-expanded</span>=<span class="tok-attrval">"false"</span><span class="tok-tag">&gt;</span><span class="tok-text">Toggle Menu</span><span class="tok-tag">&lt;/button&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>aria-describedby — Links a Description</h2>
+      <p class="demo-note">Focus the input — a screen reader announces the label, then the linked error text, automatically.</p>
+      <label for="email-input" style="display: block; margin-bottom: 0.4rem;">Email</label>
+      <input type="email" id="email-input" aria-describedby="email-error" class="text-input">
+      <p id="email-error" role="alert" class="error-text">Valid email required</p>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;input</span> <span class="tok-attr">type</span>=<span class="tok-attrval">"email"</span> <span class="tok-attr">aria-describedby</span>=<span class="tok-attrval">"email-error"</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;p</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"email-error"</span> <span class="tok-attr">role</span>=<span class="tok-attrval">"alert"</span><span class="tok-tag">&gt;</span><span class="tok-text">Valid email required</span><span class="tok-tag">&lt;/p&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>aria-hidden — Removes From the Tree</h2>
+      <p class="demo-note">The star icon is purely decorative — aria-hidden removes it from screen readers entirely, leaving only the real text.</p>
+      <p class="stars-demo"><span aria-hidden="true">★★★★☆</span> <span class="sr-only-visible">4 out of 5 stars</span></p>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;span</span> <span class="tok-attr">aria-hidden</span>=<span class="tok-attrval">"true"</span><span class="tok-tag">&gt;</span>★★★★☆<span class="tok-tag">&lt;/span&gt;</span>
+<span class="tok-tag">&lt;span</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"sr-only"</span><span class="tok-tag">&gt;</span><span class="tok-text">4 out of 5 stars</span><span class="tok-tag">&lt;/span&gt;</span></pre>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('exp-btn').addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        document.getElementById('exp-readout').innerHTML = 'aria-expanded is currently: <strong>' + String(!expanded) + '</strong>';
+      });
+    </script>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="meta-tags.html">← Meta Tags</a>
+      <a href="index.html">All Topics</a>
+      <a href="aria-labelledby.html">aria-labelledby →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 8 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

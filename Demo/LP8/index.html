@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Trends, SEO & Accessibility — Web Trends, SEO & Accessibility</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .topic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+    .topic-card { display: block; background: #fff; border: 1px solid #dbe7ea; border-radius: 10px; padding: 1.5rem; text-decoration: none; color: inherit; transition: border-color 0.15s ease, transform 0.15s ease; }
+    .topic-card:hover, .topic-card:focus-visible { border-color: var(--rust); transform: translateY(-2px); }
+    .topic-card h2 { margin: 0 0 0.4rem; color: var(--navy); font-family: 'Consolas', monospace; font-size: 1.05rem; }
+    .topic-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home" aria-current="page">Home</a>
+    <a href="meta-tags.html">Meta Tags</a>
+    <a href="aria-attributes.html">ARIA Attributes</a>
+    <a href="aria-labelledby.html">aria-labelledby</a>
+    <a href="aria-live.html">aria-live</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">Learning Plan 8</span>
+    <h1>Web Trends, SEO & Accessibility</h1>
+    <p>Every property from this Learning Plan, live — pick a topic below to see it in action alongside the exact CSS/HTML that builds it.</p>
+  </header>
+
+  <main>
+    <div class="topic-grid">
+    <a class="topic-card" href="meta-tags.html">
+      <h2>Meta Tags</h2>
+      <p>What controls a page's title, search snippet, and social media preview.</p>
+    </a>
+    <a class="topic-card" href="aria-attributes.html">
+      <h2>ARIA Attributes</h2>
+      <p>Four attributes, four different jobs — name, state, description, removal from the tree.</p>
+    </a>
+    <a class="topic-card" href="aria-labelledby.html">
+      <h2>aria-labelledby</h2>
+      <p>Reusing text already on the page as an element's accessible name.</p>
+    </a>
+    <a class="topic-card" href="aria-live.html">
+      <h2>aria-live</h2>
+      <p>Announcing a content change to screen readers without moving focus.</p>
+    </a>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="meta-tags.html">Start with Meta Tags →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 8 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

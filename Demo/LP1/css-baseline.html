@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Baseline — HTML/CSS Review & Git</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --color-primary: #0D7A8A;
+      --color-accent: #A65314;
+      --font-body: 'Inter', Arial, sans-serif;
+    }
+    .swatch {
+      width: 160px; height: 80px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-family: 'Consolas', monospace; font-size: 0.8rem;
+      border-radius: 8px; text-align: center; padding: 0.5rem;
+    }
+    .swatch.primary { background: var(--color-primary); }
+    .swatch.accent { background: var(--color-accent); }
+
+    .box {
+      height: 80px;
+      background: var(--teal);
+      color: #fff;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-weight: 600; font-size: 0.9rem; border-radius: 8px;
+    }
+    .content-box { box-sizing: content-box; width: 160px; padding: 1.5rem; }
+    .border-box { box-sizing: border-box; width: 160px; padding: 1.5rem; }
+
+    .focus-demo {
+      padding: 0.6rem 1.1rem;
+      border-radius: 6px;
+      border: 1px solid #dbe7ea;
+      background: #fff;
+      color: var(--text);
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+    a.focus-demo:focus-visible,
+    button.focus-demo:focus-visible,
+    input.focus-demo:focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="semantic-html.html">Semantic HTML5</a>
+    <a href="css-baseline.html" aria-current="page">CSS Baseline</a>
+    <a href="forms-review.html">Forms Review</a>
+    <a href="specificity-box-model.html">Specificity & Box Model</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 1.1</span>
+    <h1>CSS Baseline</h1>
+    <p>The patterns expected in every project from here on — not reviewed again after this.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Custom Properties in :root</h2>
+      <p class="demo-note">Defined once, reused everywhere — change the value in one place and every box below updates.</p>
+      <div class="demo-row">
+        <div class="swatch primary">--color-primary</div>
+        <div class="swatch accent">--color-accent</div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"swatch primary"</span><span class="tok-tag">&gt;</span><span class="tok-text">--color-primary</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"swatch accent"</span><span class="tok-tag">&gt;</span><span class="tok-text">--color-accent</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* In :root — always */</span>
+<span class="tok-sel">:root</span> {
+  <span class="tok-prop">--color-primary</span>: <span class="tok-val">#0D7A8A</span>;
+  <span class="tok-prop">--color-accent</span>: <span class="tok-val">#A65314</span>;
+  <span class="tok-prop">--font-body</span>: <span class="tok-val">'Inter', Arial, sans-serif</span>;
+}
+
+<span class="tok-sel">.swatch.primary</span> { <span class="tok-prop">background</span>: <span class="tok-val">var(--color-primary)</span>; }
+<span class="tok-sel">.swatch.accent</span>  { <span class="tok-prop">background</span>: <span class="tok-val">var(--color-accent)</span>; }</pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>box-sizing: border-box — First Rule, Always</h2>
+      <p class="demo-note">Both boxes below have the SAME width and padding declared. Only box-sizing differs — watch how differently they end up sized.</p>
+      <div class="demo-row">
+        <div class="box content-box">content-box<span class="shape-label">grows past 160px</span></div>
+        <div class="box border-box">border-box<span class="shape-label">stays exactly 160px</span></div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"box content-box"</span><span class="tok-tag">&gt;</span><span class="tok-text">content-box</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"box border-box"</span><span class="tok-tag">&gt;</span><span class="tok-text">border-box</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* First rule, every project — apply globally */</span>
+<span class="tok-sel">*, *::before, *::after</span> { <span class="tok-prop">box-sizing</span>: <span class="tok-val">border-box</span>; }
+
+<span class="tok-comment">/* Same width + padding on both — only box-sizing differs */</span>
+<span class="tok-sel">.content-box</span> {
+  <span class="tok-prop">box-sizing</span>: <span class="tok-val">content-box</span>;
+  <span class="tok-prop">width</span>: <span class="tok-val">160px</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">1.5rem</span>;
+}
+<span class="tok-sel">.border-box</span> {
+  <span class="tok-prop">box-sizing</span>: <span class="tok-val">border-box</span>;
+  <span class="tok-prop">width</span>: <span class="tok-val">160px</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">1.5rem</span>;
+}</pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>:focus-visible — Always Present</h2>
+      <p class="demo-note">Tab to each element below. Never ship outline: none without a replacement — keyboard users need to see where they are.</p>
+      <div class="demo-row">
+        <a class="focus-demo" href="#">A link</a>
+        <button class="focus-demo" type="button">A button</button>
+        <input class="focus-demo" type="text" placeholder="An input">
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;a</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"#"</span><span class="tok-tag">&gt;</span><span class="tok-text">A link</span><span class="tok-tag">&lt;/a&gt;</span>
+<span class="tok-tag">&lt;button&gt;</span><span class="tok-text">A button</span><span class="tok-tag">&lt;/button&gt;</span>
+<span class="tok-tag">&lt;input</span> <span class="tok-attr">type</span>=<span class="tok-attrval">"text"</span><span class="tok-tag">&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* Always present — never outline: none alone */</span>
+<span class="tok-sel">a:focus-visible,
+button:focus-visible,
+input:focus-visible</span> {
+  <span class="tok-prop">outline</span>: <span class="tok-val">3px solid var(--color-primary)</span>;
+  <span class="tok-prop">outline-offset</span>: <span class="tok-val">2px</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="semantic-html.html">← Semantic HTML5</a>
+      <a href="index.html">All Topics</a>
+      <a href="forms-review.html">Forms Review →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 1 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

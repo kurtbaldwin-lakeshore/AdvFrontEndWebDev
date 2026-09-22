@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aria-live — Web Trends, SEO & Accessibility</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .save-btn { padding: 0.6rem 1.1rem; border-radius: 6px; border: none; background: var(--teal); color: #fff; font-weight: 600; cursor: pointer; }
+    .live-region { margin-top: 0.75rem; min-height: 1.5rem; color: #15803d; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="meta-tags.html">Meta Tags</a>
+    <a href="aria-attributes.html">ARIA Attributes</a>
+    <a href="aria-labelledby.html">aria-labelledby</a>
+    <a href="aria-live.html" aria-current="page">aria-live</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 8.3</span>
+    <h1>aria-live</h1>
+    <p>polite waits its turn; assertive interrupts immediately — reserve assertive for genuine errors.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>aria-live — Click to Announce</h2>
+      <p class="demo-note">Click the button — the status message below updates. With a screen reader running, this update gets announced automatically, without moving keyboard focus there.</p>
+      <button class="save-btn" id="save-btn">Save Changes</button>
+      <div aria-live="polite" class="live-region" id="live-status"></div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;button</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"save-btn"</span><span class="tok-tag">&gt;</span><span class="tok-text">Save Changes</span><span class="tok-tag">&lt;/button&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">aria-live</span>=<span class="tok-attrval">"polite"</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"live-status"</span><span class="tok-tag">&gt;&lt;/div&gt;</span>
+
+<span class="tok-comment">&lt;!-- polite: waits for a natural pause, doesn't interrupt --&gt;</span>
+<span class="tok-comment">&lt;!-- assertive: interrupts immediately, reserve for real errors --&gt;</span></pre>
+      </div>
+    <script>
+      document.getElementById('save-btn').addEventListener('click', function() {
+        document.getElementById('live-status').textContent = 'Changes saved successfully.';
+      });
+    </script>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="aria-labelledby.html">← aria-labelledby</a>
+      <a href="index.html">All Topics</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 8 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

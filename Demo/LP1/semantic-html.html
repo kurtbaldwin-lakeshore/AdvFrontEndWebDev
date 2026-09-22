@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic HTML5 — HTML/CSS Review & Git</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sh-tab-zone {
+      position: relative;
+      overflow: hidden;
+      min-height: 70px;
+      padding: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .sh-click-start {
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      border: 1px dashed #a65314;
+      background: #fff;
+      color: var(--text);
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 0;
+      background: #0b3d54;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    .sh-landmarks { display: flex; flex-direction: column; gap: 0.5rem; max-width: 500px; }
+    .sh-region {
+      padding: 1rem;
+      border-radius: 6px;
+      font-family: 'Consolas', monospace;
+      font-size: 0.9rem;
+      color: #fff;
+      font-weight: 600;
+    }
+    .sh-header { background: #0b3d54; }
+    .sh-nav { background: #145a78; }
+    .sh-main { background: #1b6b8c; padding: 2rem 1rem; }
+    .sh-footer { background: #0b3d54; }
+    .sh-demo-nav { display: flex; gap: 1.5rem; }
+    .sh-demo-nav a { color: var(--text); text-decoration: none; padding-bottom: 0.25rem; }
+    .sh-demo-nav a[aria-current="page"] { font-weight: 700; border-bottom: 3px solid #a65314; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="semantic-html.html" aria-current="page">Semantic HTML5</a>
+    <a href="css-baseline.html">CSS Baseline</a>
+    <a href="forms-review.html">Forms Review</a>
+    <a href="specificity-box-model.html">Specificity & Box Model</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 1.1</span>
+    <h1>Semantic HTML5</h1>
+    <p>Required on every page, no exceptions — the structural and accessible baseline everything else builds on.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Skip Link — Try Tabbing to It</h2>
+      <p class="demo-note">Required on every page. Invisible until a keyboard user tabs to it. Click the label below, then press Tab — the link is the very next stop and will slide into view the instant it's focused.</p>
+      <div class="sh-tab-zone">
+        <button class="sh-click-start" type="button">1. Click here first</button>
+        <a class="skip-link" href="#sh-main">2. Skip to main content</a>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;a</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"skip-link"</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"#main"</span><span class="tok-tag">&gt;</span><span class="tok-text">Skip to main content</span><span class="tok-tag">&lt;/a&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* Off-screen by default — doesn't affect sighted layout */</span>
+<span class="tok-sel">.skip-link</span> {
+  <span class="tok-prop">position</span>: <span class="tok-val">absolute</span>;
+  <span class="tok-prop">top</span>: <span class="tok-val">-60px</span>;
+  <span class="tok-prop">left</span>: <span class="tok-val">0</span>;
+  <span class="tok-prop">background</span>: <span class="tok-val">#0b3d54</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">#fff</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">0.75rem 1.25rem</span>;
+}
+
+<span class="tok-comment">/* Slides into view the instant it receives keyboard focus */</span>
+<span class="tok-sel">.skip-link:focus</span> {
+  <span class="tok-prop">top</span>: <span class="tok-val">0</span>;
+}</pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>The Required Landmarks</h2>
+      <p class="demo-note">Every page needs these four — they're what lets a screen reader user jump straight to the part of the page they want.</p>
+      <div class="sh-landmarks">
+        <div class="sh-region sh-header">&lt;header&gt;</div>
+        <div class="sh-region sh-nav">&lt;nav&gt;</div>
+        <div class="sh-region sh-main">&lt;main id="main"&gt;</div>
+        <div class="sh-region sh-footer">&lt;footer&gt;</div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;body&gt;</span>
+  <span class="tok-tag">&lt;header&gt;</span>...<span class="tok-tag">&lt;/header&gt;</span>
+  <span class="tok-tag">&lt;nav&gt;</span>...<span class="tok-tag">&lt;/nav&gt;</span>
+  <span class="tok-tag">&lt;main</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"main"</span><span class="tok-tag">&gt;</span>...<span class="tok-tag">&lt;/main&gt;</span>
+  <span class="tok-tag">&lt;footer&gt;</span>...<span class="tok-tag">&lt;/footer&gt;</span>
+<span class="tok-tag">&lt;/body&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>aria-current on the Active Link</h2>
+      <p class="demo-note">Tells assistive technology — and gives you a CSS hook — which nav item represents the current page.</p>
+      <nav class="sh-demo-nav">
+        <a href="#" aria-current="page">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;nav&gt;</span>
+  <span class="tok-tag">&lt;a</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"/"</span> <span class="tok-attr">aria-current</span>=<span class="tok-attrval">"page"</span><span class="tok-tag">&gt;</span><span class="tok-text">Home</span><span class="tok-tag">&lt;/a&gt;</span>
+  <span class="tok-tag">&lt;a</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"/about"</span><span class="tok-tag">&gt;</span><span class="tok-text">About</span><span class="tok-tag">&lt;/a&gt;</span>
+  <span class="tok-tag">&lt;a</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"/contact"</span><span class="tok-tag">&gt;</span><span class="tok-text">Contact</span><span class="tok-tag">&lt;/a&gt;</span>
+<span class="tok-tag">&lt;/nav&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">nav a[aria-current="page"]</span> {
+  <span class="tok-prop">font-weight</span>: <span class="tok-val">700</span>;
+  <span class="tok-prop">border-bottom</span>: <span class="tok-val">3px solid #a65314</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="index.html">All Topics</a>
+      <a href="css-baseline.html">CSS Baseline →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 1 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

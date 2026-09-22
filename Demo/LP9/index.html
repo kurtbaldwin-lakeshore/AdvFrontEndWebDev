@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Project Reference — Learning Plan 9</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .ref-category {
+      background: #fff;
+      border: 1px solid #dbe7ea;
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .ref-category h2 {
+      margin: 0 0 1rem;
+      color: var(--navy);
+      font-size: 1.1rem;
+      font-family: 'Consolas', monospace;
+    }
+    .ref-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .ref-links a {
+      display: block;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      background: var(--offwhite);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.15s ease;
+    }
+    .ref-links a:hover,
+    .ref-links a:focus-visible {
+      background: #e8eef0;
+    }
+    .checklist-note {
+      background: #fef3c7;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 2rem;
+      color: #78350f;
+    }
+    .checklist-note strong { color: #78350f; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">\u2190 All LPs</a>
+    <a href="index.html" class="nav-home" aria-current="page">Home</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">Learning Plan 9</span>
+    <h1>Final Project Reference</h1>
+    <p>No new discussion topics this week \u2014 this is dedicated build time. Below are the live demos you'll likely reference most while building.</p>
+  </header>
+
+  <main>
+    <div class="ref-grid">
+
+      <div class="ref-category">
+        <h2>Foundations (LP1)</h2>
+        <ul class="ref-links">
+          <li><a href="../LP1/semantic-html.html">Semantic HTML5 &amp; Skip Links</a></li>
+          <li><a href="../LP1/css-baseline.html">CSS Baseline (custom properties, focus-visible)</a></li>
+          <li><a href="../LP1/forms-review.html">Forms Review</a></li>
+          <li><a href="../LP1/specificity-box-model.html">Specificity &amp; Box Model</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-category">
+        <h2>Motion (LP3)</h2>
+        <ul class="ref-links">
+          <li><a href="../LP3/prefers-reduced-motion.html">prefers-reduced-motion \u2014 required on every animated project</a></li>
+          <li><a href="../LP3/transition.html">transition</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-category">
+        <h2>Layout (LP5 &amp; LP6)</h2>
+        <ul class="ref-links">
+          <li><a href="../LP5/media-queries.html">@media (min-width)</a></li>
+          <li><a href="../LP5/flex-container-item.html">Flex Container vs. Item Properties</a></li>
+          <li><a href="../LP5/clamp.html">Fluid Typography with clamp()</a></li>
+          <li><a href="../LP6/grid-template-areas.html">grid-template-areas</a></li>
+          <li><a href="../LP6/auto-fit-auto-fill.html">auto-fit vs. auto-fill</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-category">
+        <h2>Bootstrap (LP7)</h2>
+        <ul class="ref-links">
+          <li><a href="../LP7/grid-system.html">The 12-Column Grid</a></li>
+          <li><a href="../LP7/core-components.html">Card, Button, Modal, Alert</a></li>
+          <li><a href="../LP7/customization.html">Customizing With CSS Custom Properties</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-category">
+        <h2>SEO &amp; Accessibility (LP8)</h2>
+        <ul class="ref-links">
+          <li><a href="../LP8/meta-tags.html">Meta Tags</a></li>
+          <li><a href="../LP8/aria-attributes.html">ARIA Attributes</a></li>
+          <li><a href="../LP8/aria-live.html">aria-live</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="checklist-note">
+      <strong>Before you submit:</strong> zero W3C HTML/CSS validation errors, Lighthouse 90+, keyboard-tested focus order, and prefers-reduced-motion respected on every animation.
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <p>Advanced Front-End Development &middot; Learning Plan 9 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

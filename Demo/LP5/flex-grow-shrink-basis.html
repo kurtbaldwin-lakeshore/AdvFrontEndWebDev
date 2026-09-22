@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-grow, flex-shrink, flex-basis — Flexbox & Responsive Design</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .row { display: flex; gap: 1rem; max-width: 700px; }
+    .sidebar {
+      flex: 0 0 200px;
+      background: var(--navy);
+      color: #fff;
+      padding: 1.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .main {
+      flex: 1 1 auto;
+      background: var(--teal);
+      color: #fff;
+      padding: 1.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="media-queries.html">Media Queries</a>
+    <a href="css-columns.html">CSS Columns</a>
+    <a href="flex-container-item.html">Flex Container/Item</a>
+    <a href="flex-wrap.html">flex-wrap</a>
+    <a href="align-self-order.html">align-self/order</a>
+    <a href="flex-grow-shrink-basis.html" aria-current="page">flex-grow/shrink/basis</a>
+    <a href="clamp.html">clamp()</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 5.3</span>
+    <h1>flex-grow, flex-shrink, flex-basis</h1>
+    <p>The three numbers that decide exactly how a flex item resizes — the shorthand is grow shrink basis.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>The flex Shorthand — Three Numbers</h2>
+      <p class="demo-note">flex: grow shrink basis. Sidebar never grows and never shrinks below 200px. Main content claims all remaining space.</p>
+      <div class="row">
+        <div class="sidebar">Sidebar<span class="shape-label">flex: 0 0 200px</span></div>
+        <div class="main">Main content<span class="shape-label">flex: 1 1 auto</span></div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"sidebar"</span><span class="tok-tag">&gt;</span><span class="tok-text">Sidebar</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"main"</span><span class="tok-tag">&gt;</span><span class="tok-text">Main content</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.row</span> { <span class="tok-prop">display</span>: <span class="tok-val">flex</span>; <span class="tok-prop">gap</span>: <span class="tok-val">1rem</span>; }
+
+<span class="tok-comment">/* grow: 0, shrink: 0, basis: 200px — fixed width, never changes */</span>
+<span class="tok-sel">.sidebar</span> { <span class="tok-prop">flex</span>: <span class="tok-val">0 0 200px</span>; }
+
+<span class="tok-comment">/* grow: 1, shrink: 1, basis: auto — fills whatever space is left */</span>
+<span class="tok-sel">.main</span> { <span class="tok-prop">flex</span>: <span class="tok-val">1 1 auto</span>; }</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="align-self-order.html">← align-self/order</a>
+      <a href="index.html">All Topics</a>
+      <a href="clamp.html">clamp() →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 5 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

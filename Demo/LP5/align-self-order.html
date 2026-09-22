@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>align-self and order — Flexbox & Responsive Design</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .row { display: flex; align-items: stretch; gap: 1rem; max-width: 600px; }
+    .item { background: var(--teal); color: #fff; padding: 1.5rem 1rem; border-radius: 8px; font-weight: 600; text-align: center; font-size: 0.9rem; }
+    .self-start { align-self: flex-start; background: var(--rust); }
+    .order-first { order: -1; background: var(--rust); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="media-queries.html">Media Queries</a>
+    <a href="css-columns.html">CSS Columns</a>
+    <a href="flex-container-item.html">Flex Container/Item</a>
+    <a href="flex-wrap.html">flex-wrap</a>
+    <a href="align-self-order.html" aria-current="page">align-self/order</a>
+    <a href="flex-grow-shrink-basis.html">flex-grow/shrink/basis</a>
+    <a href="clamp.html">clamp()</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 5.2</span>
+    <h1>align-self and order</h1>
+    <p>Overriding alignment or visual order for one specific item.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>align-self — Override for One Item</h2>
+      <p class="demo-note">The container stretches every item to full height by default. One item opts out with align-self.</p>
+      <div class="row">
+        <div class="item">Default</div>
+        <div class="item">Default</div>
+        <div class="item self-start">align-self: flex-start</div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"row"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"item"</span><span class="tok-tag">&gt;</span><span class="tok-text">Default</span><span class="tok-tag">&lt;/div&gt;</span>
+  <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"item"</span><span class="tok-tag">&gt;</span><span class="tok-text">Default</span><span class="tok-tag">&lt;/div&gt;</span>
+  <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"item self-start"</span><span class="tok-tag">&gt;</span><span class="tok-text">align-self: flex-start</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.row</span> { <span class="tok-prop">display</span>: <span class="tok-val">flex</span>; <span class="tok-prop">align-items</span>: <span class="tok-val">stretch</span>; <span class="tok-prop">gap</span>: <span class="tok-val">1rem</span>; }
+
+<span class="tok-sel">.item.self-start</span> {
+  <span class="tok-prop">align-self</span>: <span class="tok-val">flex-start</span>;   <span class="tok-comment">/* opts out of stretch, keeps natural height */</span>
+}</pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>order — Visual Position Only</h2>
+      <p class="demo-note">The HTML order stays 1, 2, 3 — only what you SEE changes. Keyboard Tab order still follows the markup, not the visual position.</p>
+      <div class="row">
+        <div class="item">1 in HTML</div>
+        <div class="item">2 in HTML</div>
+        <div class="item order-first">3 in HTML, order: -1</div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"item"</span><span class="tok-tag">&gt;</span><span class="tok-text">1 in HTML</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"item"</span><span class="tok-tag">&gt;</span><span class="tok-text">2 in HTML</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"item order-first"</span><span class="tok-tag">&gt;</span><span class="tok-text">3 in HTML</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.item.order-first</span> {
+  <span class="tok-prop">order</span>: <span class="tok-val">-1</span>;   <span class="tok-comment">/* moves it first visually, HTML order unchanged */</span>
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="flex-wrap.html">← flex-wrap</a>
+      <a href="index.html">All Topics</a>
+      <a href="flex-grow-shrink-basis.html">flex-grow/shrink/basis →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 5 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Specificity & the Box Model — HTML/CSS Review & Git</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .target { font-size: 1.15rem; font-weight: 600; padding: 1rem; background: #fff; border-radius: 8px; }
+    p { color: #93c5fd; }
+    .target { color: #6ee7b7; }
+    #target { color: #0b3d54; }
+    /* inline style="color: #a65314" on the element itself wins over all three above */
+
+    .bm-margin {
+      display: inline-block;
+      position: relative;
+      background: repeating-linear-gradient(45deg, #fef3c7, #fef3c7 6px, #fffbeb 6px, #fffbeb 12px);
+      padding: 2rem;
+      border-radius: 4px;
+    }
+    .bm-border {
+      position: relative;
+      border: 6px solid #a65314;
+      border-radius: 4px;
+    }
+    .bm-padding {
+      position: relative;
+      background: #bae6fd;
+      padding: 1.25rem;
+    }
+    .bm-content {
+      background: #0b3d54;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-weight: 600;
+      border-radius: 2px;
+    }
+    .bm-label {
+      position: absolute;
+      top: 2px; left: 6px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: lowercase;
+      max-width: 140px;
+      line-height: 1.3;
+    }
+    .bm-border-label { color: #fff; background: #a65314; padding: 1px 4px; border-radius: 3px; top: -10px; left: -6px; max-width: none; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="semantic-html.html">Semantic HTML5</a>
+    <a href="css-baseline.html">CSS Baseline</a>
+    <a href="forms-review.html">Forms Review</a>
+    <a href="specificity-box-model.html" aria-current="page">Specificity & Box Model</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 1.1</span>
+    <h1>Specificity & the Box Model</h1>
+    <p>Two Course 1 concepts that quietly cause most CSS debugging headaches — worth a fast, precise refresher.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Specificity — Four Rules, One Winner</h2>
+      <p class="demo-note">All four rules below target the same paragraph and all set a different color. Only one wins — the one with the highest specificity, regardless of source order.</p>
+      <p id="target" class="target">This text's color is decided by specificity.</p>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;p</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"target"</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"target"</span> <span class="tok-attr">style</span>=<span class="tok-attrval">"color: #a65314;"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-text">This text's color is decided by specificity.</span>
+<span class="tok-tag">&lt;/p&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* Specificity hierarchy, lowest to highest */</span>
+<span class="tok-sel">p</span>              { <span class="tok-prop">color</span>: <span class="tok-val">#93c5fd</span>; }  <span class="tok-comment">/* 0-0-1 */</span>
+<span class="tok-sel">.target</span>        { <span class="tok-prop">color</span>: <span class="tok-val">#6ee7b7</span>; }  <span class="tok-comment">/* 0-1-0 */</span>
+<span class="tok-sel">#target</span>        { <span class="tok-prop">color</span>: <span class="tok-val">#0b3d54</span>; }  <span class="tok-comment">/* 1-0-0 */</span>
+<span class="tok-comment">/* style="" on the element itself — beats all of the above */</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>The Box Model — Four Layers</h2>
+      <p class="demo-note">Real CSS margin has no fill color — it's always transparent, so it can't be shown directly. The diagram below uses four nested, colored elements purely to make all four normally-invisible layers visible at once; the actual CSS for one real element looks like the panel underneath.</p>
+      <div class="bm-margin">
+        <span class="bm-label bm-margin-label">margin</span>
+        <div class="bm-border">
+          <span class="bm-label bm-border-label">border</span>
+          <div class="bm-padding">
+            <span class="bm-label bm-padding-label">padding</span>
+            <div class="bm-content">content</div>
+          </div>
+        </div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"box"</span><span class="tok-tag">&gt;</span><span class="tok-text">content</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* The real, single-element version of what the diagram above illustrates */</span>
+<span class="tok-sel">.box</span> {
+  <span class="tok-prop">margin</span>: <span class="tok-val">2rem</span>;      <span class="tok-comment">/* outermost — space outside the border, always transparent */</span>
+  <span class="tok-prop">border</span>: <span class="tok-val">6px solid #a65314</span>; <span class="tok-comment">/* the visible edge */</span>
+  <span class="tok-prop">padding</span>: <span class="tok-val">1.25rem</span>; <span class="tok-comment">/* space inside the border */</span>
+  <span class="tok-comment">/* content sits at the center — what width/height actually size */</span>
+  <span class="tok-comment">/* depends entirely on box-sizing, covered on CSS Baseline */</span>
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="forms-review.html">← Forms Review</a>
+      <a href="index.html">All Topics</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 1 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

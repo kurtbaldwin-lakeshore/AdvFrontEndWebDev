@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms Review — HTML/CSS Review & Git</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .fr-input {
+      padding: 0.6rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid #dbe7ea;
+      font-size: 0.95rem;
+      width: 100%;
+    }
+    .fr-fieldset {
+      border: 2px solid #dbe7ea;
+      border-radius: 8px;
+      padding: 1.25rem;
+      max-width: 320px;
+    }
+    .fr-fieldset legend {
+      font-weight: 700;
+      padding: 0 0.5rem;
+      color: #0b3d54;
+    }
+    .fr-fieldset label { display: block; margin-bottom: 0.4rem; }
+    .required-mark { color: #dc2626; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="semantic-html.html">Semantic HTML5</a>
+    <a href="css-baseline.html">CSS Baseline</a>
+    <a href="forms-review.html" aria-current="page">Forms Review</a>
+    <a href="specificity-box-model.html">Specificity & Box Model</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 1.1</span>
+    <h1>Forms Review</h1>
+    <p>The highest-stakes accessibility surface on any page — this should already be habit.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Labels — Programmatically Associated</h2>
+      <p class="demo-note">Click the label text itself — focus jumps to the input. That only works when for/id are correctly paired.</p>
+      <div class="demo-row" style="flex-direction: column; align-items: flex-start; gap: 0.5rem; max-width: 320px;">
+        <label for="fr-email">Email</label>
+        <input class="fr-input" type="email" id="fr-email" name="email" required>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;label</span> <span class="tok-attr">for</span>=<span class="tok-attrval">"email"</span><span class="tok-tag">&gt;</span><span class="tok-text">Email</span><span class="tok-tag">&lt;/label&gt;</span>
+<span class="tok-tag">&lt;input</span> <span class="tok-attr">type</span>=<span class="tok-attrval">"email"</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"email"</span> <span class="tok-attr">name</span>=<span class="tok-attrval">"email"</span> <span class="tok-attr">required</span><span class="tok-tag">&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>fieldset + legend — Grouping Related Fields</h2>
+      <p class="demo-note">A screen reader announces the legend before every field inside the group — "Shipping Address, Street" instead of just "Street."</p>
+      <fieldset class="fr-fieldset">
+        <legend>Shipping Address</legend>
+        <label for="fr-street">Street</label>
+        <input class="fr-input" type="text" id="fr-street" name="street">
+      </fieldset>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;fieldset&gt;</span>
+  <span class="tok-tag">&lt;legend&gt;</span><span class="tok-text">Shipping Address</span><span class="tok-tag">&lt;/legend&gt;</span>
+  <span class="tok-tag">&lt;label</span> <span class="tok-attr">for</span>=<span class="tok-attrval">"street"</span><span class="tok-tag">&gt;</span><span class="tok-text">Street</span><span class="tok-tag">&lt;/label&gt;</span>
+  <span class="tok-tag">&lt;input</span> <span class="tok-attr">type</span>=<span class="tok-attrval">"text"</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"street"</span> <span class="tok-attr">name</span>=<span class="tok-attrval">"street"</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/fieldset&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">fieldset</span> {
+  <span class="tok-prop">border</span>: <span class="tok-val">2px solid #dbe7ea</span>;
+  <span class="tok-prop">border-radius</span>: <span class="tok-val">8px</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">1.25rem</span>;
+}
+<span class="tok-sel">legend</span> {
+  <span class="tok-prop">font-weight</span>: <span class="tok-val">700</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">0 0.5rem</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">#0b3d54</span>;
+}</pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>required — Paired With a Visible Cue</h2>
+      <p class="demo-note">The required attribute alone isn't enough — sighted users need a visible marker too, not just the native browser validation message.</p>
+      <div class="demo-row" style="flex-direction: column; align-items: flex-start; gap: 0.5rem; max-width: 320px;">
+        <label for="fr-phone">Phone <span class="required-mark">*</span></label>
+        <input class="fr-input" type="tel" id="fr-phone" name="phone" required>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;label</span> <span class="tok-attr">for</span>=<span class="tok-attrval">"phone"</span><span class="tok-tag">&gt;</span><span class="tok-text">Phone </span><span class="tok-tag">&lt;span</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"required-mark"</span><span class="tok-tag">&gt;</span><span class="tok-text">*</span><span class="tok-tag">&lt;/span&gt;&lt;/label&gt;</span>
+<span class="tok-tag">&lt;input</span> <span class="tok-attr">type</span>=<span class="tok-attrval">"tel"</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"phone"</span> <span class="tok-attr">name</span>=<span class="tok-attrval">"phone"</span> <span class="tok-attr">required</span><span class="tok-tag">&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.required-mark</span> {
+  <span class="tok-prop">color</span>: <span class="tok-val">#dc2626</span>;
+  <span class="tok-prop">font-weight</span>: <span class="tok-val">700</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="css-baseline.html">← CSS Baseline</a>
+      <a href="index.html">All Topics</a>
+      <a href="specificity-box-model.html">Specificity & Box Model →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 1 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

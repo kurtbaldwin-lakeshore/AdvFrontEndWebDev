@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card, Button, Modal, Alert — Bootstrap</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="grid-system.html">12-Column Grid</a>
+    <a href="navbar.html">Navbar</a>
+    <a href="forms.html">Forms</a>
+    <a href="core-components.html" aria-current="page">Card/Button/Modal/Alert</a>
+    <a href="more-components.html">Badge/Breadcrumb/Progress</a>
+    <a href="interactive-components.html">Carousel/Accordion/Dropdown</a>
+    <a href="customization.html">Customization</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 7.2</span>
+    <h1>Card, Button, Modal, Alert</h1>
+    <p>Four components you'll use constantly — all genuinely interactive via Bootstrap's own JS.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Card</h2>
+      <p class="demo-note">Bootstrap's most-used component — a content container with a header/body/footer structure.</p>
+      <div class="card" style="max-width: 300px;">
+        <div class="card-body">
+          <h5 class="card-title">Card Title</h5>
+          <p class="card-text">Some quick example text for the card body.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"card"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"card-body"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;h5</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"card-title"</span><span class="tok-tag">&gt;</span><span class="tok-text">Card Title</span><span class="tok-tag">&lt;/h5&gt;</span>
+    <span class="tok-tag">&lt;p</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"card-text"</span><span class="tok-tag">&gt;</span><span class="tok-text">Body text</span><span class="tok-tag">&lt;/p&gt;</span>
+    <span class="tok-tag">&lt;a</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"btn btn-primary"</span><span class="tok-tag">&gt;</span><span class="tok-text">Go somewhere</span><span class="tok-tag">&lt;/a&gt;</span>
+  <span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>Button</h2>
+      <p class="demo-note">Variants signal purpose — primary for the main action, outline for a secondary one.</p>
+      <div class="demo-row">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-outline-secondary">Outline</button>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"btn btn-primary"</span><span class="tok-tag">&gt;</span><span class="tok-text">Primary</span><span class="tok-tag">&lt;/button&gt;</span>
+<span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"btn btn-outline-secondary"</span><span class="tok-tag">&gt;</span><span class="tok-text">Outline</span><span class="tok-tag">&lt;/button&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>Modal — Click to Open</h2>
+      <p class="demo-note">Genuinely opens via Bootstrap's JS — requires role="dialog" and aria-modal for accessibility.</p>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#demoModal">Open Modal</button>
+      <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="demoModalLabel">Confirm Action</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">This is a real, working Bootstrap modal.</div>
+          </div>
+        </div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;button</span> <span class="tok-attr">data-bs-toggle</span>=<span class="tok-attrval">"modal"</span> <span class="tok-attr">data-bs-target</span>=<span class="tok-attrval">"#demoModal"</span><span class="tok-tag">&gt;</span><span class="tok-text">Open Modal</span><span class="tok-tag">&lt;/button&gt;</span>
+
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"modal fade"</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"demoModal"</span> <span class="tok-attr">tabindex</span>=<span class="tok-attrval">"-1"</span>
+     <span class="tok-attr">aria-labelledby</span>=<span class="tok-attrval">"demoModalLabel"</span> <span class="tok-attr">aria-hidden</span>=<span class="tok-attrval">"true"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"modal-dialog"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"modal-content"</span><span class="tok-tag">&gt;</span>...<span class="tok-tag">&lt;/div&gt;</span>
+  <span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <h2>Alert — Dismissible</h2>
+      <p class="demo-note">Click the close button — Bootstrap's JS fades it out and removes it, no page code needed.</p>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Warning message
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"alert alert-warning alert-dismissible fade show"</span> <span class="tok-attr">role</span>=<span class="tok-attrval">"alert"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-text">Warning message</span>
+  <span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"btn-close"</span> <span class="tok-attr">data-bs-dismiss</span>=<span class="tok-attrval">"alert"</span> <span class="tok-attr">aria-label</span>=<span class="tok-attrval">"Close"</span><span class="tok-tag">&gt;&lt;/button&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="forms.html">← Forms</a>
+      <a href="index.html">All Topics</a>
+      <a href="more-components.html">Badge/Breadcrumb/Progress →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 7 &middot; Live Build Demo</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
