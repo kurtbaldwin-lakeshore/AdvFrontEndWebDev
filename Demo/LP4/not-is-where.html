@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>:not() / :is() / :where() — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .niw-list { list-style: none; padding: 0; max-width: 320px; }
+    .niw-list li:not(:last-child) { border-bottom: 2px solid #dbe7ea; }
+    :is(.niw-heading, .niw-alt) { color: #a65314; font-family: 'Consolas', monospace; }
+    .niw-alt { padding: 0.5rem 0.75rem; background: #fff; border-radius: 6px; border: 1px solid #dbe7ea; font-size: 0.95rem; }
+    :where(.niw-list) li { padding: 0.4rem 0; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="attribute-selectors.html">Attribute Selectors</a>
+    <a href="sibling-combinators.html">Sibling Combinators</a>
+    <a href="not-is-where.html" aria-current="page">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html">:target/::placeholder</a>
+    <a href="before-after.html">::before/::after</a>
+    <a href="form-pseudo-classes.html">Form Pseudo-Classes</a>
+    <a href="background-clip.html">background-clip</a>
+    <a href="background-size-border-image.html">background-size/border-image</a>
+    <a href="font-face.html">@font-face</a>
+    <a href="font-display.html">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 4.1</span>
+    <h1>:not() / :is() / :where()</h1>
+    <p>All three take a selector as an argument — they differ only in how much specificity that argument adds.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>:not() / :is() / :where()</h2>
+      <p class="demo-note">All three take a selector (or list of selectors) as an argument — they differ only in specificity.</p>
+      <ul class="niw-list">
+        <li>First item</li>
+        <li>Middle item</li>
+        <li>Middle item</li>
+        <li>Last item — :not() excludes this one from the border</li>
+      </ul>
+      <div class="demo-row" style="margin-top: 1.5rem; flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+        <h4 class="niw-heading">Heading styled via .niw-heading</h4>
+        <div class="niw-alt">Div styled via .niw-alt — same rule, grouped with :is()</div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;ul&gt;</span>
+  <span class="tok-tag">&lt;li&gt;</span><span class="tok-text">First item</span><span class="tok-tag">&lt;/li&gt;</span>
+  <span class="tok-tag">&lt;li&gt;</span><span class="tok-text">Middle item</span><span class="tok-tag">&lt;/li&gt;</span>
+  <span class="tok-tag">&lt;li&gt;</span><span class="tok-text">Middle item</span><span class="tok-tag">&lt;/li&gt;</span>
+  <span class="tok-tag">&lt;li&gt;</span><span class="tok-text">Last item</span><span class="tok-tag">&lt;/li&gt;</span>
+<span class="tok-tag">&lt;/ul&gt;</span>
+
+<span class="tok-tag">&lt;h4</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"niw-heading"</span><span class="tok-tag">&gt;</span><span class="tok-text">Heading styled via .niw-heading</span><span class="tok-tag">&lt;/h4&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"niw-alt"</span><span class="tok-tag">&gt;</span><span class="tok-text">Div styled via .niw-alt</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* :not() — matches everything that does NOT match */</span>
+<span class="tok-sel">.niw-list li:not(:last-child)</span> {
+  <span class="tok-prop">border-bottom</span>: <span class="tok-val">2px solid #dbe7ea</span>;
+}
+
+<span class="tok-comment">/* :is() — groups selectors, same as writing each rule separately */</span>
+<span class="tok-sel">:is(.niw-heading, .niw-alt)</span> {
+  <span class="tok-prop">color</span>: <span class="tok-val">#a65314</span>;
+  <span class="tok-prop">font-family</span>: <span class="tok-val">'Consolas', monospace</span>;
+}
+
+<span class="tok-comment">/* :where() — same grouping, but ALWAYS zero specificity */</span>
+<span class="tok-sel">:where(.niw-list) li</span> { <span class="tok-prop">padding</span>: <span class="tok-val">0.4rem 0</span>; }</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="sibling-combinators.html">← Sibling Combinators</a>
+      <a href="index.html">All Topics</a>
+      <a href="structural-pseudo-classes.html">Structural Pseudo-Classes →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

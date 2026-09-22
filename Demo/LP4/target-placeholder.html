@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>:target / ::placeholder — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .tp-section { padding: 1.25rem; border-radius: 8px; background: #fff; border: 1px solid #dbe7ea; transition: background 0.3s ease; }
+    #tp-section:target { background: #fef3c7; scroll-margin-top: 2rem; }
+    .tp-input { padding: 0.6rem 0.9rem; border-radius: 6px; border: 1px solid #dbe7ea; font-size: 0.95rem; width: 220px; }
+    .tp-input::placeholder { color: #a65314; font-style: italic; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="attribute-selectors.html">Attribute Selectors</a>
+    <a href="sibling-combinators.html">Sibling Combinators</a>
+    <a href="not-is-where.html">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html" aria-current="page">:target/::placeholder</a>
+    <a href="before-after.html">::before/::after</a>
+    <a href="form-pseudo-classes.html">Form Pseudo-Classes</a>
+    <a href="background-clip.html">background-clip</a>
+    <a href="background-size-border-image.html">background-size/border-image</a>
+    <a href="font-face.html">@font-face</a>
+    <a href="font-display.html">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 4.2</span>
+    <h1>:target / ::placeholder</h1>
+    <p>One matches by URL, the other styles a specific piece of input UI.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>:target and ::placeholder</h2>
+      <p class="demo-note">Click the link to jump to the section below — watch it highlight via :target. The input demonstrates ::placeholder styling.</p>
+      <p><a href="#tp-section">Jump to section ↓</a></p>
+      <div id="tp-section" class="tp-section">
+        <h3>Section Title</h3>
+        <p>This section is highlighted only while its id matches the URL fragment.</p>
+      </div>
+      <div class="demo-row" style="margin-top: 1.5rem;">
+        <input class="tp-input" type="text" placeholder="Styled placeholder text">
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;a</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"#tp-section"</span><span class="tok-tag">&gt;</span><span class="tok-text">Jump to section</span><span class="tok-tag">&lt;/a&gt;</span>
+
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"tp-section"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;h3&gt;</span><span class="tok-text">Section Title</span><span class="tok-tag">&lt;/h3&gt;</span>
+  <span class="tok-tag">&lt;p&gt;</span><span class="tok-text">This section is highlighted…</span><span class="tok-tag">&lt;/p&gt;</span>
+<span class="tok-tag">&lt;/div&gt;</span>
+
+<span class="tok-tag">&lt;input</span> <span class="tok-attr">type</span>=<span class="tok-attrval">"text"</span> <span class="tok-attr">placeholder</span>=<span class="tok-attrval">"Styled placeholder text"</span><span class="tok-tag">&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* :target — styles the element whose id matches the URL fragment */</span>
+<span class="tok-sel">#tp-section:target</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">#fef3c7</span>;
+  <span class="tok-prop">scroll-margin-top</span>: <span class="tok-val">2rem</span>;
+}
+
+<span class="tok-comment">/* ::placeholder — styles placeholder text in inputs/textareas */</span>
+<span class="tok-sel">.tp-input::placeholder</span> {
+  <span class="tok-prop">color</span>: <span class="tok-val">#a65314</span>;
+  <span class="tok-prop">font-style</span>: <span class="tok-val">italic</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="structural-pseudo-classes.html">← Structural Pseudo-Classes</a>
+      <a href="index.html">All Topics</a>
+      <a href="before-after.html">::before/::after →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

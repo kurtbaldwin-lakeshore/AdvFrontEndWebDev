@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animation — Transitions, Animations & Accessible Motion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .an-nofill, .an-fill { border-radius: 10px; }
+    @keyframes slideIn {
+      from { transform: translateX(-30px); background: #93c5fd; }
+      to   { transform: translateX(20px); background: #a65314; }
+    }
+    .an-nofill { animation: slideIn 1s ease-out; }
+    .an-fill { animation: slideIn 1s ease-out both; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="transition.html">transition</a>
+    <a href="easing.html">Easing</a>
+    <a href="keyframes.html">@keyframes</a>
+    <a href="animation.html" aria-current="page">animation</a>
+    <a href="animation-direction.html">animation-direction</a>
+    <a href="prefers-reduced-motion.html">prefers-reduced-motion</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 3.2</span>
+    <h1>animation</h1>
+    <p>Seven sub-properties, each controlling one aspect independently — or combine the common ones into shorthand.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>animation — fill-mode Comparison</h2>
+      <p class="demo-note">Both boxes run the identical animation once, on page load. Without <code>fill-mode: both</code>, the element snaps back to its pre-animation state the instant the animation ends — watch closely as the page loads, or reload to see it again.</p>
+      <div class="demo-row">
+        <div class="shape an-nofill">No fill-mode<span class="shape-label">snaps back</span></div>
+        <div class="shape an-fill">fill-mode: both<span class="shape-label">stays in place</span></div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape an-nofill"</span><span class="tok-tag">&gt;</span><span class="tok-text">No fill-mode</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape an-fill"</span><span class="tok-tag">&gt;</span><span class="tok-text">fill-mode: both</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">@keyframes slideIn</span> {
+  <span class="tok-sel">from</span> { <span class="tok-prop">transform</span>: <span class="tok-val">translateX(-30px)</span>; <span class="tok-prop">background</span>: <span class="tok-val">#93c5fd</span>; }
+  <span class="tok-sel">to</span>   { <span class="tok-prop">transform</span>: <span class="tok-val">translateX(20px)</span>; <span class="tok-prop">background</span>: <span class="tok-val">#a65314</span>; }
+}
+
+<span class="tok-comment">/* Shorthand: name duration timing-function — no fill-mode */</span>
+<span class="tok-sel">.an-nofill</span> {
+  <span class="tok-prop">animation</span>: <span class="tok-val">slideIn 1s ease-out</span>;
+}
+
+<span class="tok-comment">/* Shorthand: name duration timing-function fill-mode */</span>
+<span class="tok-sel">.an-fill</span> {
+  <span class="tok-prop">animation</span>: <span class="tok-val">slideIn 1s ease-out both</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="keyframes.html">← @keyframes</a>
+      <a href="index.html">All Topics</a>
+      <a href="animation-direction.html">animation-direction →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 3 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

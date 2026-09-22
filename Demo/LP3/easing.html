@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transition-timing-function — Transitions, Animations & Accessible Motion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ez { border-radius: 10px; transition-property: transform; transition-duration: 0.6s; width: 140px; }
+    .ez-ease:hover, .ez-ease:focus-visible { transition-timing-function: ease; transform: translateY(-16px); }
+    .ez-in:hover, .ez-in:focus-visible { transition-timing-function: ease-in; transform: translateY(-16px); }
+    .ez-out:hover, .ez-out:focus-visible { transition-timing-function: ease-out; transform: translateY(-16px); }
+    .ez-inout:hover, .ez-inout:focus-visible { transition-timing-function: ease-in-out; transform: translateY(-16px); }
+    .ez-linear:hover, .ez-linear:focus-visible { transition-timing-function: linear; transform: translateY(-16px); }
+    .ez-bezier:hover, .ez-bezier:focus-visible { transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); transform: translateY(-16px); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="transition.html">transition</a>
+    <a href="easing.html" aria-current="page">Easing</a>
+    <a href="keyframes.html">@keyframes</a>
+    <a href="animation.html">animation</a>
+    <a href="animation-direction.html">animation-direction</a>
+    <a href="prefers-reduced-motion.html">prefers-reduced-motion</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 3.1</span>
+    <h1>transition-timing-function</h1>
+    <p>Five built-in keywords cover most cases; cubic-bezier() gives full custom control when you need it.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Easing — Try Hovering Each</h2>
+      <p class="demo-note">Same distance, same duration — the only thing that changes is the acceleration curve.</p>
+      <div class="demo-row">
+        <button class="shape ez ez-ease">ease</button>
+        <button class="shape ez ez-in">ease-in</button>
+        <button class="shape ez ez-out">ease-out</button>
+        <button class="shape ez ez-inout">ease-in-out</button>
+        <button class="shape ez ez-linear">linear</button>
+        <button class="shape ez ez-bezier">cubic-bezier()</button>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape ez ez-ease"</span><span class="tok-tag">&gt;</span><span class="tok-text">ease</span><span class="tok-tag">&lt;/button&gt;</span>
+<span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape ez ez-in"</span><span class="tok-tag">&gt;</span><span class="tok-text">ease-in</span><span class="tok-tag">&lt;/button&gt;</span>
+<span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape ez ez-out"</span><span class="tok-tag">&gt;</span><span class="tok-text">ease-out</span><span class="tok-tag">&lt;/button&gt;</span>
+<span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape ez ez-inout"</span><span class="tok-tag">&gt;</span><span class="tok-text">ease-in-out</span><span class="tok-tag">&lt;/button&gt;</span>
+<span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape ez ez-linear"</span><span class="tok-tag">&gt;</span><span class="tok-text">linear</span><span class="tok-tag">&lt;/button&gt;</span>
+<span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape ez ez-bezier"</span><span class="tok-tag">&gt;</span><span class="tok-text">cubic-bezier()</span><span class="tok-tag">&lt;/button&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.ez-ease:hover,   .ez-ease:focus-visible</span>   { <span class="tok-prop">transition-timing-function</span>: <span class="tok-val">ease</span>; }
+<span class="tok-sel">.ez-in:hover,     .ez-in:focus-visible</span>     { <span class="tok-prop">transition-timing-function</span>: <span class="tok-val">ease-in</span>; }
+<span class="tok-sel">.ez-out:hover,    .ez-out:focus-visible</span>    { <span class="tok-prop">transition-timing-function</span>: <span class="tok-val">ease-out</span>; }
+<span class="tok-sel">.ez-inout:hover,  .ez-inout:focus-visible</span>  { <span class="tok-prop">transition-timing-function</span>: <span class="tok-val">ease-in-out</span>; }
+<span class="tok-sel">.ez-linear:hover, .ez-linear:focus-visible</span> { <span class="tok-prop">transition-timing-function</span>: <span class="tok-val">linear</span>; }
+
+<span class="tok-comment">/* Custom curve — "bouncy", overshoots then settles */</span>
+<span class="tok-sel">.ez-bezier:hover,
+.ez-bezier:focus-visible</span> {
+  <span class="tok-prop">transition-timing-function</span>: <span class="tok-val">cubic-bezier(0.34, 1.56, 0.64, 1)</span>;
+}
+
+<span class="tok-sel">.ez</span> {
+  <span class="tok-prop">transition-property</span>: <span class="tok-val">transform</span>;
+  <span class="tok-prop">transition-duration</span>: <span class="tok-val">0.6s</span>;
+}
+<span class="tok-sel">.ez:hover,
+.ez:focus-visible</span> { <span class="tok-prop">transform</span>: <span class="tok-val">translateY(-16px)</span>; }</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="transition.html">← transition</a>
+      <a href="index.html">All Topics</a>
+      <a href="keyframes.html">@keyframes →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 3 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

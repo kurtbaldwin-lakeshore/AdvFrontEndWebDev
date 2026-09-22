@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sibling Combinators — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sc-demo { background: #fff; border-radius: 10px; padding: 1.5rem; border: 1px solid #dbe7ea; }
+    .sc-demo h3 { margin-top: 0; color: var(--navy); }
+    .sc-demo h3 ~ p { color: #a65314; }
+    .sc-demo h3 + p { font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="attribute-selectors.html">Attribute Selectors</a>
+    <a href="sibling-combinators.html" aria-current="page">Sibling Combinators</a>
+    <a href="not-is-where.html">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html">:target/::placeholder</a>
+    <a href="before-after.html">::before/::after</a>
+    <a href="form-pseudo-classes.html">Form Pseudo-Classes</a>
+    <a href="background-clip.html">background-clip</a>
+    <a href="background-size-border-image.html">background-size/border-image</a>
+    <a href="font-face.html">@font-face</a>
+    <a href="font-display.html">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 4.1</span>
+    <h1>Sibling Combinators</h1>
+    <p>Both target elements that come after another — the difference is how many.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Sibling Combinators</h2>
+      <p class="demo-note">Descendant and child combinators target by hierarchy. Sibling combinators target by what comes AFTER an element at the same level.</p>
+      <div class="sc-demo">
+        <h3>A Heading</h3>
+        <p>Adjacent (+): only this first paragraph is bold.</p>
+        <p>General (~): every paragraph after the heading is colored, including this one.</p>
+        <p>...and this one too.</p>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;h3&gt;</span><span class="tok-text">A Heading</span><span class="tok-tag">&lt;/h3&gt;</span>
+<span class="tok-tag">&lt;p&gt;</span><span class="tok-text">Adjacent (+): only this first paragraph is bold.</span><span class="tok-tag">&lt;/p&gt;</span>
+<span class="tok-tag">&lt;p&gt;</span><span class="tok-text">General (~): every paragraph after…</span><span class="tok-tag">&lt;/p&gt;</span>
+<span class="tok-tag">&lt;p&gt;</span><span class="tok-text">…and this one too.</span><span class="tok-tag">&lt;/p&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* General sibling (~): ALL matching elements after, same parent */</span>
+<span class="tok-sel">.sc-demo h3 ~ p</span> { <span class="tok-prop">color</span>: <span class="tok-val">#a65314</span>; }
+
+<span class="tok-comment">/* Adjacent sibling (+): only the FIRST matching element right after */</span>
+<span class="tok-sel">.sc-demo h3 + p</span> { <span class="tok-prop">font-weight</span>: <span class="tok-val">700</span>; }</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="attribute-selectors.html">← Attribute Selectors</a>
+      <a href="index.html">All Topics</a>
+      <a href="not-is-where.html">:not/:is/:where →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

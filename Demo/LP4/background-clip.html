@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>background-clip — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .bc-gradient-text {
+      background: linear-gradient(90deg, #145a78, #a65314);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="attribute-selectors.html">Attribute Selectors</a>
+    <a href="sibling-combinators.html">Sibling Combinators</a>
+    <a href="not-is-where.html">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html">:target/::placeholder</a>
+    <a href="before-after.html">::before/::after</a>
+    <a href="form-pseudo-classes.html">Form Pseudo-Classes</a>
+    <a href="background-clip.html" aria-current="page">background-clip</a>
+    <a href="background-size-border-image.html">background-size/border-image</a>
+    <a href="font-face.html">@font-face</a>
+    <a href="font-display.html">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 4.3</span>
+    <h1>background-clip</h1>
+    <p>Clip a background to the shape of the text itself, not the whole box.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>background-clip</h2>
+      <p class="demo-note">Clip a background to something other than the whole box — here, to the shape of the text itself.</p>
+      <h2 class="bc-gradient-text">Gradient Heading Text</h2>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;h2</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"bc-gradient-text"</span><span class="tok-tag">&gt;</span><span class="tok-text">Gradient Heading Text</span><span class="tok-tag">&lt;/h2&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.bc-gradient-text</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">linear-gradient(90deg, #145a78, #a65314)</span>;
+  <span class="tok-prop">-webkit-background-clip</span>: <span class="tok-val">text</span>;
+  <span class="tok-prop">background-clip</span>: <span class="tok-val">text</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">transparent</span>;
+}
+
+<span class="tok-comment">/* Without color: transparent, the text color paints */</span>
+<span class="tok-comment">/* over the gradient and hides it completely */</span></pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="form-pseudo-classes.html">← Form Pseudo-Classes</a>
+      <a href="index.html">All Topics</a>
+      <a href="background-size-border-image.html">background-size/border-image →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

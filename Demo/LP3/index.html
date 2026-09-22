@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transitions, Animations & Accessible Motion — Transitions, Animations & Accessible Motion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .topic-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #dbe7ea;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .topic-card:hover,
+    .topic-card:focus-visible {
+      border-color: var(--rust);
+      transform: translateY(-2px);
+    }
+    .topic-card h2 {
+      margin: 0 0 0.4rem;
+      color: var(--navy);
+      font-family: 'Consolas', monospace;
+      font-size: 1.15rem;
+    }
+    .topic-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home" aria-current="page">Home</a>
+    <a href="transition.html">transition</a>
+    <a href="easing.html">Easing</a>
+    <a href="keyframes.html">@keyframes</a>
+    <a href="animation.html">animation</a>
+    <a href="animation-direction.html">animation-direction</a>
+    <a href="prefers-reduced-motion.html">prefers-reduced-motion</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">Learning Plan 3</span>
+    <h1>Transitions, Animations & Accessible Motion</h1>
+    <p>Every property from this Learning Plan, live — pick a topic below to see it in action alongside the exact CSS that builds it.</p>
+  </header>
+
+  <main>
+    <div class="topic-grid">
+    <a class="topic-card" href="transition.html">
+      <h2>transition</h2>
+      <p>Smoothly animate a property change — the four sub-properties in one shorthand.</p>
+    </a>
+    <a class="topic-card" href="easing.html">
+      <h2>Easing</h2>
+      <p>Six ways to control the acceleration curve of a transition.</p>
+    </a>
+    <a class="topic-card" href="keyframes.html">
+      <h2>@keyframes</h2>
+      <p>Multi-step animation sequences — from/to and percentage-based forms.</p>
+    </a>
+    <a class="topic-card" href="animation.html">
+      <h2>animation</h2>
+      <p>Applying a @keyframes sequence — the shorthand and seven individual properties.</p>
+    </a>
+    <a class="topic-card" href="animation-direction.html">
+      <h2>animation-direction</h2>
+      <p>Making a looping animation reverse smoothly instead of snapping back.</p>
+    </a>
+    <a class="topic-card" href="prefers-reduced-motion.html">
+      <h2>prefers-reduced-motion</h2>
+      <p>The accessibility reset every animated project needs.</p>
+    </a>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="transition.html">Start with transition →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 3 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

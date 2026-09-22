@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Selectors, Pseudo-Classes & @font-face — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .topic-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #dbe7ea;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .topic-card:hover,
+    .topic-card:focus-visible {
+      border-color: var(--rust);
+      transform: translateY(-2px);
+    }
+    .topic-card h2 {
+      margin: 0 0 0.4rem;
+      color: var(--navy);
+      font-family: 'Consolas', monospace;
+      font-size: 1.05rem;
+    }
+    .topic-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home" aria-current="page">Home</a>
+    <a href="attribute-selectors.html">Attribute Selectors</a>
+    <a href="sibling-combinators.html">Sibling Combinators</a>
+    <a href="not-is-where.html">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html">:target/::placeholder</a>
+    <a href="before-after.html">::before/::after</a>
+    <a href="form-pseudo-classes.html">Form Pseudo-Classes</a>
+    <a href="background-clip.html">background-clip</a>
+    <a href="background-size-border-image.html">background-size/border-image</a>
+    <a href="font-face.html">@font-face</a>
+    <a href="font-display.html">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">Learning Plan 4</span>
+    <h1>Advanced Selectors, Pseudo-Classes & @font-face</h1>
+    <p>Every property from this Learning Plan, live — pick a topic below to see it in action alongside the exact CSS that builds it.</p>
+  </header>
+
+  <main>
+    <div class="topic-grid">
+    <a class="topic-card" href="attribute-selectors.html">
+      <h2>Attribute Selectors</h2>
+      <p>Five patterns for targeting elements by an HTML attribute.</p>
+    </a>
+    <a class="topic-card" href="sibling-combinators.html">
+      <h2>Sibling Combinators</h2>
+      <p>Styling an element based on what comes before it.</p>
+    </a>
+    <a class="topic-card" href="not-is-where.html">
+      <h2>:not/:is/:where</h2>
+      <p>Excluding a case, or grouping several selectors into one rule.</p>
+    </a>
+    <a class="topic-card" href="structural-pseudo-classes.html">
+      <h2>Structural Pseudo-Classes</h2>
+      <p>Styling by position among siblings — first, last, every third.</p>
+    </a>
+    <a class="topic-card" href="target-placeholder.html">
+      <h2>:target/::placeholder</h2>
+      <p>Styling by URL fragment, and styling placeholder text.</p>
+    </a>
+    <a class="topic-card" href="before-after.html">
+      <h2>::before/::after</h2>
+      <p>Inserting a virtual element without touching the HTML.</p>
+    </a>
+    <a class="topic-card" href="form-pseudo-classes.html">
+      <h2>Form Pseudo-Classes</h2>
+      <p>Styling a form field's validation state automatically.</p>
+    </a>
+    <a class="topic-card" href="background-clip.html">
+      <h2>background-clip</h2>
+      <p>Stacking multiple backgrounds, or clipping one to text.</p>
+    </a>
+    <a class="topic-card" href="background-size-border-image.html">
+      <h2>background-size/border-image</h2>
+      <p>Fitting an image without cropping, or building a 9-slice border.</p>
+    </a>
+    <a class="topic-card" href="font-face.html">
+      <h2>@font-face</h2>
+      <p>Loading a custom web font with a full fallback stack.</p>
+    </a>
+    <a class="topic-card" href="font-display.html">
+      <h2>font-display</h2>
+      <p>Controlling what shows while a web font loads.</p>
+    </a>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="attribute-selectors.html">Start with Attribute Selectors →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

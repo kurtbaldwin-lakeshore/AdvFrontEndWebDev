@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@keyframes — Transitions, Animations & Accessible Motion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .kf-fade, .kf-pulse, .kf-spin { border-radius: 10px; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .kf-fade { animation: fadeIn 1.2s ease-out both; }
+    @keyframes pulse {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+    .kf-pulse { animation: pulse 2s ease-in-out infinite; }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .kf-spin { animation: spin 3s linear infinite; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="transition.html">transition</a>
+    <a href="easing.html">Easing</a>
+    <a href="keyframes.html" aria-current="page">@keyframes</a>
+    <a href="animation.html">animation</a>
+    <a href="animation-direction.html">animation-direction</a>
+    <a href="prefers-reduced-motion.html">prefers-reduced-motion</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 3.2</span>
+    <h1>@keyframes</h1>
+    <p>Name the rule, then describe each stage — as from/to, or as any number of percentages.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>@keyframes — Playing Automatically</h2>
+      <p class="demo-note">Name the rule, then describe each stage — as from/to for a simple two-state change, or as any number of percentages for something more complex. These three play automatically; reload the page to watch them again.</p>
+      <div class="demo-row">
+        <div class="shape kf-fade">from / to<span class="shape-label">fades in once</span></div>
+        <div class="shape kf-pulse">Percentages<span class="shape-label">0% 50% 100%, loops</span></div>
+        <div class="shape kf-spin">from / to<span class="shape-label">rotates, loops</span></div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape kf-fade"</span><span class="tok-tag">&gt;</span><span class="tok-text">from / to</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape kf-pulse"</span><span class="tok-tag">&gt;</span><span class="tok-text">Percentages</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape kf-spin"</span><span class="tok-tag">&gt;</span><span class="tok-text">from / to</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* Simple two-state: from/to is shorthand for 0% and 100% */</span>
+<span class="tok-sel">@keyframes fadeIn</span> {
+  <span class="tok-sel">from</span> { <span class="tok-prop">opacity</span>: <span class="tok-val">0</span>; <span class="tok-prop">transform</span>: <span class="tok-val">translateY(16px)</span>; }
+  <span class="tok-sel">to</span>   { <span class="tok-prop">opacity</span>: <span class="tok-val">1</span>; <span class="tok-prop">transform</span>: <span class="tok-val">translateY(0)</span>; }
+}
+<span class="tok-sel">.kf-fade</span> { <span class="tok-prop">animation</span>: <span class="tok-val">fadeIn 1.2s ease-out both</span>; }
+
+<span class="tok-comment">/* Multi-stage: any number of percentages, in any order */</span>
+<span class="tok-sel">@keyframes pulse</span> {
+  <span class="tok-sel">0%</span>   { <span class="tok-prop">transform</span>: <span class="tok-val">scale(1)</span>; }
+  <span class="tok-sel">50%</span>  { <span class="tok-prop">transform</span>: <span class="tok-val">scale(1.08)</span>; }
+  <span class="tok-sel">100%</span> { <span class="tok-prop">transform</span>: <span class="tok-val">scale(1)</span>; }
+}
+<span class="tok-sel">.kf-pulse</span> { <span class="tok-prop">animation</span>: <span class="tok-val">pulse 2s ease-in-out infinite</span>; }
+
+<span class="tok-sel">@keyframes spin</span> {
+  <span class="tok-sel">from</span> { <span class="tok-prop">transform</span>: <span class="tok-val">rotate(0deg)</span>; }
+  <span class="tok-sel">to</span>   { <span class="tok-prop">transform</span>: <span class="tok-val">rotate(360deg)</span>; }
+}
+<span class="tok-sel">.kf-spin</span> { <span class="tok-prop">animation</span>: <span class="tok-val">spin 3s linear infinite</span>; }</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="easing.html">← Easing</a>
+      <a href="index.html">All Topics</a>
+      <a href="animation.html">animation →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 3 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

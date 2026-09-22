@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>::before and ::after Pseudo-Elements — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ba-title { color: var(--navy); }
+    .ba-title::before {
+      content: '';
+      display: block;
+      width: 3rem;
+      height: 4px;
+      background: #a65314;
+      margin-bottom: 0.5rem;
+    }
+    .ba-quote {
+      margin: 0;
+      padding: 1rem 1.5rem;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #dbe7ea;
+      font-style: italic;
+      color: var(--muted);
+    }
+    .ba-quote::before {
+      content: '"';
+      font-size: 3rem;
+      color: #a65314;
+      line-height: 0;
+      margin-right: 0.25rem;
+      vertical-align: -0.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="attribute-selectors.html">Attribute Selectors</a>
+    <a href="sibling-combinators.html">Sibling Combinators</a>
+    <a href="not-is-where.html">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html">:target/::placeholder</a>
+    <a href="before-after.html" aria-current="page">::before/::after</a>
+    <a href="form-pseudo-classes.html">Form Pseudo-Classes</a>
+    <a href="background-clip.html">background-clip</a>
+    <a href="background-size-border-image.html">background-size/border-image</a>
+    <a href="font-face.html">@font-face</a>
+    <a href="font-display.html">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 4.2</span>
+    <h1>::before and ::after Pseudo-Elements</h1>
+    <p>Content is required — without it, neither pseudo-element renders at all.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>::before and ::after</h2>
+      <p class="demo-note">Both insert a virtual element — content is the one property that's always required, even if it's just an empty string.</p>
+      <h3 class="ba-title">Section With Accent</h3>
+      <p class="demo-note" style="margin-top: 0;">A decorative bar, inserted purely with CSS — no extra HTML element.</p>
+      <blockquote class="ba-quote">Design is not just what it looks like. Design is how it works.</blockquote>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;h3</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"ba-title"</span><span class="tok-tag">&gt;</span><span class="tok-text">Section With Accent</span><span class="tok-tag">&lt;/h3&gt;</span>
+
+<span class="tok-tag">&lt;blockquote</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"ba-quote"</span><span class="tok-tag">&gt;</span><span class="tok-text">Design is not just what it looks like…</span><span class="tok-tag">&lt;/blockquote&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* ::before — inserts a virtual element as the FIRST child */</span>
+<span class="tok-sel">.ba-title::before</span> {
+  <span class="tok-prop">content</span>: <span class="tok-val">''</span>;
+  <span class="tok-prop">display</span>: <span class="tok-val">block</span>;
+  <span class="tok-prop">width</span>: <span class="tok-val">3rem</span>;
+  <span class="tok-prop">height</span>: <span class="tok-val">4px</span>;
+  <span class="tok-prop">background</span>: <span class="tok-val">#a65314</span>;
+  <span class="tok-prop">margin-bottom</span>: <span class="tok-val">0.5rem</span>;
+}
+
+<span class="tok-comment">/* ::before with real text content — a large decorative quote mark */</span>
+<span class="tok-sel">.ba-quote::before</span> {
+  <span class="tok-prop">content</span>: <span class="tok-val">'"'</span>;
+  <span class="tok-prop">font-size</span>: <span class="tok-val">3rem</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">#a65314</span>;
+  <span class="tok-prop">line-height</span>: <span class="tok-val">0</span>;
+  <span class="tok-prop">margin-right</span>: <span class="tok-val">0.25rem</span>;
+  <span class="tok-prop">vertical-align</span>: <span class="tok-val">-0.4rem</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="target-placeholder.html">← :target/::placeholder</a>
+      <a href="index.html">All Topics</a>
+      <a href="form-pseudo-classes.html">Form Pseudo-Classes →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

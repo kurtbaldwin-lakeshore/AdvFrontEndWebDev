@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@font-face — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @font-face {
+      font-family: 'DemoDisplay';
+      src: local('Georgia'), local('Times New Roman');
+      font-weight: 400;
+      font-display: swap;
+    }
+    .ff-before { font-size: 1.4rem; margin: 0.5rem 0; }
+    .ff-after {
+      font-family: 'DemoDisplay', Georgia, serif;
+      font-size: 1.4rem;
+      margin: 0.5rem 0;
+      color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="attribute-selectors.html">Attribute Selectors</a>
+    <a href="sibling-combinators.html">Sibling Combinators</a>
+    <a href="not-is-where.html">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html">:target/::placeholder</a>
+    <a href="before-after.html">::before/::after</a>
+    <a href="form-pseudo-classes.html">Form Pseudo-Classes</a>
+    <a href="background-clip.html">background-clip</a>
+    <a href="background-size-border-image.html">background-size/border-image</a>
+    <a href="font-face.html" aria-current="page">@font-face</a>
+    <a href="font-display.html">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 4.4</span>
+    <h1>@font-face</h1>
+    <p>One rule per weight/style — the font-family name is what you'll use everywhere else in CSS.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>@font-face</h2>
+      <p class="demo-note">This demo uses <code>src: local()</code> to reference a font already on your system, so it works fully offline — in a real project, <code>src: url()</code> would point to a font file you host. The syntax pattern is identical either way.</p>
+      <p class="ff-before">Before: default system font</p>
+      <p class="ff-after">After: @font-face applied</p>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;p</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"ff-before"</span><span class="tok-tag">&gt;</span><span class="tok-text">Before: default system font</span><span class="tok-tag">&lt;/p&gt;</span>
+<span class="tok-tag">&lt;p</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"ff-after"</span><span class="tok-tag">&gt;</span><span class="tok-text">After: @font-face applied</span><span class="tok-tag">&lt;/p&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">@font-face</span> {
+  <span class="tok-prop">font-family</span>: <span class="tok-val">'DemoDisplay'</span>;  <span class="tok-comment">/* the name you'll use in CSS */</span>
+  <span class="tok-prop">src</span>: <span class="tok-val">local('Georgia'), local('Times New Roman')</span>;
+  <span class="tok-prop">font-weight</span>: <span class="tok-val">400</span>;
+  <span class="tok-prop">font-display</span>: <span class="tok-val">swap</span>;
+}
+
+<span class="tok-comment">/* In a real project, src points to a file you host instead: */</span>
+<span class="tok-comment">/* src: url('/fonts/DemoDisplay.woff2') format('woff2'); */</span>
+
+<span class="tok-sel">.ff-after</span> {
+  <span class="tok-prop">font-family</span>: <span class="tok-val">'DemoDisplay', Georgia, serif</span>;
+  <span class="tok-prop">font-size</span>: <span class="tok-val">1.4rem</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="background-size-border-image.html">← background-size/border-image</a>
+      <a href="index.html">All Topics</a>
+      <a href="font-display.html">font-display →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

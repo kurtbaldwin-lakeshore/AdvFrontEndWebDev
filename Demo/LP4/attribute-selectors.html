@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attribute Selectors — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .as-link { font-size: 0.95rem; text-decoration: none; color: var(--text); }
+    a[href^="https"]  { color: #15803d; font-weight: 700; }
+    a[href^="mailto"] { color: #a65314; font-weight: 700; }
+    a[href$=".pdf"] { color: #7c3aed; font-weight: 700; }
+    a[href*="twitter.com"] { color: #0369a1; font-weight: 700; }
+    a[target="_blank"] { text-decoration: underline wavy; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="attribute-selectors.html" aria-current="page">Attribute Selectors</a>
+    <a href="sibling-combinators.html">Sibling Combinators</a>
+    <a href="not-is-where.html">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html">:target/::placeholder</a>
+    <a href="before-after.html">::before/::after</a>
+    <a href="form-pseudo-classes.html">Form Pseudo-Classes</a>
+    <a href="background-clip.html">background-clip</a>
+    <a href="background-size-border-image.html">background-size/border-image</a>
+    <a href="font-face.html">@font-face</a>
+    <a href="font-display.html">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 4.1</span>
+    <h1>Attribute Selectors</h1>
+    <p>Five patterns, each matching a different relationship between the attribute and its value.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Attribute Selectors — Five Patterns</h2>
+      <p class="demo-note">Target an element by an HTML attribute's presence or value — no class or ID required. These links are styled purely by their href.</p>
+      <div class="demo-row" style="flex-direction: column; align-items: flex-start; gap: 0.75rem;">
+        <a class="as-link as-https" href="https://example.com">https:// link — starts with</a>
+        <a class="as-link as-mailto" href="mailto:demo@example.com">mailto: link — starts with</a>
+        <a class="as-link as-pdf" href="file.pdf">Ends in .pdf — ends with</a>
+        <a class="as-link as-social" href="https://twitter.com/example">Contains "twitter.com" — contains anywhere</a>
+        <a class="as-link" href="#" target="_blank">Has target="_blank" — presence only</a>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;a</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"as-link"</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"https://example.com"</span><span class="tok-tag">&gt;</span><span class="tok-text">https:// link</span><span class="tok-tag">&lt;/a&gt;</span>
+<span class="tok-tag">&lt;a</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"as-link"</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"mailto:demo@example.com"</span><span class="tok-tag">&gt;</span><span class="tok-text">mailto: link</span><span class="tok-tag">&lt;/a&gt;</span>
+<span class="tok-tag">&lt;a</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"as-link"</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"file.pdf"</span><span class="tok-tag">&gt;</span><span class="tok-text">Ends in .pdf</span><span class="tok-tag">&lt;/a&gt;</span>
+<span class="tok-tag">&lt;a</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"as-link"</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"https://twitter.com/example"</span><span class="tok-tag">&gt;</span><span class="tok-text">Contains twitter.com</span><span class="tok-tag">&lt;/a&gt;</span>
+<span class="tok-tag">&lt;a</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"as-link"</span> <span class="tok-attr">href</span>=<span class="tok-attrval">"#"</span> <span class="tok-attr">target</span>=<span class="tok-attrval">"_blank"</span><span class="tok-tag">&gt;</span><span class="tok-text">Has target="_blank"</span><span class="tok-tag">&lt;/a&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* [attr^="value"] — starts with */</span>
+<span class="tok-sel">a[href^="https"]</span>  { <span class="tok-prop">color</span>: <span class="tok-val">#15803d</span>; <span class="tok-prop">font-weight</span>: <span class="tok-val">700</span>; }
+<span class="tok-sel">a[href^="mailto"]</span> { <span class="tok-prop">color</span>: <span class="tok-val">#a65314</span>; <span class="tok-prop">font-weight</span>: <span class="tok-val">700</span>; }
+
+<span class="tok-comment">/* [attr$="value"] — ends with */</span>
+<span class="tok-sel">a[href$=".pdf"]</span> { <span class="tok-prop">color</span>: <span class="tok-val">#7c3aed</span>; <span class="tok-prop">font-weight</span>: <span class="tok-val">700</span>; }
+
+<span class="tok-comment">/* [attr*="value"] — contains anywhere */</span>
+<span class="tok-sel">a[href*="twitter.com"]</span> { <span class="tok-prop">color</span>: <span class="tok-val">#0369a1</span>; <span class="tok-prop">font-weight</span>: <span class="tok-val">700</span>; }
+
+<span class="tok-comment">/* [attr] — presence, any value */</span>
+<span class="tok-sel">a[target="_blank"]</span> { <span class="tok-prop">text-decoration</span>: <span class="tok-val">underline wavy</span>; }</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="index.html">All Topics</a>
+      <a href="sibling-combinators.html">Sibling Combinators →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

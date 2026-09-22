@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prefers-reduced-motion — Transitions, Animations & Accessible Motion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .prm-box { border-radius: 10px; text-align: center; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.08); }
+    }
+    .prm-box { animation: pulse 1.5s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="transition.html">transition</a>
+    <a href="easing.html">Easing</a>
+    <a href="keyframes.html">@keyframes</a>
+    <a href="animation.html">animation</a>
+    <a href="animation-direction.html">animation-direction</a>
+    <a href="prefers-reduced-motion.html" aria-current="page">prefers-reduced-motion</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 3.3</span>
+    <h1>prefers-reduced-motion</h1>
+    <p>A media query wrapping a reset — four properties, each neutralizing one kind of motion.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>prefers-reduced-motion — The Global Reset</h2>
+      <p class="demo-note">This box respects your OS's motion setting. Enable Reduce Motion in your system accessibility settings and reload this page — the animation below will stop completely instead of just slowing down.</p>
+      <div class="demo-row">
+        <div class="shape prm-box">Watching your<br>OS setting</div>
+      </div>
+      <p class="demo-note" style="margin-top: -0.5rem;"><strong>Mac:</strong> System Settings → Accessibility → Display → Reduce Motion. <strong>Windows:</strong> Settings → Accessibility → Visual effects → Animation effects (off).</p>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape prm-box"</span><span class="tok-tag">&gt;</span><span class="tok-text">Watching your OS setting</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">@keyframes pulse</span> {
+  <span class="tok-sel">0%, 100%</span> { <span class="tok-prop">transform</span>: <span class="tok-val">scale(1)</span>; }
+  <span class="tok-sel">50%</span>      { <span class="tok-prop">transform</span>: <span class="tok-val">scale(1.08)</span>; }
+}
+<span class="tok-sel">.prm-box</span> {
+  <span class="tok-prop">animation</span>: <span class="tok-val">pulse 1.5s ease-in-out infinite</span>;
+}
+
+<span class="tok-comment">/* ===== REDUCED MOTION RESET — add this once, globally ===== */</span>
+<span class="tok-sel">@media (prefers-reduced-motion: reduce)</span> {
+  <span class="tok-sel">*, *::before, *::after</span> {
+    <span class="tok-prop">animation-duration</span>:        <span class="tok-val">0.01ms !important</span>;
+    <span class="tok-prop">animation-iteration-count</span>: <span class="tok-val">1     !important</span>;
+    <span class="tok-prop">transition-duration</span>:       <span class="tok-val">0.01ms !important</span>;
+    <span class="tok-prop">scroll-behavior</span>:           <span class="tok-val">auto   !important</span>;
+  }
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="animation-direction.html">← animation-direction</a>
+      <a href="index.html">All Topics</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 3 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transition — Transitions, Animations & Accessible Motion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .tr-single, .tr-multi { border-radius: 10px; }
+    .tr-single:hover, .tr-single:focus-visible {
+      transition: transform 0.25s ease-out;
+      transform: translateY(-8px);
+    }
+    .tr-multi:hover, .tr-multi:focus-visible {
+      transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, background-color 0.4s ease;
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,.3);
+      background-color: #a65314;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="transition.html" aria-current="page">transition</a>
+    <a href="easing.html">Easing</a>
+    <a href="keyframes.html">@keyframes</a>
+    <a href="animation.html">animation</a>
+    <a href="animation-direction.html">animation-direction</a>
+    <a href="prefers-reduced-motion.html">prefers-reduced-motion</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 3.1</span>
+    <h1>transition</h1>
+    <p>Four sub-properties in one shorthand — miss the order and the browser silently ignores the value.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>transition — Try Hovering</h2>
+      <p class="demo-note">Four sub-properties in one shorthand: what changes, how long it takes, the easing curve, and an optional delay.</p>
+      <div class="demo-row">
+        <button class="shape tr-single">Single Property</button>
+        <button class="shape tr-multi">Multiple Properties</button>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape tr-single"</span><span class="tok-tag">&gt;</span><span class="tok-text">Single Property</span><span class="tok-tag">&lt;/button&gt;</span>
+<span class="tok-tag">&lt;button</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape tr-multi"</span><span class="tok-tag">&gt;</span><span class="tok-text">Multiple Properties</span><span class="tok-tag">&lt;/button&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* Full shorthand: property duration timing-function delay */</span>
+<span class="tok-sel">.tr-single:hover,
+.tr-single:focus-visible</span> {
+  <span class="tok-prop">transition</span>: <span class="tok-val">transform 0.25s ease-out</span>;
+  <span class="tok-prop">transform</span>: <span class="tok-val">translateY(-8px)</span>;
+}
+
+<span class="tok-comment">/* Comma-separated: multiple properties, each can have its own timing */</span>
+<span class="tok-sel">.tr-multi:hover,
+.tr-multi:focus-visible</span> {
+  <span class="tok-prop">transition</span>:
+    <span class="tok-val">transform 0.25s ease-out</span>,
+    <span class="tok-val">box-shadow 0.25s ease-out</span>,
+    <span class="tok-val">background-color 0.4s ease</span>;
+  <span class="tok-prop">transform</span>: <span class="tok-val">translateY(-8px)</span>;
+  <span class="tok-prop">box-shadow</span>: <span class="tok-val">0 10px 20px rgba(0,0,0,.3)</span>;
+  <span class="tok-prop">background-color</span>: <span class="tok-val">#a65314</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="index.html">All Topics</a>
+      <a href="easing.html">Easing →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 3 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

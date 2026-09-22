@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pseudo-Classes — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .fpc-input {
+      padding: 0.6rem 0.9rem;
+      border-radius: 6px;
+      border: 2px solid #dbe7ea;
+      font-size: 0.95rem;
+      width: 240px;
+    }
+    .fpc-input:valid { border-color: #15803d; }
+    .fpc-input:invalid:not(:placeholder-shown) { border-color: #dc2626; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="attribute-selectors.html">Attribute Selectors</a>
+    <a href="sibling-combinators.html">Sibling Combinators</a>
+    <a href="not-is-where.html">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html">:target/::placeholder</a>
+    <a href="before-after.html">::before/::after</a>
+    <a href="form-pseudo-classes.html" aria-current="page">Form Pseudo-Classes</a>
+    <a href="background-clip.html">background-clip</a>
+    <a href="background-size-border-image.html">background-size/border-image</a>
+    <a href="font-face.html">@font-face</a>
+    <a href="font-display.html">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 4.2</span>
+    <h1>Form Pseudo-Classes</h1>
+    <p>The browser already tracks validation state — these pseudo-classes just let you style what it knows.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Form Pseudo-Classes</h2>
+      <p class="demo-note">The browser tracks validation state automatically. Type an invalid then valid email below to see the border change live.</p>
+      <div class="demo-row">
+        <div>
+          <label for="fpc-email" style="display:block; margin-bottom: 0.4rem; font-size: 0.9rem; color: var(--muted);">Email (try typing)</label>
+          <input class="fpc-input" type="email" id="fpc-email" required placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;label</span> <span class="tok-attr">for</span>=<span class="tok-attrval">"fpc-email"</span><span class="tok-tag">&gt;</span><span class="tok-text">Email</span><span class="tok-tag">&lt;/label&gt;</span>
+<span class="tok-tag">&lt;input</span> <span class="tok-attr">type</span>=<span class="tok-attrval">"email"</span> <span class="tok-attr">id</span>=<span class="tok-attrval">"fpc-email"</span> <span class="tok-attr">required</span>
+       <span class="tok-attr">placeholder</span>=<span class="tok-attrval">"you@example.com"</span><span class="tok-tag">&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-comment">/* :valid — input currently passes HTML5 validation */</span>
+<span class="tok-sel">.fpc-input:valid</span> { <span class="tok-prop">border-color</span>: <span class="tok-val">#15803d</span>; }
+
+<span class="tok-comment">/* :invalid — fires immediately on load for empty required fields, */</span>
+<span class="tok-comment">/* so pair it with :not(:placeholder-shown) to wait until the user types */</span>
+<span class="tok-sel">.fpc-input:invalid:not(:placeholder-shown)</span> {
+  <span class="tok-prop">border-color</span>: <span class="tok-val">#dc2626</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="before-after.html">← ::before/::after</a>
+      <a href="index.html">All Topics</a>
+      <a href="background-clip.html">background-clip →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

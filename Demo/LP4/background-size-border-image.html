@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>background-size / border-image — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .bsz-cover, .bsz-contain { border-radius: 10px; }
+    .bsz-cover { background: linear-gradient(135deg, #145a78, #a65314); background-size: cover; }
+    .bsz-contain { background: linear-gradient(135deg, #145a78, #a65314); background-size: contain; background-repeat: no-repeat; }
+    .bi-frame {
+      padding: 1.5rem 2rem;
+      border: 12px solid transparent;
+      border-image: linear-gradient(135deg, #145a78, #a65314) 30;
+      font-weight: 600;
+      color: var(--navy);
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="attribute-selectors.html">Attribute Selectors</a>
+    <a href="sibling-combinators.html">Sibling Combinators</a>
+    <a href="not-is-where.html">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html">:target/::placeholder</a>
+    <a href="before-after.html">::before/::after</a>
+    <a href="form-pseudo-classes.html">Form Pseudo-Classes</a>
+    <a href="background-clip.html">background-clip</a>
+    <a href="background-size-border-image.html" aria-current="page">background-size/border-image</a>
+    <a href="font-face.html">@font-face</a>
+    <a href="font-display.html">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 4.3</span>
+    <h1>background-size / border-image</h1>
+    <p>One fits an image inside its box, the other turns an image into a stretchable border.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>background-size / border-image</h2>
+      <p class="demo-note">Two different properties solving two different fitting problems — one for backgrounds, one for borders.</p>
+      <div class="demo-row">
+        <div class="shape bsz-cover">cover<span class="shape-label">fills, may crop</span></div>
+        <div class="shape bsz-contain">contain<span class="shape-label">fits whole image</span></div>
+      </div>
+      <div class="demo-row" style="margin-top: 1.5rem;">
+        <div class="bi-frame">border-image</div>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape bsz-cover"</span><span class="tok-tag">&gt;</span><span class="tok-text">cover</span><span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"shape bsz-contain"</span><span class="tok-tag">&gt;</span><span class="tok-text">contain</span><span class="tok-tag">&lt;/div&gt;</span>
+
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"bi-frame"</span><span class="tok-tag">&gt;</span><span class="tok-text">border-image</span><span class="tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.bsz-cover</span>   { <span class="tok-prop">background</span>: <span class="tok-val">linear-gradient(135deg, #145a78, #a65314)</span>; <span class="tok-prop">background-size</span>: <span class="tok-val">cover</span>; }
+<span class="tok-sel">.bsz-contain</span> { <span class="tok-prop">background</span>: <span class="tok-val">linear-gradient(135deg, #145a78, #a65314)</span>; <span class="tok-prop">background-size</span>: <span class="tok-val">contain</span>; <span class="tok-prop">background-repeat</span>: <span class="tok-val">no-repeat</span>; }
+
+<span class="tok-comment">/* border-image slices an image (here, a gradient) into a 9-part border */</span>
+<span class="tok-sel">.bi-frame</span> {
+  <span class="tok-prop">border</span>: <span class="tok-val">12px solid transparent</span>;
+  <span class="tok-prop">border-image</span>: <span class="tok-val">linear-gradient(135deg, #145a78, #a65314) 30</span>;
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="background-clip.html">← background-clip</a>
+      <a href="index.html">All Topics</a>
+      <a href="font-face.html">@font-face →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

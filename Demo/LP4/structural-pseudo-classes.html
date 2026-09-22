@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structural Pseudo-Classes — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .spc-table { width: 100%; max-width: 400px; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; }
+    .spc-table td { padding: 0.75rem 1rem; }
+    .spc-table tr:first-child { font-weight: 700; }
+    .spc-table tr:nth-child(2) { color: #a65314; }
+    .spc-table tr:nth-child(odd) { background: #f2f6f7; }
+    .spc-table tr:nth-child(even) { background: #fff; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="attribute-selectors.html">Attribute Selectors</a>
+    <a href="sibling-combinators.html">Sibling Combinators</a>
+    <a href="not-is-where.html">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html" aria-current="page">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html">:target/::placeholder</a>
+    <a href="before-after.html">::before/::after</a>
+    <a href="form-pseudo-classes.html">Form Pseudo-Classes</a>
+    <a href="background-clip.html">background-clip</a>
+    <a href="background-size-border-image.html">background-size/border-image</a>
+    <a href="font-face.html">@font-face</a>
+    <a href="font-display.html">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 4.2</span>
+    <h1>Structural Pseudo-Classes</h1>
+    <p>Each rule targets a position among siblings — not a class, not an ID.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>Structural Pseudo-Classes</h2>
+      <p class="demo-note">Position-based selectors — some target one specific spot, nth-child() takes a formula for anything more complex.</p>
+      <table class="spc-table">
+        <tr><td>Row 1</td></tr>
+        <tr><td>Row 2 — nth-child(2)</td></tr>
+        <tr><td>Row 3 — odd, zebra</td></tr>
+        <tr><td>Row 4 — even, zebra</td></tr>
+        <tr><td>Row 5 — odd, zebra</td></tr>
+      </table>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;table&gt;</span>
+  <span class="tok-tag">&lt;tr&gt;&lt;td&gt;</span><span class="tok-text">Row 1</span><span class="tok-tag">&lt;/td&gt;&lt;/tr&gt;</span>
+  <span class="tok-tag">&lt;tr&gt;&lt;td&gt;</span><span class="tok-text">Row 2</span><span class="tok-tag">&lt;/td&gt;&lt;/tr&gt;</span>
+  <span class="tok-tag">&lt;tr&gt;&lt;td&gt;</span><span class="tok-text">Row 3</span><span class="tok-tag">&lt;/td&gt;&lt;/tr&gt;</span>
+  <span class="tok-tag">&lt;tr&gt;&lt;td&gt;</span><span class="tok-text">Row 4</span><span class="tok-tag">&lt;/td&gt;&lt;/tr&gt;</span>
+  <span class="tok-tag">&lt;tr&gt;&lt;td&gt;</span><span class="tok-text">Row 5</span><span class="tok-tag">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="tok-tag">&lt;/table&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">.spc-table tr:first-child</span> { <span class="tok-prop">font-weight</span>: <span class="tok-val">700</span>; }
+
+<span class="tok-comment">/* One specific position */</span>
+<span class="tok-sel">.spc-table tr:nth-child(2)</span> { <span class="tok-prop">color</span>: <span class="tok-val">#a65314</span>; }
+
+<span class="tok-comment">/* Zebra striping — the classic nth-child use case */</span>
+<span class="tok-sel">.spc-table tr:nth-child(odd)</span>  { <span class="tok-prop">background</span>: <span class="tok-val">#f2f6f7</span>; }
+<span class="tok-sel">.spc-table tr:nth-child(even)</span> { <span class="tok-prop">background</span>: <span class="tok-val">#fff</span>; }</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="not-is-where.html">← :not/:is/:where</a>
+      <a href="index.html">All Topics</a>
+      <a href="target-placeholder.html">:target/::placeholder →</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>

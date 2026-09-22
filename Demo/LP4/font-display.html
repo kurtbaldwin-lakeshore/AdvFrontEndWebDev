@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>font-display — Advanced Selectors, Pseudo-Classes & @font-face</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @font-face { font-family: 'FD-Auto';     src: local('Georgia'); font-display: auto; }
+    @font-face { font-family: 'FD-Block';    src: local('Georgia'); font-display: block; }
+    @font-face { font-family: 'FD-Swap';     src: local('Georgia'); font-display: swap; }
+    @font-face { font-family: 'FD-Fallback'; src: local('Georgia'); font-display: fallback; }
+    @font-face { font-family: 'FD-Optional'; src: local('Georgia'); font-display: optional; }
+
+    .fd-list p { margin: 0.6rem 0; font-size: 1.05rem; }
+    .fd-auto { font-family: 'FD-Auto', serif; }
+    .fd-block { font-family: 'FD-Block', serif; color: #dc2626; }
+    .fd-swap { font-family: 'FD-Swap', serif; color: #15803d; font-weight: 700; }
+    .fd-fallback { font-family: 'FD-Fallback', serif; }
+    .fd-optional { font-family: 'FD-Optional', serif; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Topic navigation">
+    <a href="../index.html" class="nav-hub">← All LPs</a>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="attribute-selectors.html">Attribute Selectors</a>
+    <a href="sibling-combinators.html">Sibling Combinators</a>
+    <a href="not-is-where.html">:not/:is/:where</a>
+    <a href="structural-pseudo-classes.html">Structural Pseudo-Classes</a>
+    <a href="target-placeholder.html">:target/::placeholder</a>
+    <a href="before-after.html">::before/::after</a>
+    <a href="form-pseudo-classes.html">Form Pseudo-Classes</a>
+    <a href="background-clip.html">background-clip</a>
+    <a href="background-size-border-image.html">background-size/border-image</a>
+    <a href="font-face.html">@font-face</a>
+    <a href="font-display.html" aria-current="page">font-display</a>
+  </nav>
+
+  <header class="page-header">
+    <span class="eyebrow">DT 4.4</span>
+    <h1>font-display</h1>
+    <p>Five values, each trading off differently between showing text immediately and showing it in the final font.</p>
+  </header>
+
+  <main>
+    <div class="demo-block">
+      <h2>font-display — Five Values</h2>
+      <p class="demo-note">The value controls what happens while a font loads. Local fonts load instantly, so these all render identically here — the point of this page is the correct syntax for each value.</p>
+      <div class="fd-list">
+        <p class="fd-auto">auto — browser default, unpredictable</p>
+        <p class="fd-block">block — invisible text while loading (avoid)</p>
+        <p class="fd-swap">swap — fallback shows immediately (recommended)</p>
+        <p class="fd-fallback">fallback — brief invisible period, then swap or give up</p>
+        <p class="fd-optional">optional — uses cache only, may skip the web font</p>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">index.html</span>
+        <pre><span class="tok-tag">&lt;p</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"fd-auto"</span><span class="tok-tag">&gt;</span><span class="tok-text">auto</span><span class="tok-tag">&lt;/p&gt;</span>
+<span class="tok-tag">&lt;p</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"fd-block"</span><span class="tok-tag">&gt;</span><span class="tok-text">block</span><span class="tok-tag">&lt;/p&gt;</span>
+<span class="tok-tag">&lt;p</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"fd-swap"</span><span class="tok-tag">&gt;</span><span class="tok-text">swap</span><span class="tok-tag">&lt;/p&gt;</span>
+<span class="tok-tag">&lt;p</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"fd-fallback"</span><span class="tok-tag">&gt;</span><span class="tok-text">fallback</span><span class="tok-tag">&lt;/p&gt;</span>
+<span class="tok-tag">&lt;p</span> <span class="tok-attr">class</span>=<span class="tok-attrval">"fd-optional"</span><span class="tok-tag">&gt;</span><span class="tok-text">optional</span><span class="tok-tag">&lt;/p&gt;</span></pre>
+      </div>
+      <div class="code-panel">
+        <span class="code-panel-label">style.css</span>
+        <pre><span class="tok-sel">@font-face</span> { <span class="tok-prop">font-family</span>: <span class="tok-val">'FD-Auto'</span>;     <span class="tok-prop">src</span>: <span class="tok-val">local('Georgia')</span>; <span class="tok-prop">font-display</span>: <span class="tok-val">auto</span>; }
+<span class="tok-sel">@font-face</span> { <span class="tok-prop">font-family</span>: <span class="tok-val">'FD-Block'</span>;    <span class="tok-prop">src</span>: <span class="tok-val">local('Georgia')</span>; <span class="tok-prop">font-display</span>: <span class="tok-val">block</span>; }
+<span class="tok-sel">@font-face</span> { <span class="tok-prop">font-family</span>: <span class="tok-val">'FD-Swap'</span>;     <span class="tok-prop">src</span>: <span class="tok-val">local('Georgia')</span>; <span class="tok-prop">font-display</span>: <span class="tok-val">swap</span>; }
+<span class="tok-sel">@font-face</span> { <span class="tok-prop">font-family</span>: <span class="tok-val">'FD-Fallback'</span>; <span class="tok-prop">src</span>: <span class="tok-val">local('Georgia')</span>; <span class="tok-prop">font-display</span>: <span class="tok-val">fallback</span>; }
+<span class="tok-sel">@font-face</span> { <span class="tok-prop">font-family</span>: <span class="tok-val">'FD-Optional'</span>; <span class="tok-prop">src</span>: <span class="tok-val">local('Georgia')</span>; <span class="tok-prop">font-display</span>: <span class="tok-val">optional</span>; }
+
+<span class="tok-sel">.fd-swap</span>  { <span class="tok-prop">font-family</span>: <span class="tok-val">'FD-Swap', serif</span>; }
+<span class="tok-sel">.fd-block</span> { <span class="tok-prop">font-family</span>: <span class="tok-val">'FD-Block', serif</span>; }</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <nav class="footer-nav" aria-label="Page navigation">
+      <a href="font-face.html">← @font-face</a>
+      <a href="index.html">All Topics</a>
+    </nav>
+    <p>Advanced Front-End Development &middot; Learning Plan 4 &middot; Live Build Demo</p>
+  </footer>
+
+</body>
+</html>
