@@ -3,19 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, ini tial-scale=1.0">
-    <title>Enter Correct Title</title>
+    <title>Door County Creamery — Shop</title>
     <!-- REQUIREMENT: External stylesheet; no inline or embedded CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
     <a href='#main' class='skip-link'>Skip to main content</a>
-    <header>
-        <nav>
-        </nav>
+    <header class="shop-header">
+     <h1>Door County Creamery</h1>
+    <p>Small-batch cherry preserves, aged cheddar, and cherry wine — made the same way for three generations, now shipping anywhere in Wisconsin.</p>
     </header>
 
     <main id='main'>
+    <div class="card-grid">
+
+    <article class="product-card">
+      <span class="ribbon">Small Batch</span>
+      <div class="product-photo-wrap">
+        <img src="https://images.pexels.com/photos/3943188/pexels-photo-3943188.jpeg?auto=compress&amp;w=800&amp;h=600&amp;fit=crop"
+             alt="A glass jar of cherry preserves on a rustic wooden table">
+      </div>
+      <div class="product-body">
+        <h2>Cherry Preserves</h2>
+        <p class="product-price">$8.50</p>
+        <p class="product-desc">Hand-picked Door County cherries, slow-cooked into a bright, tart preserve. No pectin, no shortcuts.</p>
+        <button class="add-to-cart" type="button">Add to Cart</button>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <span class="ribbon">12-Month Aged</span>
+      <div class="product-photo-wrap">
+        <img src="https://images.pexels.com/photos/8287401/pexels-photo-8287401.jpeg?auto=compress&amp;w=800&amp;h=600&amp;fit=crop"
+             alt="A wheel of aged cheddar cheese with a rustic rind">
+      </div>
+      <div class="product-body">
+        <h2>Aged Cheddar</h2>
+        <p class="product-price">$12.00</p>
+        <p class="product-desc">Twelve months aged for a sharp, nutty bite that holds its own on any cheese board.</p>
+        <button class="add-to-cart" type="button">Add to Cart</button>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <span class="ribbon">Door County Classic</span>
+      <div class="product-photo-wrap">
+        <img src="https://images.pexels.com/photos/33993981/pexels-photo-33993981.jpeg?auto=compress&amp;w=800&amp;h=600&amp;fit=crop"
+             alt="A bottle of cherry wine silhouetted against a dark background">
+      </div>
+      <div class="product-body">
+        <h2>Cherry Wine</h2>
+        <p class="product-price">$18.00</p>
+        <p class="product-desc">Semi-sweet and deep red, made from the same cherries that put Door County on the map.</p>
+        <button class="add-to-cart" type="button">Add to Cart</button>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="contrast-note">
+    <strong>Code Journal note:</strong> Ribbon gradient is <code>linear-gradient(135deg, #A65314, #6B350D)</code> with white text. Checked the lightest stop (#A65314) against white using WebAIM's contrast checker: 5.43:1 — passes WCAG AA's 4.5:1 requirement for normal text with room to spare.
+  </div>
+        
     </main>
 
     <footer>
