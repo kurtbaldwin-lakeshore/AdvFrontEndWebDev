@@ -107,6 +107,7 @@
      ============================================ */
   .ribbon {
     position: absolute;
+    z-index: 15;
     top: 14px;
     left: -6px;
     padding: 0.35rem 1rem 0.35rem 1.2rem;
@@ -161,6 +162,8 @@
     color: #FFFFFF;
   }
   .add-to-cart:focus-visible {
+    /*background: #A65314;
+    color: #FFFFFF; */
     outline: 3px solid #4A2E0F;
     outline-offset: 2px;
   }

@@ -6,7 +6,9 @@
    you read is exactly what's running.
    ========================================================================== */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -67,7 +69,7 @@ body {
 }
 
 .site-nav .nav-hub {
-  border-right: 1px solid rgba(255,255,255,0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
   padding-right: 1.5rem;
   color: #cfe0e6;
 }
@@ -192,18 +194,40 @@ main {
   white-space: pre;
 }
 
-.code-panel .tok-prop { color: #6ee7b7; }
-.code-panel .tok-val  { color: #fcd34d; }
-.code-panel .tok-sel  { color: #93c5fd; }
-.code-panel .tok-comment { color: #94a3b8; }
+.code-panel .tok-prop {
+  color: #6ee7b7;
+}
+
+.code-panel .tok-val {
+  color: #fcd34d;
+}
+
+.code-panel .tok-sel {
+  color: #93c5fd;
+}
+
+.code-panel .tok-comment {
+  color: #94a3b8;
+}
 
 /* HTML token colors */
-.code-panel .tok-tag   { color: #93c5fd; }
-.code-panel .tok-attr  { color: #6ee7b7; }
-.code-panel .tok-attrval { color: #fcd34d; }
-.code-panel .tok-text  { color: #cfe0e6; }
+.code-panel .tok-tag {
+  color: #93c5fd;
+}
 
-.code-panel + .code-panel {
+.code-panel .tok-attr {
+  color: #6ee7b7;
+}
+
+.code-panel .tok-attrval {
+  color: #fcd34d;
+}
+
+.code-panel .tok-text {
+  color: #cfe0e6;
+}
+
+.code-panel+.code-panel {
   margin-top: 1rem;
 }
 
@@ -248,9 +272,11 @@ button:focus-visible {
   .page-header {
     padding: 2rem 1.25rem;
   }
+
   main {
     padding: 2rem 1.25rem;
   }
+
   .demo-row {
     gap: 1rem;
   }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step 1 — Structure Only (No CSS Yet)</title>
+  <!-- No <style> block, and no linked stylesheet. This is intentional.
+       The point of Step 1 is to confirm the CONTENT and the DOCUMENT
+       ORDER are right before a single visual decision gets made. -->
+</head>
+<body>
+
+  <!-- article, not div: this card is a self-contained piece of content
+       (one product) that would still make sense if syndicated on its
+       own — that's exactly what <article> is for. -->
+  <article class="product-card">
+
+    <!-- Real photo from the start, not a placeholder box. A solid-color
+         placeholder can accidentally hide layout bugs that only show up
+         once real content fills the space. -->
+    <div class="product-photo-wrap">
+      <img
+        src="https://images.pexels.com/photos/3943188/pexels-photo-3943188.jpeg?auto=compress&amp;w=800&amp;h=600&amp;fit=crop"
+        alt="A glass jar of cherry preserves on a rustic wooden table">
+    </div>
+
+    <div class="product-body">
+
+      <!-- h2, not h1: this card will eventually sit inside a page that
+           already has its own h1 (the shop's name). h2 is correct for
+           a product name at this level in the outline. -->
+      <h2>Cherry Preserves</h2>
+
+      <p class="product-price">$8.50</p>
+
+      <p class="product-desc">
+        Hand-picked Door County cherries, slow-cooked into a bright,
+        tart preserve. No pectin, no shortcuts.
+      </p>
+
+      <!-- button, not a styled <a>: this performs an action on the
+           current page (adding to a cart), it doesn't navigate
+           anywhere. That distinction matters for keyboard and
+           screen-reader users, so get the right element now —
+           don't leave it to "fix later" once CSS is involved. -->
+      <button type="button">Add to Cart</button>
+
+    </div>
+
+  </article>
+
+</body>
+</html>

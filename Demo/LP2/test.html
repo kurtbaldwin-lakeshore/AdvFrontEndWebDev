@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Visual Properties — CSS3 Visual Properties</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .team-photo {
+            filter: grayscale(100%);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .team-photo:hover,
+        .team-photo:focus-visible {
+            filter: grayscale(0%);
+            clip-path: circle(100% at center);
+            transform: rotate(20deg);
+        }
+    </style>
+</head>
+
+<body style="margin-left: 25px;">
+    <h1 class="text-gradient">CSS3 Visual Properties</h1>
+    <img src="images/farm.jpg" class="team-photo" width="150">
+
+</html>
