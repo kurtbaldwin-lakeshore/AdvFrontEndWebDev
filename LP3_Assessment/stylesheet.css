@@ -1,0 +1,111 @@
+/* ============================================
+   RESET & BOX MODEL
+   Apply to every project, every time.
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* ============================================
+   CUSTOM PROPERTIES
+   Define your palette and fonts once, here.
+   ============================================ */
+
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+
+/* ============================================
+   SKIP LINK
+   Hidden off-screen until it receives keyboard focus.
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
+   FOCUS VISIBILITY
+   Never remove this without a replacement.
+   ============================================ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   REDUCED MOTION
+   Required on every project with any animation.
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1     !important;
+    transition-duration:       0.01ms !important;
+    scroll-behavior:           auto   !important;
+  }
+}
+
+.product-card {
+width: 350px;
+background: #FFFFFF;
+overflow: hidden;
+border: 3px solid red;
+
+}
+
+.product-photo-wrapper {
+height: 320px;
+overflow:hidden;
+position: relative;
+
+}
+
+.product-photo-wrapper img {
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit: cover;
+}
+
+.product-body {
+    padding: 1.2rem;
+    color:blue;
+}
+
+.product-body h2 {
+    font-size: 1.6rem;
+    color: green;
+}
+
+.product-price {
+font-size: 1.05rem;
+color:aquamarine;
+font-weight: 700;
+
+}
+
+.product-desc {
+font-size: .90rem;
+color: #5c4a33;
+
+}
+
