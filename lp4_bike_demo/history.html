@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+  LP4 / DT 4.4 - @font-face & Web Typography                   (history.html)
+  Self-hosted fonts are in /fonts (SIL Open Font License - see the LICENSE files):
+    Oswald 400, 700 ........... headings   (condensed sans-serif)
+    Lora 400, 400 italic, 700 . body text  (serif; the italic file makes em / cite / blockquote look right)
+  Each file comes as .woff2 (primary) and .woff (fallback) for the src: format() list.
+  Try: font-display: swap, then throttle the network in DevTools to watch the fallback font swap.
+  Targets: h1-h3, p, em, strong, cite, blockquote, time, small, the type specimen section
+  Full selector map: INSTRUCTOR_NOTES.md
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The story of Driftless Cycle Co., from a garage in 1987 to Main Street today.">
+  <title>Our History | Driftless Cycle Co.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main-content">Skip to main content</a>
+
+  <header id="top">
+    <h1>Our History</h1>
+    <p>Nearly four decades of fixing bikes and building a riding community.</p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a>
+          <ul>
+            <li><a href="products.html#road">Road Bikes</a></li>
+            <li><a href="products.html#gravel">Gravel Bikes</a></li>
+            <li><a href="products.html#ebike">E-Bikes</a></li>
+            <li><a href="products.html#kids">Kids' Bikes</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="history.html" aria-current="page">Our History</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="intro">
+      <h2>From a Garage to Main Street</h2>
+      <p>In the spring of 1987, Walt Hollander cleared a corner of his garage in Viroqua, hung a hand-painted sign, and began fixing neighborhood bikes for a few dollars and a cup of coffee. Word travelled fast.</p>
+      <p>Today his daughter Pat runs the shop on Main Street. The tools are newer and the bikes are fancier, but the idea is the same: <em>treat every rider like a neighbor</em>.</p>
+    </section>
+
+    <section id="timeline">
+      <h2>Timeline</h2>
+      <ol>
+        <li><time datetime="1987">1987</time> &ndash; <strong>The garage opens.</strong> Walt repairs his first 40 bikes in a single summer.</li>
+        <li><time datetime="1994">1994</time> &ndash; <strong>Move to Main Street.</strong> The shop gets a real storefront and a second work stand.</li>
+        <li><time datetime="2003">2003</time> &ndash; <strong>First Sunday ride.</strong> Eleven riders, one flat tire, zero regrets.</li>
+        <li><time datetime="2012">2012</time> &ndash; <strong>Gravel and e-bikes arrive.</strong> The lineup doubles almost overnight.</li>
+        <li><time datetime="2020">2020</time> &ndash; <strong>Online booking.</strong> Test rides and tune-ups can be reserved from home.</li>
+        <li><time datetime="2026">2026</time> &ndash; <strong>Fall catalog.</strong> Four models, four group rides a week, and a new generation in the saddle.</li>
+      </ol>
+    </section>
+
+    <section id="founder">
+      <h2>A Word from the Founder</h2>
+      <figure>
+        <blockquote>
+          <p>A bike is the cheapest ticket to freedom there is. My job was never to sell you a bike. It was to make sure you wanted to ride it again tomorrow.</p>
+        </blockquote>
+        <figcaption>&mdash; <cite>Walt Hollander</cite>, from a 2012 interview</figcaption>
+      </figure>
+    </section>
+
+    <!-- DEMO: a built-in specimen so students can see each @font-face rule at work.
+         400 vs 700 (font-weight descriptor), italic (font-style descriptor), headings vs body. -->
+    <section id="specimen">
+      <h2>Type Specimen</h2>
+      <h3>Headings</h3>
+      <p>Oswald is a condensed sans-serif that stays readable when it is big and bold.</p>
+      <h3>Body text</h3>
+      <p>Lora is a contemporary serif with calligraphic roots. It keeps long paragraphs comfortable to read, whether you are scanning a ride schedule or settling in with the whole story of the shop.</p>
+      <h3>Emphasis</h3>
+      <p>Ordinary text, then <em>italic emphasis</em>, then <strong>bold emphasis</strong>, then <strong><em>both at once</em></strong>.</p>
+      <h3>Numbers</h3>
+      <p>0123456789 &middot; $1,499 &middot; 52 cm &middot; 80&ndash;100 PSI</p>
+      <p><small>Both typefaces are licensed under the SIL Open Font License and self-hosted from the /fonts folder.</small></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Driftless Cycle Co. &middot; 214 Main Street, Viroqua, WI 54665</p>
+    <p><a href="mailto:hello@driftlesscycle.example">hello@driftlesscycle.example</a> &middot; <a href="tel:+16085550142">(608) 555-0142</a></p>
+    <p><a href="#top">Back to top</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* ==========================================================
+   Driftless Cycle Co. - LP4 live-code stylesheet
+   ONE shared file, linked from all four pages.
+   Write each lesson's CSS under its own heading below.
+   ========================================================== */
+
+
+/* ---------- 4.1  Combinators & attribute selectors  (index.html) ---------- */
+
+
+/* ---------- 4.2  Pseudo-classes & pseudo-elements  (products.html) ---------- */
+
+
+/* ---------- 4.3  Advanced backgrounds  (about.html) ---------- */
+
+
+/* ---------- 4.4  @font-face & web typography  (history.html) ---------- */
+/* Font files are ready in /fonts:
+   oswald-latin-400-normal / oswald-latin-700-normal      (.woff2 + .woff)
+   lora-latin-400-normal / lora-latin-400-italic / lora-latin-700-normal  (.woff2 + .woff) */

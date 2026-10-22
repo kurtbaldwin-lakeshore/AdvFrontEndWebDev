@@ -4,7 +4,9 @@
    students, section by section, using this as the target.
    ========================================================================== */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -109,7 +111,7 @@ main {
 
 .shape-shadow-single {
   border-radius: 10px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.25);
 }
 
 .shape-shadow-layered {
@@ -118,8 +120,18 @@ main {
      plus a soft, diffuse shadow further out — this combination is what
      reads as "real" depth instead of a flat drop shadow. */
   box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.25),
-    0 12px 24px rgba(0, 0, 0, 0.18);
+    0 10px 10px rgb(171, 17, 17),
+    0 15px 15px rgba(0, 0, 0, 1);
+}
+
+.shape-shadow-layered:hover {
+  border-radius: 10px;
+  /* Two layered values: a tight, darker shadow close to the element,
+     plus a soft, diffuse shadow further out — this combination is what
+     reads as "real" depth instead of a flat drop shadow. */
+  box-shadow:
+    0 10px 10px rgb(46, 170, 61),
+    0 15px 10px rgb(101, 7, 122);
 }
 
 /* ==========================================================================
@@ -137,7 +149,8 @@ main {
   margin: 0;
   color: #fff;
   font-size: 2.25rem;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 10px 10px 0 rgba(0, 0, 0, 0.5);
+  text-shadow: 15px 15px 0 rgba(174, 29, 29, 0.5);
 }
 
 /* ==========================================================================
@@ -146,12 +159,12 @@ main {
 
 .gradient-linear {
   border-radius: 10px;
-  background: linear-gradient(135deg, #0b3d54, #d97b29);
+  background: linear-gradient(135deg, #0b3d54, red, #d97b29);
 }
 
 .gradient-radial {
   border-radius: 10px;
-  background: radial-gradient(circle, #1b6b8c, #0b2733);
+  background: radial-gradient(circle, #fbfbfb, #0b2733);
 }
 
 .gradient-card {
@@ -161,7 +174,7 @@ main {
   /* Standing in for a background photo — in class, swap this for a real
      background-image: url('...') and layer the same darkening gradient
      on top for contrast. */
-  background: linear-gradient(160deg, #d97b29 0%, #0b3d54 100%);
+  background: linear-gradient(160deg, blue 0%, green 100%);
 }
 
 .gradient-card-overlay {

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--
+  LP4 / DT 4.2 - Pseudo-classes & Pseudo-elements              (products.html)
+    :hover  :focus  :focus-visible  :active ... cards, links, buttons, form fields
+    :nth-child(even/odd)  vs  :nth-of-type(even/odd) ... the four <article> cards (see note below)
+    :first-child  :last-child ... spec lists, table rows and cells
+    :target ..................... click a bike in the menu (Products submenu) and the card jumps into view
+    :checked  :disabled  :required  :invalid ... the reservation form and the Sold Out button
+    ::before  ::after  ::placeholder  ::first-letter  ::first-line  ::marker  ::selection
+  Full selector map: INSTRUCTOR_NOTES.md
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse road, gravel, electric, and kids' bikes from Driftless Cycle Co.">
+  <title>Products | Driftless Cycle Co.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main-content">Skip to main content</a>
+
+  <header id="top">
+    <h1>The Bike Lineup</h1>
+    <p>Road, gravel, e-bike, and kids' bikes, assembled and tuned in the shop.</p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" aria-current="page">Products</a>
+          <ul>
+            <li><a href="products.html#road">Road Bikes</a></li>
+            <li><a href="products.html#gravel">Gravel Bikes</a></li>
+            <li><a href="products.html#ebike">E-Bikes</a></li>
+            <li><a href="products.html#kids">Kids' Bikes</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="history.html">Our History</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- DEMO: the <h2> is child #1 of this section, so the four articles are children 2-5.
+         article:nth-child(even)   -> cards 1 and 3  (the counting includes the h2!)
+         article:nth-of-type(even) -> cards 2 and 4  (counts only <article> siblings)
+         Great live "why didn't that work?" moment. -->
+    <section id="lineup">
+      <h2>Shop Bikes</h2>
+      <article id="road">
+        <h3>Ridgeline Road</h3>
+        <img src="images/bike-road.svg" alt="Illustration of a red road bicycle" width="320" height="200">
+        <p>A light, fast road bike for weekend centuries and Tuesday-night hill repeats.</p>
+        <ul>
+          <li>Frame: lightweight aluminum</li>
+          <li>Gears: 2&times;11 speed</li>
+          <li>Weight: 19.8 lb</li>
+          <li>Price: $1,499</li>
+        </ul>
+        <p><a href="downloads/spec-sheet-road.pdf">Download spec sheet (PDF)</a></p>
+        <button type="button">Add to Cart</button>
+      </article>
+      <article id="gravel">
+        <h3>Bluff Country Gravel</h3>
+        <img src="images/bike-gravel.svg" alt="Illustration of a yellow gravel bicycle with drop handlebars" width="320" height="200">
+        <p>Wide tires and a relaxed frame built for the gravel roads of the Driftless.</p>
+        <ul>
+          <li>Frame: butted chromoly steel</li>
+          <li>Gears: 1&times;12 speed</li>
+          <li>Weight: 24.1 lb</li>
+          <li>Price: $1,299</li>
+        </ul>
+        <p><a href="downloads/spec-sheet-gravel.pdf">Download spec sheet (PDF)</a></p>
+        <button type="button">Add to Cart</button>
+      </article>
+      <article id="ebike">
+        <h3>Coulee E-Bike</h3>
+        <img src="images/bike-ebike.svg" alt="Illustration of a teal electric bicycle with a battery on the down tube" width="320" height="200">
+        <p>Flatten the hills. A quiet mid-drive motor and up to 60 miles of range.</p>
+        <ul>
+          <li>Frame: aluminum, integrated battery</li>
+          <li>Motor: 250 W mid-drive</li>
+          <li>Range: up to 60 mi</li>
+          <li>Price: $2,899</li>
+        </ul>
+        <p><a href="downloads/spec-sheet-ebike.pdf">Download spec sheet (PDF)</a></p>
+        <button type="button">Add to Cart</button>
+      </article>
+      <article id="kids">
+        <h3>Sprout Kids' Bike</h3>
+        <img src="images/bike-kids.svg" alt="Illustration of a small purple child's bicycle" width="320" height="200">
+        <p>Light enough for small riders and tough enough for the driveway.</p>
+        <ul>
+          <li>Frame: lightweight aluminum</li>
+          <li>Gears: single speed</li>
+          <li>Sizes: 20 in and 24 in</li>
+          <li>Price: from $329</li>
+        </ul>
+        <p><a href="downloads/spec-sheet-kids.pdf">Download spec sheet (PDF)</a></p>
+        <button type="button" disabled>Sold Out</button>
+      </article>
+      <p>Every bike ships fully assembled and tuned. Pick up in the shop or have it delivered within 50 miles of Viroqua.</p>
+    </section>
+
+    <section id="compare">
+      <h2>Full Price List</h2>
+      <p>Sizes, prices, and what is on the floor today.</p>
+      <table>
+        <caption>Driftless Cycle Co. price list, fall 2026</caption>
+        <thead>
+          <tr><th scope="col">Model</th><th scope="col">Size</th><th scope="col">Price</th><th scope="col">Status</th><th scope="col">Details</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ridgeline Road</td><td>52 cm</td><td>$1,499</td><td>In stock</td><td><a href="#road">View</a></td></tr>
+          <tr><td>Ridgeline Road</td><td>56 cm</td><td>$1,499</td><td>Low stock</td><td><a href="#road">View</a></td></tr>
+          <tr><td>Bluff Country Gravel</td><td>54 cm</td><td>$1,299</td><td>In stock</td><td><a href="#gravel">View</a></td></tr>
+          <tr><td>Bluff Country Gravel</td><td>58 cm</td><td>$1,299</td><td>In stock</td><td><a href="#gravel">View</a></td></tr>
+          <tr><td>Coulee E-Bike</td><td>Medium</td><td>$2,899</td><td>Low stock</td><td><a href="#ebike">View</a></td></tr>
+          <tr><td>Coulee E-Bike</td><td>Large</td><td>$2,899</td><td>Pre-order</td><td><a href="#ebike">View</a></td></tr>
+          <tr><td>Sprout Kids' Bike</td><td>20 in</td><td>$329</td><td>Sold out</td><td><a href="#kids">View</a></td></tr>
+          <tr><td>Sprout Kids' Bike</td><td>24 in</td><td>$379</td><td>In stock</td><td><a href="#kids">View</a></td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="5">Prices include assembly and a free first tune-up.</td></tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- DEMO: ::placeholder on the text/email/tel/textarea fields, :checked + label on radios/checkboxes,
+         :required / :invalid / :disabled / :focus / :focus-visible on every control -->
+    <section id="reserve">
+      <h2>Reserve a Test Ride</h2>
+      <p>Tell us what you would like to try and we will have it ready when you arrive.</p>
+      <form action="#reserve" method="get">
+        <fieldset>
+          <legend>Your details</legend>
+          <div>
+            <label for="res-name">Full name</label>
+            <input type="text" id="res-name" name="name" placeholder="Jane Rider" required autocomplete="name">
+          </div>
+          <div>
+            <label for="res-email">Email</label>
+            <input type="email" id="res-email" name="email" placeholder="jane@example.com" required autocomplete="email">
+          </div>
+          <div>
+            <label for="res-phone">Phone (optional)</label>
+            <input type="tel" id="res-phone" name="phone" placeholder="(608) 555-0100" autocomplete="tel">
+          </div>
+          <div>
+            <label for="res-date">Preferred date</label>
+            <input type="date" id="res-date" name="date">
+          </div>
+          <div>
+            <label for="res-bike">Bike to try</label>
+            <select id="res-bike" name="bike">
+              <option>Ridgeline Road</option>
+              <option>Bluff Country Gravel</option>
+              <option>Coulee E-Bike</option>
+              <option>Sprout Kids' Bike</option>
+            </select>
+          </div>
+          <div>
+            <label for="res-member">Member ID</label>
+            <input type="text" id="res-member" name="member" value="Assigned at the shop" disabled>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Riding experience</legend>
+          <div>
+            <input type="radio" id="exp-new" name="experience" value="new" checked>
+            <label for="exp-new">New to cycling</label>
+          </div>
+          <div>
+            <input type="radio" id="exp-some" name="experience" value="some">
+            <label for="exp-some">Ride a few times a month</label>
+          </div>
+          <div>
+            <input type="radio" id="exp-expert" name="experience" value="expert">
+            <label for="exp-expert">Ride every week</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Extras</legend>
+          <div>
+            <input type="checkbox" id="opt-helmet" name="extras" value="helmet">
+            <label for="opt-helmet">Borrow a helmet</label>
+          </div>
+          <div>
+            <input type="checkbox" id="opt-fit" name="extras" value="fit" checked>
+            <label for="opt-fit">Include a 15-minute bike fit</label>
+          </div>
+          <div>
+            <input type="checkbox" id="opt-news" name="extras" value="news">
+            <label for="opt-news">Send me the monthly ride calendar</label>
+          </div>
+        </fieldset>
+
+        <div>
+          <label for="res-notes">Anything else we should know?</label>
+          <textarea id="res-notes" name="notes" rows="4" placeholder="Your height, riding goals, or questions"></textarea>
+        </div>
+        <button type="submit">Request Test Ride</button>
+        <button type="reset">Clear Form</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Driftless Cycle Co. &middot; 214 Main Street, Viroqua, WI 54665</p>
+    <p><a href="mailto:hello@driftlesscycle.example">hello@driftlesscycle.example</a> &middot; <a href="tel:+16085550142">(608) 555-0142</a></p>
+    <p><a href="#top">Back to top</a></p>
+  </footer>
+</body>
+</html>

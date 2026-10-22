@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+  LP4 / DT 4.1 - Combinators & Attribute Selectors            (index.html)
+  This page has NO classes. Every selector must work from the structure and attributes.
+    Descendant vs. child ........ the nested menu inside <nav>
+    Adjacent (+) / general (~) .. h2 / p / ul / ol runs in #welcome, #guide, #rides, #faq
+    Attribute selectors ......... links (https, http, mailto, tel, files, #anchors, target, download),
+                                  input types, required, aria-expanded, aria-current, abbr[title]
+  Full selector map: INSTRUCTOR_NOTES.md
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Driftless Cycle Co. sells, services, and rides bikes in southwest Wisconsin.">
+  <title>Home | Driftless Cycle Co.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main-content">Skip to main content</a>
+
+  <header id="top">
+    <h1>Driftless Cycle Co.</h1>
+    <p>Family-owned bike shop in Viroqua, Wisconsin, since 1987.</p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="products.html">Products</a>
+          <ul>
+            <li><a href="products.html#road">Road Bikes</a></li>
+            <li><a href="products.html#gravel">Gravel Bikes</a></li>
+            <li><a href="products.html#ebike">E-Bikes</a></li>
+            <li><a href="products.html#kids">Kids' Bikes</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="history.html">Our History</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="welcome">
+      <h2>Welcome to the Shop</h2>
+      <p>Driftless Cycle Co. is a family-owned bike shop in the hills of southwest Wisconsin. We sell, fix, and ride bikes, and we would love to help you do the same.</p>
+      <p>New to cycling? Start with our <a href="products.html">bike lineup</a>. Curious who we are? Meet the crew on the <a href="about.html">About Us</a> page or read our <a href="history.html">history</a>.</p>
+      <p>Every bike we sell includes a free first tune-up and a fitting by one of our <abbr title="Professional Bicycle Fitting Association">PBFA</abbr>-trained staff.</p>
+    </section>
+
+    <!-- DEMO: a long flat run of siblings inside ONE parent.
+         p + h2  matches only the h2s that come right after a <p>  (Tire Pressure, Winter Storage)
+         h2 + p  matches only the paragraphs that come right after an h2 (3 of the 5)
+         h2 ~ p  matches EVERY later paragraph in this section, adjacent or not -->
+    <section id="guide">
+      <h2>Bike Care Guide</h2>
+      <p>Ten minutes of care before a ride saves hours of repair later. Here are the basics every rider should know.</p>
+      <p>Prefer paper? Print our <a href="downloads/bike-care-checklist.pdf">care checklist (PDF)</a> and tape it to the garage wall.</p>
+      <h2>Tire Pressure</h2>
+      <p>Check your tires before every ride. Too soft and you risk a pinch flat; too hard and the ride gets harsh. The right number is printed on the tire sidewall.</p>
+      <ul>
+        <li>Road: 80&ndash;100 <abbr title="pounds per square inch">PSI</abbr></li>
+        <li>Gravel: 35&ndash;50 <abbr title="pounds per square inch">PSI</abbr></li>
+        <li>E-bike: 40&ndash;65 <abbr title="pounds per square inch">PSI</abbr></li>
+        <li>Kids: 20&ndash;30 <abbr title="pounds per square inch">PSI</abbr></li>
+      </ul>
+      <h2>Chain Care</h2>
+      <ol>
+        <li>Wipe the chain with a clean rag.</li>
+        <li>Add one drop of lube to each link.</li>
+        <li>Wipe off the extra so dirt does not stick.</li>
+      </ol>
+      <h2>Brake Check</h2>
+      <p>Squeeze each lever. The brake should grab the wheel before the lever reaches half of its travel.</p>
+      <p>If the lever feels spongy or touches the handlebar, stop riding and bring the bike in.</p>
+      <h2>Winter Storage</h2>
+      <ul>
+        <li>Clean and lube the drivetrain.</li>
+        <li>Store the bike indoors, off the floor if you can.</li>
+        <li>Charge e-bike batteries to about 60% before storing.</li>
+      </ul>
+    </section>
+
+    <section id="rides">
+      <h2>This Week's Group Rides</h2>
+      <p>All rides leave from the shop. Helmets required, all paces welcome.</p>
+      <ul>
+        <li><strong>Tuesday</strong> &ndash; Easy Spin, 6:00 pm, 15 mi &middot; <a href="downloads/kettle-moraine-loop.gpx" download>Route (GPX)</a></li>
+        <li><strong>Thursday</strong> &ndash; Hill Repeats, 6:00 pm, 22 mi &middot; <a href="downloads/trail-map.pdf">Trail map (PDF)</a></li>
+        <li><strong>Saturday</strong> &ndash; Gravel Grinder, 8:00 am, 45 mi &middot; <a href="https://www.ridewithgps.com" target="_blank" rel="noopener noreferrer">Route on Ride with GPS</a></li>
+        <li><strong>Sunday</strong> &ndash; Family Roll, 10:00 am, 8 mi &middot; <a href="#contact">Ask us about it</a></li>
+      </ul>
+    </section>
+
+    <!-- DEMO: attribute selectors on links.
+         a[href^="https"]  a[href^="http:"]  a[href^="mailto:"]  a[href^="tel:"]  a[href^="#"]
+         a[href$=".pdf"]  a[href$=".gpx"]  a[href$=".csv"]  a[href$=".zip"]  a[href$=".html"]
+         a[href*="bikefed"]  a[target="_blank"]  a[rel~="noopener"]  a[download] -->
+    <section id="resources">
+      <h2>Maps, Guides &amp; Links</h2>
+      <p>Grab a route for your phone, print a map, or explore the wider Wisconsin cycling community.</p>
+      <h3>Downloads</h3>
+      <ul>
+        <li><a href="downloads/trail-map.pdf">Driftless trail map (PDF)</a></li>
+        <li><a href="downloads/bike-care-checklist.pdf">Bike care checklist (PDF)</a></li>
+        <li><a href="downloads/spec-sheet.csv" download>Bike spec comparison (CSV)</a></li>
+        <li><a href="downloads/kettle-moraine-loop.gpx" download>Valley loop route (GPX)</a></li>
+        <li><a href="downloads/shop-guides.zip" download>All shop guides (ZIP)</a></li>
+      </ul>
+      <h3>Around the Web</h3>
+      <ul>
+        <li><a href="https://www.bikefed.org" target="_blank" rel="noopener noreferrer">Wisconsin Bike Fed</a></li>
+        <li><a href="https://www.adventurecycling.org" target="_blank" rel="noopener noreferrer">Adventure Cycling Association</a></li>
+        <li><a href="https://dnr.wisconsin.gov" target="_blank" rel="noopener noreferrer">Wisconsin DNR (state trails)</a></li>
+        <li><a href="http://example.com/old-trail-guide">Legacy trail guide (not secure)</a></li>
+      </ul>
+    </section>
+
+    <!-- DEMO: ARIA-state attribute selectors. button[aria-expanded="true"] / [aria-expanded="false"] / [hidden]
+         There is no JavaScript in this course, so the states are static - that is all the selectors need. -->
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <p>Click a question to see the answer.</p>
+      <h3><button type="button" aria-expanded="true" aria-controls="faq-1">Do you offer test rides?</button></h3>
+      <div id="faq-1">
+        <p>Yes. Book a test ride on the <a href="products.html#reserve">products page</a> and we will have a bike ready in your size.</p>
+      </div>
+      <h3><button type="button" aria-expanded="false" aria-controls="faq-2">Do you service bikes you did not buy here?</button></h3>
+      <div id="faq-2" hidden>
+        <p>Absolutely. We repair every brand, and most tune-ups are done within two business days.</p>
+      </div>
+      <h3><button type="button" aria-expanded="false" aria-controls="faq-3">Can I return a bike?</button></h3>
+      <div id="faq-3" hidden>
+        <p>Unused bikes can be returned within 14 days with the original receipt.</p>
+      </div>
+    </section>
+
+    <!-- DEMO: input[type="text"] / [type="email"] / [type="tel"] / [required] / label + input -->
+    <section id="contact">
+      <h2>Contact &amp; Newsletter</h2>
+      <p>Email <a href="mailto:rides@driftlesscycle.example?subject=Group%20ride%20question">rides@driftlesscycle.example</a> or call <a href="tel:+16085550142">(608) 555-0142</a>. Get the monthly ride calendar by email below.</p>
+      <form action="#contact" method="get">
+        <div>
+          <label for="news-name">Name</label>
+          <input type="text" id="news-name" name="name" required autocomplete="name">
+        </div>
+        <div>
+          <label for="news-email">Email</label>
+          <input type="email" id="news-email" name="email" required autocomplete="email">
+        </div>
+        <div>
+          <label for="news-phone">Mobile (optional)</label>
+          <input type="tel" id="news-phone" name="phone" autocomplete="tel">
+        </div>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Driftless Cycle Co. &middot; 214 Main Street, Viroqua, WI 54665</p>
+    <p><a href="mailto:hello@driftlesscycle.example">hello@driftlesscycle.example</a> &middot; <a href="tel:+16085550142">(608) 555-0142</a></p>
+    <p><a href="#top">Back to top</a></p>
+  </footer>
+</body>
+</html>
