@@ -7,8 +7,8 @@ A four-page bicycle shop site for demonstrating Learning Plan 4 live in class. T
 | Lesson | Page | Main idea |
 |---|---|---|
 | 4.1 | `index.html` | Combinators and attribute selectors |
-| 4.2 | `products.html` | Pseudo-classes and pseudo-elements |
-| 4.3 | `about.html` | Advanced backgrounds (also has quote/`::before` spots if your 4.3 still covers pseudo-elements) |
+| 4.2 | `products.html` | Pseudo-classes |
+| 4.3 | `about.html` | Pseudo-elements and advanced backgrounds |
 | 4.4 | `history.html` | `@font-face` and web typography |
 
 Every count below was measured in a real browser against the finished HTML. The HTML also passes the W3C Nu validator with zero errors and zero warnings.
@@ -62,7 +62,7 @@ Every count below was measured in a real browser against the finished HTML. The 
 | `[aria-controls]` | PRESENCE: buttons that control a panel | 3 |
 | `abbr[title]` | PRESENCE: abbreviations with a title tooltip | 5 |
 
-## DT 4.2 - Pseudo-classes & Pseudo-elements  (`products.html`)
+## DT 4.2 - Pseudo-classes  (`products.html`)
 
 | Selector | What it demonstrates | Matches |
 |---|---|---|
@@ -92,26 +92,35 @@ Every count below was measured in a real browser against the finished HTML. The 
 | `input:checked + label` | label next to a checked control | 2 |
 | `input[type='radio'] + label` | radio labels | 3 |
 | `input[type='checkbox'] + label` | checkbox labels | 3 |
-| `input[placeholder], textarea[placeholder]` | elements with ::placeholder text | 4 |
-| **PSEUDO-ELEMENT HOOKS** | | |
-| `article h3` | ::before / ::after badge or icon | 4 |
-| `a[href$='.pdf']` | PDF links: add an icon with ::after | 4 |
-| `article p:first-of-type` | ::first-letter / ::first-line | 4 |
-| `li` | ::marker / ::before on list items (menu items + spec lines) | 25 |
+| **JUMP LINKS AND :target** | | |
 | `nav ul ul a` | submenu links that jump to the cards (watch :target) | 4 |
 
-## DT 4.3 - Advanced Backgrounds  (`about.html`)
+## DT 4.3 - Pseudo-Elements & Advanced Backgrounds  (`about.html`)
 
 | Selector | What it demonstrates | Matches |
 |---|---|---|
+| **PSEUDO-ELEMENTS** | | |
+| `main h2` | ::before / ::after decoration (underline bar, icon) on every section heading | 7 |
+| `#team h3` | ::before / ::after badge or icon on each team member's name | 3 |
+| `#mission blockquote` | ::before / ::after big opening and closing quotation marks | 1 |
+| `#numbers li` | ::after to add a unit or label after each number | 3 |
+| `#story p:first-of-type` | ::first-letter (drop cap) and ::first-line | 1 |
+| `#story p` | both story paragraphs (compare first-of-type) | 2 |
+| `aside li` | ::marker on the values list | 3 |
+| `#join li` | ::marker on the join list | 3 |
+| `input[placeholder], textarea[placeholder]` | ::placeholder text in the Join form | 3 |
+| `a[href$='.pdf']` | ::after icon on file links | 1 |
+| `a[target='_blank']` | ::after 'opens in new tab' icon | 1 |
+| `a[href^='mailto:']` | ::before envelope icon (join list + footer) | 2 |
+| **ADVANCED BACKGROUNDS** | | |
 | `header` | hero: cover + multiple backgrounds + gradient overlay | 1 |
 | `#banner` | full-width band: cover / position / attachment / overlay | 1 |
 | `#numbers li strong` | background-clip: text (gradient numbers) | 3 |
-| `#mission blockquote` | border-image | 1 |
+| `#mission blockquote` | border-image (also the quote-mark pseudo-elements above) | 1 |
 | `#team article` | tile pattern, contain logo, two layered backgrounds | 3 |
 | `#team img` | portraits | 3 |
 | `aside` | multiple backgrounds on a sidebar | 1 |
-| `main > section` | the four bands | 5 |
+| `main > section` | the six page bands | 6 |
 
 ## DT 4.4 - @font-face & Web Typography  (`history.html`)
 
@@ -136,11 +145,14 @@ Every count below was measured in a real browser against the finished HTML. The 
 3. **`nth-child` vs `nth-of-type`** (products, `#lineup`): the `h2` is child #1, so `article:nth-child(even)` picks cards 1 and 3. `nth-of-type(even)` picks 2 and 4. `article:first-child` matches nothing.
 4. **`:target`** (products): the Products submenu links to `#road`, `#gravel`, `#ebike`, and `#kids`. Click one and the card becomes `:target`.
 5. **Disabled and checked states** (products): the Sold Out button, the Member ID field, and one pre-checked radio and checkbox.
-6. **`a[href$=".pdf"]::after`** (products): an attribute selector and a pseudo-element together, for a file-type icon.
-7. **`background-clip: text`** (about, `#numbers li strong`): needs `color: transparent` plus the `-webkit-` prefix.
-8. **`border-image`** (about, `#mission blockquote`): `images/border-frame.svg` is a 90px 3x3 image, so use slice `30`.
-9. **Two font files per family** (history): `em` needs the Lora italic file. `strong` and headings need the 700 files. Show what happens without each one.
-10. **`font-display: swap`**: throttle the network in DevTools to watch the fallback font swap.
+6. **Attribute selector + pseudo-element together** (about): `a[href$=".pdf"]::after`, `a[target="_blank"]::after`, and `a[href^="mailto:"]::before` give three different link icons with no classes.
+7. **`::before` / `::after` need `content`** (about): nothing shows until you add it. Try `content: ""` with a width, height, and background for a decorative bar under each `h2`.
+8. **`::first-letter` and `::first-line`** (about, `#story p:first-of-type`): drop cap and a bold opening line.
+9. **`::placeholder`** (about, Join form): style the hint text, then show that it disappears when the student types.
+10. **`background-clip: text`** (about, `#numbers li strong`): needs `color: transparent` plus the `-webkit-` prefix.
+11. **`border-image`** (about, `#mission blockquote`): `images/border-frame.svg` is a 90px 3x3 image, so use slice `30`.
+12. **Two font files per family** (history): `em` needs the Lora italic file. `strong` and headings need the 700 files. Show what happens without each one.
+13. **`font-display: swap`**: throttle the network in DevTools to watch the fallback font swap.
 
 ## Note on the `aria-expanded` buttons
 

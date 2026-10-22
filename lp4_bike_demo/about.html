@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<!--
-  LP4 / DT 4.3 - Advanced Backgrounds                          (about.html)
-  Images ready in /images (all SVG, so they scale cleanly):
-    hero-hills.svg ......... wide landscape      -> background-size: cover (on <header>)
-    workshop-banner.svg .... wide teal banner    -> cover + gradient overlay (#banner)
-    tread-pattern.svg ...... 48px tile           -> background-repeat / small tiles / multiple backgrounds
-    logo-mark.svg .......... square logo         -> background-size: contain, no-repeat, position
-    border-frame.svg ....... 90px 3x3 tile       -> border-image (slice 30)
-  Targets: header, #banner, #numbers (li strong -> background-clip: text), #mission blockquote, #team article, aside
-  Full selector map: INSTRUCTOR_NOTES.md
--->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,6 +8,29 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!--
+  LP4 / DT 4.3 - Pseudo-Elements & Advanced Backgrounds        (about.html)
+
+  PSEUDO-ELEMENTS
+    ::before / ::after ....... h2 and h3 decoration, big quotation marks on #mission blockquote,
+                               icons after links (a[href$=".pdf"], a[target="_blank"], a[href^="mailto:"]),
+                               a unit after each number in #numbers li
+    ::first-letter / ::first-line ... the opening paragraph in #story
+    ::marker ................. the bullets in the aside and the join list
+    ::placeholder ............ the fields in the "Join the Crew" form
+    ::selection .............. highlight colour for selected text
+
+  ADVANCED BACKGROUNDS
+  Images ready in /images (all SVG, so they scale cleanly):
+    hero-hills.svg ......... wide landscape      -> background-size: cover (on <header>)
+    workshop-banner.svg .... wide teal banner    -> cover + gradient overlay (#banner)
+    tread-pattern.svg ...... 48px tile           -> background-repeat / small tiles / multiple backgrounds
+    logo-mark.svg .......... square logo         -> background-size: contain, no-repeat, position
+    border-frame.svg ....... 90px 3x3 tile       -> border-image (slice 30)
+  Targets: header, #banner, #numbers (li strong -> background-clip: text), #mission blockquote, #team article, aside
+  Full selector map: INSTRUCTOR_NOTES.md
+-->
+
   <a href="#main-content">Skip to main content</a>
 
   <header id="top">
@@ -43,6 +55,7 @@
   </header>
 
   <main id="main-content">
+    <!-- DEMO: #story p:first-of-type for ::first-letter (drop cap) and ::first-line -->
     <section id="story">
       <h2>Who We Are</h2>
       <p>We are a team of three mechanics, riders, and neighbors. Since 1987 we have kept the Driftless Region rolling, one flat tire and one first bike at a time.</p>
@@ -99,6 +112,33 @@
         <h3>Sam Okafor</h3>
         <p>Ride leader. Sam plans the Saturday gravel routes and always carries spare tubes.</p>
       </article>
+    </section>
+
+    <!-- DEMO: ::placeholder on the fields, ::after icons on the three different link types below,
+         ::marker on the list -->
+    <section id="join">
+      <h2>Join the Crew</h2>
+      <p>We are always looking for ride leaders, weekend mechanics, and shop helpers. Tell us a little about yourself.</p>
+      <form action="#join" method="get">
+        <div>
+          <label for="join-name">Name</label>
+          <input type="text" id="join-name" name="name" placeholder="Your full name" required autocomplete="name">
+        </div>
+        <div>
+          <label for="join-email">Email</label>
+          <input type="email" id="join-email" name="email" placeholder="you@example.com" required autocomplete="email">
+        </div>
+        <div>
+          <label for="join-about">Tell us about yourself</label>
+          <textarea id="join-about" name="about" rows="4" placeholder="What do you ride? What would you like to help with?"></textarea>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+      <ul>
+        <li><a href="downloads/trail-map.pdf">Ride-leader route map (PDF)</a></li>
+        <li><a href="https://www.bikefed.org" target="_blank" rel="noopener noreferrer">Wisconsin Bike Fed</a></li>
+        <li><a href="mailto:jobs@driftlesscycle.example">jobs@driftlesscycle.example</a></li>
+      </ul>
     </section>
 
     <aside>
