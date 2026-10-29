@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A demo of a Flexbox card grid: 1 card per row on phones, 2 at 600px, 3 at 1024px, with equal-height cards.">
+  <title>Card Grid | Shape Shifter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <h1>Flexbox Card Grid</h1>
+    <p class="tagline">Six cards, one flex container. No media queries: the cards wrap to fit the room.</p>
+    <!-- Decorative indicator: the text comes from CSS (::after), and it changes at each breakpoint -->
+    <span class="badge" aria-hidden="true"></span>
+    <nav aria-label="Page sections">
+      <ul>
+        <li><a href="index.html">Back to shapes</a></li>
+        <li><a href="columns.html">Text columns</a></li>
+        <li><a href="flex.html">Basis / grow / shrink</a></li>
+        <li><a href="#grid">Card grid</a></li>
+        <li><a href="#how">How it works</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="grid" aria-labelledby="grid-title">
+      <h2 id="grid-title">Trail Day Cards</h2>
+      <p>Resize the window and watch the cards reflow from 3 to 2 to 1 per row. Hover a card, or Tab to a button, to see it lift.</p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-art card-art--1" aria-hidden="true"></div>
+          <h3>Morning Loop</h3>
+          <p>A flat 10-mile ride along the river. Good for beginners.</p>
+          <a class="card-btn" href="#how">Details<span class="visually-hidden"> about Morning Loop</span></a>
+        </article>
+
+        <article class="card">
+          <div class="card-art card-art--2" aria-hidden="true"></div>
+          <h3>Ridge Climb</h3>
+          <p>A challenging 25-mile route with three long climbs and wide views of the valley. Bring plenty of water, a spare tube, and a snack for the top, because there is no shop for the last twelve miles.</p>
+          <a class="card-btn" href="#how">Details<span class="visually-hidden"> about Ridge Climb</span></a>
+        </article>
+
+        <article class="card">
+          <div class="card-art card-art--3" aria-hidden="true"></div>
+          <h3>Farm Stand Tour</h3>
+          <p>Stop at five farm stands along quiet country roads. Pack a bag for fresh produce and a few jars of honey.</p>
+          <a class="card-btn" href="#how">Details<span class="visually-hidden"> about Farm Stand Tour</span></a>
+        </article>
+
+        <article class="card">
+          <div class="card-art card-art--4" aria-hidden="true"></div>
+          <h3>Sunset Spin</h3>
+          <p>A short evening ride that ends at the lake just before dusk.</p>
+          <a class="card-btn" href="#how">Details<span class="visually-hidden"> about Sunset Spin</span></a>
+        </article>
+
+        <article class="card">
+          <div class="card-art card-art--5" aria-hidden="true"></div>
+          <h3>Gravel Grinder</h3>
+          <p>Forty miles of mixed gravel and dirt. Wider tires are strongly recommended, and so is a friend to ride with.</p>
+          <a class="card-btn" href="#how">Details<span class="visually-hidden"> about Gravel Grinder</span></a>
+        </article>
+
+        <article class="card">
+          <div class="card-art card-art--6" aria-hidden="true"></div>
+          <h3>Family Day</h3>
+          <p>An easy, shaded path with plenty of picnic spots. Kid trailers welcome.</p>
+          <a class="card-btn" href="#how">Details<span class="visually-hidden"> about Family Day</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="how" aria-labelledby="how-title">
+      <h2 id="how-title">How the grid works</h2>
+      <dl class="property-list">
+        <div>
+          <dt><code>.card-grid</code>: <code>display: flex</code>, <code>flex-wrap: wrap</code>, <code>gap: 1.5rem</code></dt>
+          <dd>Cards move to the next row when they run out of room, with even space between them.</dd>
+        </div>
+        <div>
+          <dt><code>.card</code>: <code>flex: 1 0 280px</code></dt>
+          <dd>Grow 1, shrink 0, start at 280px. Cards share spare room but never get narrower than 280px.</dd>
+        </div>
+        <div>
+          <dt><code>.card</code>: <code>max-width: 400px</code></dt>
+          <dd>Stops a lone card from stretching across a wide row.</dd>
+        </div>
+        <div>
+          <dt><code>transition</code></dt>
+          <dd><code>transform</code> and <code>box-shadow</code> ease over 0.25s, the same idea as LP3.</dd>
+        </div>
+        <div>
+          <dt><code>:hover</code> and <code>:focus-visible</code></dt>
+          <dd>The card lifts 4px and the shadow grows, for mouse and keyboard users.</dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+
+  <footer>
+    <p>LP5 demo: a Flexbox card grid with the same breakpoints as the shapes page.</p>
+  </footer>
+</body>
+</html>

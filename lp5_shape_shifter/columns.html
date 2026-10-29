@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A demo of CSS columns: column-count changes at 600px and 1024px, and column-width lets the browser decide.">
+  <title>Text Columns | Shape Shifter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <h1>Text Columns</h1>
+    <p class="tagline">One block of text, split into more columns as the screen gets wider.</p>
+    <!-- Decorative indicator: the text comes from CSS (::after), and it changes at each breakpoint -->
+    <span class="badge" aria-hidden="true"></span>
+    <nav aria-label="Page sections">
+      <ul>
+        <li><a href="index.html">Back to shapes</a></li>
+        <li><a href="cards.html">Card grid</a></li>
+        <li><a href="flex.html">Basis / grow / shrink</a></li>
+        <li><a href="#count">column-count</a></li>
+        <li><a href="#width">column-width</a></li>
+        <li><a href="#properties">Properties</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="count" aria-labelledby="count-title">
+      <h2 id="count-title">column-count: 1, then 2, then 3</h2>
+      <p>The text below is a single block of paragraphs. The number of columns is set with <code>column-count</code> and changes at the same breakpoints as the shapes. Resize the window and watch the text reflow.</p>
+      <span class="badge col-badge" aria-hidden="true"></span>
+
+      <div class="columns">
+        <p>The Saturday market opens before the sun is fully up. Trucks back into place along the square, tailgates drop, and crates of sweet corn, rhubarb, and early peas appear as if by magic. By seven o'clock the first customers are already weaving between the tables with tote bags over their shoulders.</p>
+        <p>Nobody hurries here. A vendor hands over a slice of cheese curd on a toothpick and asks what you plan to cook this week. Conversations stretch on while the line grows behind you, and nobody seems to mind. That unhurried pace is part of what keeps people coming back.</p>
+        <p>Around the corner, a baker slides trays of warm kringle onto a folding table. The cherry ones go first, usually before nine. Regulars know to arrive early, and newcomers learn quickly after a single disappointed trip to an empty tray.</p>
+
+        <div class="callout">
+          <h3>Why columns?</h3>
+          <p>Long lines of text are tiring to read. Splitting a wide block into columns keeps each line short, the same way a newspaper does. This box also refuses to be split between two columns.</p>
+        </div>
+
+        <h3 class="span-all">Mid-morning</h3>
+
+        <p>By ten o'clock the square is full. Kids dart between strollers, a fiddle player tunes up near the fountain, and the smell of fresh coffee drifts across the crowd. The tables that were tidy at dawn now look wonderfully picked over.</p>
+        <p>Farmers load their trucks again just after noon, tired and sunburned and happy. Whatever is left goes to the food pantry down the street. The square empties as quietly as it filled, leaving only a few stray pea pods on the pavement.</p>
+        <p>Then the whole thing starts over next week, with a different mix of crops, a few new faces, and the same unhurried pace.</p>
+      </div>
+    </section>
+
+    <section id="width" aria-labelledby="width-title">
+      <h2 id="width-title">column-width: let the browser decide</h2>
+      <p>This block asks for columns that are at least <code>15rem</code> wide and lets the browser fit as many as it can. There is no media query. The count still changes as the window grows or shrinks.</p>
+
+      <div class="columns-auto">
+        <p>Bike trails in the Driftless Region wind through valleys and over ridges, so a ride that looks short on the map can feel long in the legs. Pack water, check your brakes, and plan for a few hills.</p>
+        <p>Most trail towns have a shop where you can pump a tire or ask about the road ahead. Locals are happy to point out the best route, and they usually know where to find the best pie.</p>
+        <p>Late afternoon is the nicest time to ride. The light turns gold, the heat backs off, and the farm stands along the way are just starting to set out their evening produce.</p>
+      </div>
+    </section>
+
+    <section id="properties" aria-labelledby="properties-title">
+      <h2 id="properties-title">Properties used on this page</h2>
+      <dl class="property-list">
+        <div>
+          <dt><code>column-count</code></dt>
+          <dd>The number of columns. Here it goes 1, 2, then 3 at the breakpoints.</dd>
+        </div>
+        <div>
+          <dt><code>column-width</code></dt>
+          <dd>The ideal minimum width of a column. The browser works out how many fit.</dd>
+        </div>
+        <div>
+          <dt><code>column-gap</code></dt>
+          <dd>The space between columns.</dd>
+        </div>
+        <div>
+          <dt><code>column-rule</code></dt>
+          <dd>A line drawn between columns, written like a border. It takes the page's accent color.</dd>
+        </div>
+        <div>
+          <dt><code>column-span: all</code></dt>
+          <dd>Lets one element, like the "Mid-morning" heading, stretch across every column.</dd>
+        </div>
+        <div>
+          <dt><code>break-inside: avoid</code></dt>
+          <dd>Keeps an element, like the callout box, from being split between two columns.</dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+
+  <footer>
+    <p>LP5 demo: CSS columns with the same breakpoints as the shapes page.</p>
+  </footer>
+</body>
+</html>

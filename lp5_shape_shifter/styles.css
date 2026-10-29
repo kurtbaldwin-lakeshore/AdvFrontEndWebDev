@@ -1,0 +1,690 @@
+/* ==========================================================================
+   Shape Shifter - LP5 responsive demo
+   Mobile-first: the base styles are the phone layout. Two min-width media
+   queries (600px, 1024px) add changes as the screen gets bigger.
+
+   LP5 checklist
+   [x] box-sizing: border-box applied globally
+   [x] Flexbox for every layout
+   [x] min-width media queries at 600px and 1024px
+   [x] max-width: 100% on images
+   [x] clamp() for fluid typography and one fluid shape
+   [x] CSS columns: column-count, column-gap, column-rule, column-width (columns.html)
+   [x] Flexbox card grid: flex-wrap, gap, flex: 1 0 280px, hover/focus lift (cards.html)
+   [x] flex-basis, flex-grow, flex-shrink demo rows (flex.html)
+   [x] prefers-reduced-motion reset (carried over from LP3)
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Design tokens (the values the breakpoints change) ---------- */
+:root {
+  --ink: #1f2937;
+  --paper: #f8fafc;
+  --card: #ffffff;
+
+  /* MOBILE values (the defaults) */
+  --accent: #c2410c;     /* header, borders */
+  --c1: #c2410c;         /* shape colors: warm */
+  --c2: #d97706;
+  --c3: #be123c;
+  --shape-size: 72px;
+}
+
+/* ---------- Base (mobile) ---------- */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* fluid body text: never smaller than 1rem, never bigger than 1.2rem */
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 1.1rem + 1.5vw, 2rem);
+  margin: 0 0 0.5rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.25rem;
+}
+
+code {
+  background: #e2e8f0;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* ---------- Accessibility helpers ---------- */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+a:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 3px;
+}
+
+/* ---------- Header + nav ---------- */
+header {
+  background: var(--accent);
+  color: #fff;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;       /* stacked on mobile */
+  gap: 0.75rem;
+  transition: background-color 0.3s;
+}
+
+header h1 {
+  margin: 0;
+  /* fluid heading: scales between 2rem and 3.75rem with the window */
+  font-size: clamp(2rem, 1.2rem + 4vw, 3.75rem);
+}
+
+.tagline {
+  margin: 0;
+}
+
+.badge {
+  align-self: flex-start;
+  background: #fff;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+
+.badge::after {
+  content: "Mobile layout \00B7  under 600px";
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;       /* menu stacks on mobile */
+  gap: 0.25rem;
+}
+
+header nav a {
+  display: block;
+  padding: 0.5rem 0;
+  color: #fff;
+  font-weight: 600;
+}
+
+header nav a:hover {
+  text-decoration-thickness: 3px;
+}
+
+header a:focus-visible {
+  outline-color: #fff;
+}
+
+/* ---------- Main content ---------- */
+main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.banner {
+  border-radius: 12px;
+}
+
+section p {
+  margin: 0 0 1rem;
+}
+
+/* ---------- Shapes ---------- */
+.shape-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.5rem 1.25rem;
+}
+
+figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+figcaption {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.shape {
+  width: var(--shape-size);
+  height: var(--shape-size);
+  background: var(--c1);
+  transition: background-color 0.3s;
+}
+
+.shape--square {
+  border-radius: 8px;
+}
+
+.shape--circle {
+  border-radius: 50%;
+  background: var(--c2);
+}
+
+.shape--pill {
+  width: calc(var(--shape-size) * 1.8);
+  height: calc(var(--shape-size) * 0.6);
+  border-radius: 999px;
+  background: var(--c3);
+}
+
+.shape--triangle {
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: var(--c2);
+}
+
+/* fluid shape: grows smoothly, no breakpoint needed */
+.shape--fluid {
+  width: clamp(64px, 14vw, 180px);
+  height: clamp(64px, 14vw, 180px);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c1), var(--c3));
+}
+
+/* ---------- Text boxes ---------- */
+.box-row {
+  display: flex;
+  flex-direction: column;       /* stacked on mobile */
+  gap: 1rem;
+}
+
+.box {
+  background: var(--card);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: border-color 0.3s;
+}
+
+.box p {
+  margin: 0;
+}
+
+/* Show / hide rules. Mobile-first: decide what a phone sees first. */
+.only-mobile {
+  display: block;
+}
+
+.only-tablet-up,
+.only-desktop {
+  display: none;
+}
+
+.text-long {
+  display: none;
+}
+
+/* ---------- Breakpoint list ---------- */
+.breakpoint-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bp {
+  background: var(--card);
+  border: 2px solid #cbd5e1;
+  border-left-width: 10px;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  opacity: 0.7;
+}
+
+.bp p {
+  margin: 0;
+}
+
+.bp h3 span {
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+/* the active breakpoint gets highlighted (no JavaScript needed) */
+.bp--mobile {
+  opacity: 1;
+  border-color: #c2410c;
+}
+
+.bp--mobile h3::after {
+  content: " \2190  you are here";
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+/* ---------- Text columns (columns.html) ---------- */
+.col-badge {
+  display: inline-block;
+  border: 2px solid var(--accent);
+  margin-bottom: 1rem;
+}
+
+.badge.col-badge::after {
+  content: "column-count: 1";
+}
+
+.columns {
+  column-count: 1;               /* phone: one column */
+  column-gap: 2rem;
+  column-rule: 2px solid var(--accent);
+}
+
+.columns p {
+  margin: 0 0 1rem;
+}
+
+.columns h3 {
+  margin: 0 0 0.5rem;
+  break-after: avoid;            /* keep a heading with the paragraph after it */
+}
+
+.columns .span-all {
+  column-span: all;              /* this heading stretches across every column */
+  margin: 1rem 0;
+}
+
+.callout {
+  break-inside: avoid;           /* never split this box across two columns */
+  background: var(--card);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 0 0 1rem;
+}
+
+.callout p {
+  margin: 0;
+}
+
+/* column-width: no media query needed. The browser fits as many 15rem columns as will fit. */
+.columns-auto {
+  column-width: 15rem;
+  column-gap: 2rem;
+  column-rule: 2px dashed #94a3b8;
+}
+
+.columns-auto p {
+  margin: 0 0 1rem;
+}
+
+.property-list {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.property-list div {
+  background: var(--card);
+  border-left: 6px solid var(--accent);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+
+.property-list dt {
+  font-weight: 700;
+}
+
+.property-list dd {
+  margin: 0;
+}
+
+/* ---------- Flexbox card grid (cards.html) ---------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Step 1: the flex container. No media queries: wrapping does the reflow. */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* Step 2: each card wants 280px, may grow to share spare room, never past 400px.
+   flex: 1 0 280px = grow 1, shrink 0, basis 280px */
+.card {
+  flex: 1 0 280px;
+  max-width: 400px;
+
+  /* the card is also a flex column so the button can sit at the bottom */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--card);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+
+  /* Step 6: transitions from LP3 */
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+
+/* Step 7: hover AND keyboard focus. The card itself is not focusable, so
+   :has() lifts the card when the button inside it has keyboard focus. */
+.card:hover,
+.card:has(:focus-visible) {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.card h3,
+.card p {
+  margin: 0;
+}
+
+.card p {
+  flex-grow: 1;                  /* text takes the spare space, pushing the button down */
+}
+
+.card-art {
+  height: 80px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--c1), var(--c3));
+}
+
+.card-art--2 { background: linear-gradient(135deg, var(--c3), var(--c2)); }
+.card-art--3 { background: linear-gradient(135deg, var(--c2), var(--c1)); }
+.card-art--4 { background: linear-gradient(135deg, var(--c1), var(--c2)); }
+.card-art--5 { background: linear-gradient(135deg, var(--c3), var(--c1)); }
+.card-art--6 { background: linear-gradient(135deg, var(--c2), var(--c3)); }
+
+.card-btn {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.card-btn:hover {
+  text-decoration: underline;
+}
+
+.card-btn:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 3px;
+}
+
+/* ---------- Flex basis / grow / shrink demo (flex.html) ---------- */
+.demo-block {
+  margin: 0 0 1.25rem;
+}
+
+.demo-label {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+}
+
+.flex-demo {
+  display: flex;
+  gap: 0.5rem;
+  background: #e2e8f0;           /* grey strip shows the empty space in the container */
+  border: 2px dashed #94a3b8;
+  padding: 0.5rem;
+}
+
+.flex-demo--wrap {
+  flex-wrap: wrap;
+}
+
+.flex-demo--narrow {
+  max-width: 360px;              /* smaller than three 150px boxes, so shrink has to act */
+}
+
+.flex-demo--scroll {
+  overflow-x: auto;
+}
+
+.flex-demo--scroll:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 3px;
+}
+
+.fbox {
+  background: var(--c1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 0.75rem 0.25rem;
+  border-radius: 6px;
+}
+
+.fbox--b {
+  background: var(--c3);
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #cbd5e1;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ==========================================================================
+   TABLET: 600px and up
+   ========================================================================== */
+@media (min-width: 600px) {
+  :root {
+    --accent: #0f766e;
+    --c1: #0f766e;
+    --c2: #0369a1;
+    --c3: #4d7c0f;
+    --shape-size: 110px;
+  }
+
+  .badge::after {
+    content: "Tablet layout \00B7  600px and up";
+  }
+
+  header {
+    padding: 1.75rem 2rem;
+  }
+
+  header nav ul {
+    flex-direction: row;         /* menu goes horizontal */
+    gap: 1.5rem;
+  }
+
+  main {
+    padding: 1.5rem 2rem;
+  }
+
+  .box-row {
+    flex-direction: row;
+    flex-wrap: wrap;             /* two boxes per row */
+  }
+
+  .box {
+    flex: 1 1 calc(50% - 0.5rem);
+  }
+
+  .only-mobile {
+    display: none;
+  }
+
+  .only-tablet-up {
+    display: block;
+  }
+
+  .text-short {
+    display: none;
+  }
+
+  .text-long {
+    display: inline;
+  }
+
+  .columns {
+    column-count: 2;             /* tablet: two columns */
+  }
+
+  .badge.col-badge::after {
+    content: "column-count: 2";
+  }
+
+  /* highlight moves to the tablet row */
+  .bp--mobile {
+    opacity: 0.7;
+    border-color: #cbd5e1;
+  }
+
+  .bp--mobile h3::after {
+    content: none;
+  }
+
+  .bp--tablet {
+    opacity: 1;
+    border-color: #0f766e;
+  }
+
+  .bp--tablet h3::after {
+    content: " \2190  you are here";
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+}
+
+/* ==========================================================================
+   DESKTOP: 1024px and up
+   ========================================================================== */
+@media (min-width: 1024px) {
+  :root {
+    --accent: #5b21b6;
+    --c1: #5b21b6;
+    --c2: #a21caf;
+    --c3: #1d4ed8;
+    --shape-size: 150px;
+  }
+
+  .badge::after {
+    content: "Desktop layout \00B7  1024px and up";
+  }
+
+  header {
+    padding: 2.5rem 3rem;
+  }
+
+  main {
+    padding: 2rem 3rem;
+  }
+
+  .box-row {
+    flex-wrap: nowrap;           /* all four boxes share one row */
+  }
+
+  .box {
+    flex: 1 1 0;
+  }
+
+  .only-desktop {
+    display: block;
+  }
+
+  .columns {
+    column-count: 3;             /* desktop: three columns */
+  }
+
+  .badge.col-badge::after {
+    content: "column-count: 3";
+  }
+
+  /* highlight moves to the desktop row */
+  .bp--tablet {
+    opacity: 0.7;
+    border-color: #cbd5e1;
+  }
+
+  .bp--tablet h3::after {
+    content: none;
+  }
+
+  .bp--desktop {
+    opacity: 1;
+    border-color: #5b21b6;
+  }
+
+  .bp--desktop h3::after {
+    content: " \2190  you are here";
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+}
+
+/* ==========================================================================
+   Reduced motion (required global reset, carried from LP3)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

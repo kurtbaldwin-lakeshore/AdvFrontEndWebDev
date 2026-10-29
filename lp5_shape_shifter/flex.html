@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A demo of flex-basis, flex-grow, and flex-shrink using rows of boxes.">
+  <title>Flex Basis, Grow, Shrink | Shape Shifter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <h1>Basis, Grow, Shrink</h1>
+    <p class="tagline">Same boxes, different flex values. Resize the window and watch each row respond.</p>
+    <!-- Decorative indicator: the text comes from CSS (::after), and it changes at each breakpoint -->
+    <span class="badge" aria-hidden="true"></span>
+    <nav aria-label="Page sections">
+      <ul>
+        <li><a href="index.html">Back to shapes</a></li>
+        <li><a href="cards.html">Card grid</a></li>
+        <li><a href="#basis">Basis</a></li>
+        <li><a href="#grow">Grow</a></li>
+        <li><a href="#shrink">Shrink</a></li>
+        <li><a href="#cards">In the cards</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="basis" aria-labelledby="basis-title">
+      <h2 id="basis-title">flex-basis: the starting width</h2>
+      <p>Each box is told how wide to start. With grow and shrink both off (<code>flex: 0 0 ...</code>), the basis is the final width. The grey strip is the container, so you can see the empty space.</p>
+      <div class="demo-block">
+        <p class="demo-label"><code>flex: 0 0 50px / 0 0 100px / 0 0 150px</code></p>
+        <div class="flex-demo flex-demo--wrap"><div class="fbox " style="flex:0 0 50px">50px</div><div class="fbox fbox--b" style="flex:0 0 100px">100px</div><div class="fbox " style="flex:0 0 150px">150px</div></div>
+      </div>
+    </section>
+
+    <section id="grow" aria-labelledby="grow-title">
+      <h2 id="grow-title">flex-grow: sharing the leftover space</h2>
+      <p>Every box starts at an 80px basis. Grow decides who gets the space that is left over. The number is a ratio of shares.</p>
+      <div class="demo-block">
+        <p class="demo-label"><code>flex: 0 1 80px on every box (no grow)</code></p>
+        <div class="flex-demo "><div class="fbox " style="flex:0 1 80px">grow 0</div><div class="fbox fbox--b" style="flex:0 1 80px">grow 0</div><div class="fbox " style="flex:0 1 80px">grow 0</div></div>
+      </div>
+      <div class="demo-block">
+        <p class="demo-label"><code>flex: 1 1 80px on every box (equal shares)</code></p>
+        <div class="flex-demo "><div class="fbox " style="flex:1 1 80px">grow 1</div><div class="fbox fbox--b" style="flex:1 1 80px">grow 1</div><div class="fbox " style="flex:1 1 80px">grow 1</div></div>
+      </div>
+      <div class="demo-block">
+        <p class="demo-label"><code>grow 1, grow 2, grow 1 (the middle box gets double)</code></p>
+        <div class="flex-demo "><div class="fbox " style="flex:1 1 80px">grow 1</div><div class="fbox fbox--b" style="flex:2 1 80px">grow 2</div><div class="fbox " style="flex:1 1 80px">grow 1</div></div>
+      </div>
+    </section>
+
+    <section id="shrink" aria-labelledby="shrink-title">
+      <h2 id="shrink-title">flex-shrink: giving space back</h2>
+      <p>Now the boxes ask for more room than the container has (three boxes at a 150px basis, with wrapping turned off). Shrink decides who gives up width.</p>
+      <div class="demo-block">
+        <p class="demo-label"><code>flex: 0 1 150px on every box (default shrink of 1)</code></p>
+        <div class="flex-demo flex-demo--narrow"><div class="fbox " style="flex:0 1 150px">shrink 1</div><div class="fbox fbox--b" style="flex:0 1 150px">shrink 1</div><div class="fbox " style="flex:0 1 150px">shrink 1</div></div>
+      </div>
+      <div class="demo-block">
+        <p class="demo-label"><code>shrink 1, shrink 3, shrink 1 (the middle box gives up the most)</code></p>
+        <div class="flex-demo flex-demo--narrow"><div class="fbox " style="flex:0 1 150px">shrink 1</div><div class="fbox fbox--b" style="flex:0 3 150px">shrink 3</div><div class="fbox " style="flex:0 1 150px">shrink 1</div></div>
+      </div>
+      <div class="demo-block">
+        <p class="demo-label"><code>flex: 0 0 150px on every box (shrink 0: no giving way, the row overflows and scrolls)</code></p>
+        <div class="flex-demo flex-demo--narrow flex-demo--scroll" tabindex="0" role="region" aria-label="Boxes that do not shrink, scrollable"><div class="fbox " style="flex:0 0 150px">shrink 0</div><div class="fbox fbox--b" style="flex:0 0 150px">shrink 0</div><div class="fbox " style="flex:0 0 150px">shrink 0</div></div>
+      </div>
+    </section>
+
+    <section id="cards" aria-labelledby="cards-title">
+      <h2 id="cards-title">Putting it together: the card grid</h2>
+      <p>The cards on the card page use <code>flex: 1 0 280px</code>. Read it left to right.</p>
+      <dl class="property-list">
+        <div>
+          <dt><code>1</code> (grow)</dt>
+          <dd>Spare room in a row is shared, so the cards stretch to fill it.</dd>
+        </div>
+        <div>
+          <dt><code>0</code> (shrink)</dt>
+          <dd>A card is never squeezed below its basis. If the row is full, the card wraps instead.</dd>
+        </div>
+        <div>
+          <dt><code>280px</code> (basis)</dt>
+          <dd>The starting width, and effectively the minimum, that decides how many cards fit per row.</dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+
+  <footer>
+    <p>LP5 demo: flex-basis, flex-grow, and flex-shrink in action.</p>
+  </footer>
+</body>
+</html>

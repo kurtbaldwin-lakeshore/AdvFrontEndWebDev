@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A mobile-first demo page whose shapes, colors, and text boxes change at 600px and 1024px.">
+  <title>Shape Shifter | Responsive Design Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <h1>Shape Shifter</h1>
+    <p class="tagline">Resize your browser window (or turn your phone sideways) and watch this page adapt.</p>
+    <!-- Decorative indicator: the text comes from CSS (::after), and it changes at each breakpoint -->
+    <span class="badge" aria-hidden="true"></span>
+    <nav aria-label="Page sections">
+      <ul>
+        <li><a href="#shapes">Shapes</a></li>
+        <li><a href="#text-boxes">Text boxes</a></li>
+        <li><a href="#breakpoints">Breakpoints</a></li>
+        <li><a href="columns.html">Text columns</a></li>
+        <li><a href="cards.html">Card grid</a></li>
+        <li><a href="flex.html">Basis / grow / shrink</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- max-width: 100% keeps this image from ever overflowing a small screen -->
+    <img class="banner" src="images/banner.svg" width="1200" height="300"
+         alt="Abstract banner of colorful circles, squares, and triangles on a pale background">
+
+    <section id="shapes" aria-labelledby="shapes-title">
+      <h2 id="shapes-title">Shapes that resize and recolor</h2>
+      <p>Four shapes jump to a new size and color at each breakpoint. The last one is different: it grows smoothly with the window because its size uses <code>clamp()</code>.</p>
+      <div class="shape-row">
+        <figure>
+          <div class="shape shape--square"></div>
+          <figcaption>Square</figcaption>
+        </figure>
+        <figure>
+          <div class="shape shape--circle"></div>
+          <figcaption>Circle</figcaption>
+        </figure>
+        <figure>
+          <div class="shape shape--pill"></div>
+          <figcaption>Pill</figcaption>
+        </figure>
+        <figure>
+          <div class="shape shape--triangle"></div>
+          <figcaption>Triangle</figcaption>
+        </figure>
+        <figure>
+          <div class="shape shape--fluid"></div>
+          <figcaption>Fluid (clamp)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="text-boxes" aria-labelledby="boxes-title">
+      <h2 id="boxes-title">Text boxes that change or hide</h2>
+      <p>Each box below follows its own rule. Resize the window and watch which ones appear.</p>
+      <div class="box-row">
+        <div class="box">
+          <h3>Always here</h3>
+          <p>This box is visible at every screen size.</p>
+        </div>
+
+        <div class="box only-mobile">
+          <h3>Phones only</h3>
+          <p>You can see this because your screen is narrower than 600px. It disappears on larger screens.</p>
+        </div>
+
+        <div class="box only-tablet-up">
+          <h3>Tablet and up</h3>
+          <p>This box stays hidden on phones and appears once the screen is at least 600px wide.</p>
+        </div>
+
+        <div class="box only-desktop">
+          <h3>Desktop only</h3>
+          <p>This one waits until the screen is at least 1024px wide, then joins the row.</p>
+        </div>
+
+        <div class="box">
+          <h3>Text that swaps</h3>
+          <p>
+            <span class="text-short">Short text for small screens.</span>
+            <span class="text-long">With more room to work with, a larger screen gets a longer version of this message, with extra detail that would feel crowded on a phone.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="breakpoints" aria-labelledby="breakpoints-title">
+      <h2 id="breakpoints-title">What changes at each breakpoint</h2>
+      <ul class="breakpoint-list">
+        <li class="bp bp--mobile">
+          <h3>Mobile <span>(under 600px)</span></h3>
+          <p>Warm orange. Small shapes. Everything stacks in one column.</p>
+        </li>
+        <li class="bp bp--tablet">
+          <h3>Tablet <span>(600px and up)</span></h3>
+          <p>Cool teal. Medium shapes. The menu and text boxes sit side by side.</p>
+        </li>
+        <li class="bp bp--desktop">
+          <h3>Desktop <span>(1024px and up)</span></h3>
+          <p>Purple. Large shapes. Four text boxes share one row.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>LP5 demo: mobile-first CSS with Flexbox and two <code>min-width</code> media queries.</p>
+  </footer>
+</body>
+</html>
