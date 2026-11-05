@@ -1,0 +1,128 @@
+/* ==========================================================================
+   Wisconsin State Fair — Schedule page
+   Fixed-width starter stylesheet — this is the "before" version.
+   Your job: convert this to a fully responsive, mobile-first, Flexbox
+   layout. See the LP5 Formative Lab instructions for exact requirements.
+   ========================================================================== */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #2b2118;
+  background: #faf6ef;
+}
+
+/* Fixed pixel width — does not adapt to any screen size. */
+.page {
+  width: 960px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.site-header {
+  background: #7a1f1f;
+  color: #fff;
+  padding: 24px;
+  text-align: center;
+}
+
+.logo {
+  /* Fixed pixel width on an image — will overflow on small screens. */
+  width: 120px;
+}
+
+.site-header h1 {
+  font-size: 36px;
+  margin: 8px 0 4px;
+}
+
+.tagline {
+  font-size: 18px;
+  margin: 0;
+}
+
+.site-nav {
+  background: #591616;
+  padding: 12px 24px;
+}
+
+.site-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 24px;
+}
+
+/* Two fixed-width columns using float — not responsive, and not Flexbox. */
+.layout {
+  width: 960px;
+  overflow: hidden;
+}
+
+.content {
+  width: 680px;
+  float: left;
+  padding: 24px;
+}
+
+.sidebar {
+  width: 240px;
+  float: left;
+  padding: 24px;
+  background: #f4ede1;
+}
+
+.schedule-card {
+  border: 1px solid #e2d8c8;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.schedule-card h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #7a1f1f;
+}
+
+.schedule-card p,
+.schedule-card li {
+  font-size: 16px;
+}
+
+/* Fixed pixel width on content images — will overflow at small
+   viewport widths instead of scaling down. */
+.feature-img {
+  width: 600px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.sidebar h3 {
+  font-size: 18px;
+  color: #7a1f1f;
+}
+
+.sidebar p {
+  font-size: 15px;
+}
+
+.ticket-btn {
+  display: inline-block;
+  background: #7a1f1f;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.site-footer {
+  background: #2b2118;
+  color: #ccc;
+  text-align: center;
+  padding: 16px;
+  font-size: 14px;
+}
