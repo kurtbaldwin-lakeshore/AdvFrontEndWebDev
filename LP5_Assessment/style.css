@@ -8,12 +8,7 @@
   box-sizing: border-box;
 } 
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
-}
+
 
 .skip-link {
   position: absolute;
@@ -28,6 +23,13 @@ input:focus-visible {
 
 .skip-link:focus {
   top: 0;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 body {

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Illustrated portrait of a smiling developer">
+  <rect width="200" height="200" fill="#fcd34d"/>
+  <path d="M30 200 q0 -52 70 -52 q70 0 70 52 z" fill="#2563eb"/>
+  <rect x="86" y="118" width="28" height="36" rx="10" fill="#c98a5b"/>
+  <circle cx="100" cy="90" r="38" fill="#e0a373"/>
+  <path d="M60 86 q2 -44 42 -44 q38 0 40 40 q-14 -22 -40 -22 q-26 0 -42 26 z" fill="#4b2e1e"/>
+  <circle cx="86" cy="94" r="4" fill="#1f2937"/>
+  <circle cx="114" cy="94" r="4" fill="#1f2937"/>
+  <path d="M88 110 q12 10 24 0" stroke="#7c2d12" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>

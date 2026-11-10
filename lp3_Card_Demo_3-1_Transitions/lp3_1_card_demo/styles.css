@@ -1,0 +1,157 @@
+/* ==========================================================================
+   2.3 Card demo: build in this order
+   1. .card: border-radius, two-layer box-shadow, white background
+   2. .card-header: linear-gradient + circular clip-path avatar
+   3. .card-body: padding, typography, line-height
+   4. :hover: bigger shadow + translateY(-4px)
+   5. :focus-visible matches :hover exactly
+   6. avatar filter: grayscale(80%), grayscale(0%) on hover
+   7. Validate HTML and CSS
+
+   3.1 TRANSITIONS (added to this project)
+   1. transition on the .card base state (transform + box-shadow)
+   2. filter transition for the grayscale avatar
+   3-5. Test: hover, Tab, and hold the mouse still to feel the ease-out
+   6. Compare with transition: all (see the commented line in .card)
+   (Skip link: first element in <body>, with its CSS below the body rule)
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #eef2f7;
+  color: #1f2937;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* ---------- Skip link: first thing in <body>, hidden until it gets keyboard focus ---------- */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- 1. The card ---------- */
+.card {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  background: #ffffff;
+  border-radius: 16px;
+  /* two layers: a tight shadow for contact + a wide soft shadow for depth */
+  box-shadow:
+    0 2px 4px rgba(15, 23, 42, 0.18),
+    0 8px 20px rgba(15, 23, 42, 0.10);
+  overflow: hidden;              /* keeps the gradient inside the rounded corners */
+  color: inherit;
+  text-decoration: none;
+
+  /* 3.1 step 1: transition goes on the BASE state, not on :hover.
+     Listing only the properties that change keeps the focus ring from animating. */
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+
+  /* 3.1 step 6 (compare): swap the line above for this one and Tab to the card.
+     The focus ring now animates slowly. That is why we avoid transition: all.
+  transition: all 0.3s; */
+}
+
+/* ---------- 2. Header: gradient + circular avatar ---------- */
+.card-header {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #1d4ed8, #0f766e);
+}
+
+.card-header img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  clip-path: circle(50%);        /* crops the square image to a circle */
+  filter: grayscale(80%);        /* 6. mostly gray until hovered or focused */
+
+  /* 3.1 step 2: the filter lives on the <img>, so its transition goes here.
+     (A filter transition on .card would not animate the image's filter.) */
+  transition: filter 0.4s ease;
+}
+
+/* ---------- 3. Body: padding, type, line-height ---------- */
+.card-body {
+  padding: 1.5rem;
+  line-height: 1.6;
+}
+
+.card-body h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.card-body .role {
+  margin: 0.25rem 0 1rem;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.card-body p:last-child {
+  margin: 0;
+}
+
+/* ---------- 4 + 5. Hover and focus-visible: ONE rule so they match exactly ---------- */
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-4px);   /* subtle lift */
+  box-shadow:
+    0 4px 8px rgba(15, 23, 42, 0.20),
+    0 16px 32px rgba(15, 23, 42, 0.16);
+}
+
+/* focus ring so keyboard users can see where they are (outside the matched effect) */
+.card:focus-visible {
+  outline: 3px solid #111827;
+  outline-offset: 4px;
+}
+
+/* ---------- 6. Avatar turns to full color on hover / focus ---------- */
+.card:hover .card-header img,
+.card:focus-visible .card-header img {
+  filter: grayscale(0%);
+}
+
+/* ---------- Reduced motion: course-standard global reset (LP3) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

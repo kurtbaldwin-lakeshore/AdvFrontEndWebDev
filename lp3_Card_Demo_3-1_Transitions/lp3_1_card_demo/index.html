@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A profile card demo: layered box-shadow, gradient header, circular avatar, hover and focus lift, and a grayscale filter.">
+  <title>Profile Card | 2.3 Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <main id="main-content">
+    <!-- The whole card is one link, so it can take keyboard focus and :focus-visible works on .card itself -->
+    <a class="card" href="#profile">
+      <div class="card-header">
+        <img src="images/avatar.svg" width="200" height="200" alt="Portrait of Jordan Reyes">
+      </div>
+      <div class="card-body">
+        <h1>Jordan Reyes</h1>
+        <p class="role">Front-End Developer</p>
+        <p>Jordan builds accessible, responsive websites for small businesses around Door County. Favorite tools: semantic HTML, Flexbox, and a very large mug of coffee.</p>
+      </div>
+    </a>
+  </main>
+</body>
+</html>
