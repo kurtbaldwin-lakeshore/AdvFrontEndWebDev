@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transforms — CSS3 Visual Properties</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .tf {
+        border-radius: 10px;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .tf-translate:hover,
+      .tf-translate:focus-visible {
+        transform: translateY(-16px);
+        box-shadow: 0 16px 26px rgba(0, 0, 0, 0.5);
+      }
+      .tf-rotate:hover,
+      .tf-rotate:focus-visible {
+        transform: rotate(20deg);
+      }
+      .tf-scale:hover,
+      .tf-scale:focus-visible {
+        transform: scale(1.18);
+      }
+      .tf-skew:hover,
+      .tf-skew:focus-visible {
+        transform: skewX(-16deg);
+      }
+      .tf-combo:hover,
+      .tf-combo:focus-visible {
+        transform: translateY(-10px) scale(1.14);
+        box-shadow: 0 16px 28px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="demo-block">
+        <h2>Transforms — Try Tabbing and Hovering</h2>
+        <p class="demo-note">
+          Every effect below responds identically to <code>:hover</code> and
+          <code>:focus-visible</code> — keyboard users get the same feedback as
+          mouse users.
+        </p>
+        <div class="demo-row">
+          <button class="shape tf tf-translate">Translate</button>
+          <button class="shape tf tf-rotate">Rotate</button>
+          <button class="shape tf tf-scale">Scale</button>
+          <button class="shape tf tf-skew">Skew</button>
+          <button class="shape tf tf-combo">Combined</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <p>
+        Advanced Front-End Development &middot; Learning Plan 2 &middot; Live
+        Build Demo
+      </p>
+    </footer>
+  </body>
+</html>

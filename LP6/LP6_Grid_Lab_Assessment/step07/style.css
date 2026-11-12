@@ -1,0 +1,131 @@
+/* LP6 Grid Lab: style.css (empty on purpose: look at the landmarks first) */
+/* STEP 2: reset + skip link */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* STEP 3: the grid container + assign every region to its named area */
+.page {
+  display: grid;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.site-header { grid-area: header; }
+.site-nav    { grid-area: nav; }
+.content     { grid-area: main; }
+.sidebar     { grid-area: sidebar; }
+.site-footer { grid-area: footer; }
+
+/* MOBILE: single column, all five regions stacked (narrow the browser under 900px to see it) */
+@media (max-width: 899px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "sidebar"
+      "footer";
+  }
+}
+
+/* STEP 4: make the regions visible (color-code them) */
+.site-header { background: #9b1c1c; color: #fff; padding: 1rem; }
+.site-nav    { background: #1f3a5f; padding: 0.75rem 1rem; }
+.content     { background: #fff; border: 2px solid #ddd; padding: 1rem; }
+.sidebar     { background: #fff4d6; padding: 1rem; }
+.site-footer { background: #222; color: #fff; padding: 1rem; }
+
+.site-nav a { color: #fff; }
+
+/* STEP 5: DESKTOP: its own grid-template-areas at 900px. Two columns: main beside sidebar. */
+@media (min-width: 900px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr) 18rem;
+    grid-template-areas:
+      "header  header"
+      "nav     nav"
+      "main    sidebar"
+      "footer  footer";
+  }
+}
+
+/* STEP 6: FLEXBOX in region #1 (header quick links) and region #2 (nav) */
+.quick-links,
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.quick-links {
+  margin-top: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #9b1c1c;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.site-nav ul {
+  gap: 0.5rem 1.5rem;
+}
+
+/* STEP 7: FLEXBOX in region #3 (a card row inside main) */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  flex: 1 1 220px;
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.card h3 {
+  margin-top: 0.75rem;
+}

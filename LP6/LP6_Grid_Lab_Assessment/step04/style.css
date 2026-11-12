@@ -1,0 +1,71 @@
+/* LP6 Grid Lab: style.css (empty on purpose: look at the landmarks first) */
+/* STEP 2: reset + skip link */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* STEP 3: the grid container + assign every region to its named area */
+.page {
+  display: grid;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.site-header { grid-area: header; }
+.site-nav    { grid-area: nav; }
+.content     { grid-area: main; }
+.sidebar     { grid-area: sidebar; }
+.site-footer { grid-area: footer; }
+
+/* MOBILE: single column, all five regions stacked (narrow the browser under 900px to see it) */
+@media (max-width: 899px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "sidebar"
+      "footer";
+  }
+}
+
+/* STEP 4: make the regions visible (color-code them) */
+.site-header { background: #9b1c1c; color: #fff; padding: 1rem; }
+.site-nav    { background: #1f3a5f; padding: 0.75rem 1rem; }
+.content     { background: #fff; border: 2px solid #ddd; padding: 1rem; }
+.sidebar     { background: #fff4d6; padding: 1rem; }
+.site-footer { background: #222; color: #fff; padding: 1rem; }
+
+.site-nav a { color: #fff; }

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @keyframes loadpagein {
+        0% {
+          opacity: 0;
+          transform: translateY(-80px);
+        }
+        25% {
+          color: green;
+        }
+        50% {
+          color: yellow;
+        }
+
+        75% {
+          color: blue;
+          transform: translateY(15px);
+        }
+        100% {
+          opacity: 1;
+          color: goldenrod;
+          transform: translateY(0px);
+        }
+      }
+
+      .hero h1 {
+        animation-name: loadpagein;
+        animation-duration: 6s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="hero">
+      <h1>Welcome</h1>
+    </main>
+  </body>
+</html>

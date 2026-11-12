@@ -1,0 +1,108 @@
+/* Step 3: tokens, reset, skip link, focus */
+:root {
+  --color-primary: #9b1c1c;
+  --color-primary-dark: #5c0f0f;
+  --color-nav: #1f3a5f;
+  --color-text: #1a1a1a;
+  --color-surface: #ffffff;
+  --color-sidebar: #fff4d6;
+  --color-focus: #1d4ed8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: #f4f4f1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+
+/* Step 4: CSS Grid page layout with named areas (mobile first: one column) */
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "sidebar"
+    "footer";
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.site-header { grid-area: header; }
+.site-nav    { grid-area: nav; }
+.content     { grid-area: main; }
+.sidebar     { grid-area: sidebar; }
+.site-footer { grid-area: footer; }
+
+/* Breakpoint 2 (desktop): redefine the areas, main beside sidebar */
+@media (min-width: 900px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr) 18rem;
+    grid-template-areas:
+      "header  header"
+      "nav     nav"
+      "main    sidebar"
+      "footer  footer";
+  }
+}
+
+
+/* Step 5: Flexbox for components */
+.site-nav ul,
+.quick-links,
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  flex: 1 1 280px;
+}
