@@ -4,24 +4,32 @@
    Write each lesson's CSS under its own heading below.
    ========================================================== */
 
-
 /* ---------- 4.1  Combinators & attribute selectors  (index.html) ---------- */
 
 /* Step 2: required fields */
-
+input[required] {
+  border-left: 3px solid coral;
+}
 
 /* Step 3: email inputs (background only, so the coral left border above is not overridden) */
-
+input[type="email"] {
+  background-color: #eef6ff;
+  color: #0b3d91;
+}
 
 /* Step 4: external links get an arrow (but not links to our own domain) */
-
+a[href^="http"]:not([href*="yourdomain.com"])::after {
+  content: " ↗";
+}
 
 /* Step 5: PDF links */
-
+a[href$=".pdf"]::after {
+  content: " (PDF)";
+}
 
 /* Bonus: the skip link is an attribute selector too, so it needs no class.
    Hidden until it gets keyboard focus. */
-a[href='#main-content'] {
+a[href="#main-content"] {
   position: absolute;
   left: -999px;
   top: 0;
@@ -31,83 +39,108 @@ a[href='#main-content'] {
   color: #fff;
 }
 
-a[href='#main-content']:focus {
+a[href="#main-content"]:focus {
   left: 0;
 }
-
 
 /* ---------- 4.2  Pseudo-classes & pseudo-elements  (products.html) ---------- */
 
 /* Step 1: :first-child (the gotcha). The h2 is child #1 of the section, so this matches NOTHING. */
-
+article:first-child {
+  background-color: yellow; /* nothing happens: that is the lesson */
+}
 
 /* Step 2: :first-child / :last-child inside each card (first spec and the Price line) */
+article li:first-child {
+  font-weight: bold;
+}
 
-
-
+article li:last-child {
+  color: #0b6b2d;
+}
 
 /* Step 3: :nth-child zebra striping on the price table */
-
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
 /* Step 4: :target (click a Products submenu link or a "View" link in the table) */
-
+article:target {
+  background-color: #fff8dc;
+  outline: 3px solid coral;
+  scroll-margin-top: 2rem;
+}
 
 /* Step 5: ::before inside the :target rule (pseudo-element + pseudo-class) */
-
+article:target h3::before {
+  content: "\2192  ";
+}
 
 /* Step 6: ::placeholder */
-
+::placeholder {
+  color: #777;
+  font-style: italic;
+}
 
 /* Step 7: form state. Plain :invalid fires before the user types, so wait for :not(:placeholder-shown) */
+input:required {
+  border-top: 2px solid coral;
+}
 
+input:invalid:not(:placeholder-shown) {
+  outline: 2px solid #c62828;
+}
 
-
+input:valid:not(:placeholder-shown) {
+  outline: 2px solid #2e7d32;
+}
 
 /* Step 8: ::after on the label that sits before a required field */
-
+label:has(+ input:required)::after {
+  content: " *";
+  color: #c62828;
+}
 
 /* Step 9: :focus-visible (keyboard focus only, not mouse clicks) */
-
-
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 2px;
+}
 
 /* ---------- 4.3  Pseudo-elements & advanced backgrounds  (about.html) ---------- */
 
 /* Step 1: accent line above every section title, no HTML added */
 
-
-
-
 /* Step 2: decorative opening quote mark on the blockquote */
-
 
 /* Step 3: gradient text on the page's main heading (large text, 3:1 needed at the weakest point) */
 
-
 /* Step 4: multi-layer background on the hero band: gradient overlay FIRST (on top), photo second */
 
-
 /* Step 5: card header accent on each team card */
-
-
-
-
 
 /* ---------- 4.4  @font-face & web typography  (history.html) ---------- */
 
 /* Step 1: @font-face, Oswald (headings). One rule per weight/style. woff2 first, woff as fallback. */
 @font-face {
-  font-family: 'Oswald';
-  src: url('fonts/oswald-latin-400-normal.woff2') format('woff2'),
-       url('fonts/oswald-latin-400-normal.woff') format('woff');
+  font-family: "Oswald";
+  src:
+    url("fonts/oswald-latin-400-normal.woff2") format("woff2"),
+    url("fonts/oswald-latin-400-normal.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Oswald';
-  src: url('fonts/oswald-latin-700-normal.woff2') format('woff2'),
-       url('fonts/oswald-latin-700-normal.woff') format('woff');
+  font-family: "Oswald";
+  src:
+    url("fonts/oswald-latin-700-normal.woff2") format("woff2"),
+    url("fonts/oswald-latin-700-normal.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -115,27 +148,30 @@ a[href='#main-content']:focus {
 
 /* Step 2: @font-face, Lora (body text): regular, italic and bold files */
 @font-face {
-  font-family: 'Lora';
-  src: url('fonts/lora-latin-400-normal.woff2') format('woff2'),
-       url('fonts/lora-latin-400-normal.woff') format('woff');
+  font-family: "Lora";
+  src:
+    url("fonts/lora-latin-400-normal.woff2") format("woff2"),
+    url("fonts/lora-latin-400-normal.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Lora';
-  src: url('fonts/lora-latin-400-italic.woff2') format('woff2'),
-       url('fonts/lora-latin-400-italic.woff') format('woff');
+  font-family: "Lora";
+  src:
+    url("fonts/lora-latin-400-italic.woff2") format("woff2"),
+    url("fonts/lora-latin-400-italic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Lora';
-  src: url('fonts/lora-latin-700-normal.woff2') format('woff2'),
-       url('fonts/lora-latin-700-normal.woff') format('woff');
+  font-family: "Lora";
+  src:
+    url("fonts/lora-latin-700-normal.woff2") format("woff2"),
+    url("fonts/lora-latin-700-normal.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -143,22 +179,29 @@ a[href='#main-content']:focus {
 
 /* Step 3: use the families, always with a fallback stack */
 body {
-  font-family: 'Lora', Georgia, serif;
+  font-family: "Lora", Georgia, serif;
   line-height: 1.6;
 }
 
-h1, h2, h3 {
-  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+h1,
+h2,
+h3 {
+  font-family: "Oswald", "Arial Narrow", sans-serif;
   line-height: 1.2;
 }
 
 /* Step 4: a simple type scale (ratio 1.25) */
-h1 { font-size: 2.441rem; }
-h2 { font-size: 1.953rem; }
-h3 { font-size: 1.25rem; }
+h1 {
+  font-size: 2.441rem;
+}
+h2 {
+  font-size: 1.953rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
 
 /* Step 5: readable line length, about 60-75 characters */
 main p {
   max-width: 55ch;
 }
-

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Driftless Cycle Co." xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Viroqua Valley Loop (sample route)</name>
+    <trkseg>
+      <trkpt lat="43.55610" lon="-90.84790"><ele>330</ele></trkpt>
+      <trkpt lat="43.56335" lon="-90.84527"><ele>347</ele></trkpt>
+      <trkpt lat="43.57010" lon="-90.84723"><ele>355</ele></trkpt>
+      <trkpt lat="43.57590" lon="-90.85426"><ele>349</ele></trkpt>
+      <trkpt lat="43.58035" lon="-90.86526"><ele>334</ele></trkpt>
+      <trkpt lat="43.58315" lon="-90.87794"><ele>316</ele></trkpt>
+      <trkpt lat="43.58410" lon="-90.88990"><ele>306</ele></trkpt>
+      <trkpt lat="43.58315" lon="-90.89968"><ele>309</ele></trkpt>
+      <trkpt lat="43.58035" lon="-90.90726"><ele>323</ele></trkpt>
+      <trkpt lat="43.57590" lon="-90.91366"><ele>341</ele></trkpt>
+      <trkpt lat="43.57010" lon="-90.91997"><ele>353</ele></trkpt>
+      <trkpt lat="43.56335" lon="-90.92641"><ele>353</ele></trkpt>
+      <trkpt lat="43.55610" lon="-90.93190"><ele>340</ele></trkpt>
+      <trkpt lat="43.54885" lon="-90.93453"><ele>322</ele></trkpt>
+      <trkpt lat="43.54210" lon="-90.93257"><ele>308</ele></trkpt>
+      <trkpt lat="43.53630" lon="-90.92554"><ele>306</ele></trkpt>
+      <trkpt lat="43.53185" lon="-90.91454"><ele>317</ele></trkpt>
+      <trkpt lat="43.52905" lon="-90.90186"><ele>335</ele></trkpt>
+      <trkpt lat="43.52810" lon="-90.88990"><ele>350</ele></trkpt>
+      <trkpt lat="43.52905" lon="-90.88012"><ele>355</ele></trkpt>
+      <trkpt lat="43.53185" lon="-90.87254"><ele>346</ele></trkpt>
+      <trkpt lat="43.53630" lon="-90.86614"><ele>329</ele></trkpt>
+      <trkpt lat="43.54210" lon="-90.85983"><ele>312</ele></trkpt>
+      <trkpt lat="43.54885" lon="-90.85339"><ele>305</ele></trkpt>
+      <trkpt lat="43.55610" lon="-90.84790"><ele>311</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
