@@ -1,0 +1,101 @@
+/* ===== 5.3 Flex items and responsive patterns (css/5-3.css) ===== */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.main h2,
+.sidebar h2 { margin-top: 0; }
+
+.sidebar {
+  background: #fff4d6;
+  border: 1px solid #e3c878;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.main {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* STEP 5: fluid type with clamp(min, preferred, max) */
+.site-header h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* STEP 5: responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* STEP 1: BASE (mobile): stacked nav with comfortable touch targets */
+.site-nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.25rem;
+}
+
+.site-nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  min-height: 44px;
+  background: #fff;
+  border: 1px solid var(--line);
+  text-decoration: none;
+}
+
+/* STEP 1: TABLET+: horizontal nav row */
+@media (min-width: 600px) {
+  .site-nav ul {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+/* STEP 4: BASE (mobile): stacked */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* STEPS 4 and 6: side by side at 600px */
+@media (min-width: 600px) {
+  .layout {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    flex: 0 0 250px;
+  }
+
+  .main {
+    flex: 1;
+    min-width: 0; /* STEP 6: lets main shrink below the width of its longest word */
+  }
+}
+
+/* STEP 6: let long file names wrap instead of pushing the page wider */
+code {
+  overflow-wrap: anywhere;
+}
+
+/* STEP 8 (bonus): center anything with Flexbox */
+.center-demo {
+  height: 180px;
+  background: #e8f1ee;
+  border: 2px dashed var(--green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the Gravel Grinder | Driftless Cycle Co.</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/5-3.css">
+</head>
+<body>
+  <!--
+    LAB 5.3 (about.html): A complete responsive page with Flexbox. This page is intentionally BROKEN (inline-block nav, floated layout).
+    Steps are in STEPS_5.3.md. The HTML does not change in this lab. Everything happens in css/5-3.css.
+  -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="container">
+
+    <header class="site-header">
+      <h1>About the Gravel Grinder</h1>
+      <p>Driftless Cycle Co. &middot; Lab 5.3: Flex items and responsive patterns</p>
+    </header>
+
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html" aria-current="page">About Us</a></li>
+        <li><a href="#">Group Rides</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="layout">
+      <main class="main" id="main-content">
+        <h2>Saturday Gravel Grinder</h2>
+        <img src="images/trail-map.svg" alt="Illustration of the gravel route from Viroqua to Wildcat Mountain" width="600" height="240">
+        <p>Forty-five miles of Driftless gravel with two store stops and a long descent. The route climbs out of Viroqua, rolls along the ridge, and drops into the Kickapoo valley before the last big hill.</p>
+        <p class="file-line">Route file: <code>driftless_gravel_grinder_spring_2026.gpx</code></p>
+        <div class="center-demo">
+          <p>Centered with Flexbox</p>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <h2>Ride details</h2>
+        <ul>
+          <li>Leaves the shop at 8:00 am</li>
+          <li>45 miles, about 3,200 ft of climbing</li>
+          <li>Helmets required</li>
+          <li>Pace: 12 to 14 mph</li>
+        </ul>
+        <p><a href="#">Download the cue sheet</a></p>
+      </aside>
+    </div>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Driftless Cycle Co. practice site. A course project.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

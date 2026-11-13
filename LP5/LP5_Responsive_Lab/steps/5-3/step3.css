@@ -1,0 +1,77 @@
+/* ===== 5.3 Flex items and responsive patterns (css/5-3.css) ===== */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.main h2,
+.sidebar h2 { margin-top: 0; }
+
+.sidebar {
+  background: #fff4d6;
+  border: 1px solid #e3c878;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.main {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* STARTER PROBLEM: a fixed, very large headline (56px even on a 320px phone) */
+.site-header h1 {
+  font-size: 3.5rem;
+}
+
+/* STEP 1: BASE (mobile): stacked nav with comfortable touch targets */
+.site-nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.25rem;
+}
+
+.site-nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  min-height: 44px;
+  background: #fff;
+  border: 1px solid var(--line);
+  text-decoration: none;
+}
+
+/* STEP 1: TABLET+: horizontal nav row */
+@media (min-width: 600px) {
+  .site-nav ul {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+/* STEP 3: sidebar fixed, main grows */
+.layout {
+  display: flex;
+  gap: 2rem;
+}
+
+.sidebar {
+  flex: 0 0 250px;
+}
+
+.main {
+  flex: 1;
+}
+
+/* BONUS (step 8): this box is not centered yet */
+.center-demo {
+  height: 180px;
+  background: #e8f1ee;
+  border: 2px dashed var(--green);
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rides and Events | Driftless Cycle Co.</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/5-2.css">
+</head>
+<body>
+  <!--
+    LAB 5.2 (products.html): Flexbox card grid. This page is intentionally BROKEN (floated, fixed-width cards).
+    Steps are in STEPS_5.2.md. The HTML does not change in this lab. Everything happens in css/5-2.css.
+    Extras: .card.featured (for align-self) and .promo (for the order caution) are already in the HTML.
+  -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="container">
+
+    <header class="site-header">
+      <h1>Rides and Events</h1>
+      <p>Driftless Cycle Co. &middot; Lab 5.2: Flexbox card grid</p>
+    </header>
+
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" aria-current="page">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#">Group Rides</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-content">
+      <div class="content">
+        <section aria-labelledby="rides-h">
+          <h2 id="rides-h">Upcoming rides and events</h2>
+          <div class="card-grid">
+            <article class="card">
+              <h3>Tuesday Easy Spin</h3>
+              <p>An easy 15 miles at a conversational pace. Great for new riders, kids on trailers, and anyone coming back after a break. We regroup at every turn and finish at the coffee shop on Main Street.</p>
+              <button type="button">Sign up</button>
+            </article>
+            <article class="card">
+              <h3>Thursday Hill Repeats</h3>
+              <p>Six climbs, one big hill, no mercy. Bring water.</p>
+              <button type="button">Sign up</button>
+            </article>
+            <article class="card">
+              <h3>Saturday Gravel Grinder</h3>
+              <p>Forty-five miles of Driftless gravel with two store stops and a long descent that makes the climbing worth it. Bring a spare tube and a patch kit, because the roads are rough and the farms are far apart.</p>
+              <button type="button">Sign up</button>
+            </article>
+            <article class="card">
+              <h3>Sunday Family Roll</h3>
+              <p>Eight flat miles on the paved trail, with snacks halfway through. Helmets for everyone, and a ride leader at the back so nobody gets left behind.</p>
+              <button type="button">Sign up</button>
+            </article>
+            <article class="card">
+              <h3>Bike Fit Clinic</h3>
+              <p>Thirty minutes with a certified fitter. Saddle height, reach, cleats, and the small changes that stop knee pain before it starts. Ask about the free first tune-up while you are in.</p>
+              <button type="button">Book a fit</button>
+            </article>
+            <article class="card featured">
+              <h3>Fall Swap Meet</h3>
+              <p>Buy, sell, and trade.</p>
+              <button type="button">Reserve a table</button>
+            </article>
+          </div>
+        </section>
+
+        <aside class="promo">
+          <h2>New rider? Start here</h2>
+          <p>Our <a href="#">first-ride guide</a> covers what to bring, what to wear, and what to expect.</p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Driftless Cycle Co. practice site. A course project.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+/* ===== 5.2 Flexbox card grid (css/5-2.css) ===== */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.promo {
+  background: #fff4d6;
+  border: 1px solid #e3c878;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.promo h2 { margin-top: 0; }
+
+/* Site nav (finished, not part of this lesson) */
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: var(--green-dark);
+}
+
+.site-nav a {
+  color: #fff;
+}
+
+.site-nav a:focus-visible {
+  outline-color: #ffbf47;
+}
+
+/* STEP 1: the flex container */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* STEP 2: card sizing. grow, never shrink, start at 280px */
+.card {
+  flex: 1 0 280px;
+  max-width: 400px;
+}
+
+/* STEP 3: card content (heading, description, button) */
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  background: var(--green);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ---------- EXTRAS (uncomment one at a time) ---------- */
+
+/* EXTRA A: align-self. Cards stretch to equal height by default. This one keeps its natural height.
+.card.featured {
+  align-self: flex-start;
+  border-color: var(--accent);
+}
+*/
+
+/* EXTRA B: order. WARNING: moves the box visually but keyboard focus stays in HTML order.
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo {
+  order: -1;
+}
+*/

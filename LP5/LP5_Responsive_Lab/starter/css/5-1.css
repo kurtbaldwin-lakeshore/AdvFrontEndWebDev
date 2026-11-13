@@ -1,0 +1,98 @@
+/* ===== 5.1 Mobile-first and media queries (css/5-1.css) ===== */
+
+/* Look and feel (finished) */
+.hero-text {
+  background: rgba(10, 63, 53, 0.92);
+  color: #fff;
+  padding: 1rem;
+  max-width: 32rem;
+}
+
+.hero-text h2 {
+  margin-top: 0;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.article-body p {
+  margin: 0 0 1rem;
+}
+
+.nav a:focus-visible {
+  outline-color: #ffbf47;
+}
+
+/* STARTER PROBLEM 1: a fixed width. At any screen narrower than 960px you must scroll sideways. */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* STARTER PROBLEM 2: fixed-width nav in a row */
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--green-dark);
+}
+
+.nav li {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.nav a {
+  display: block;
+  width: 180px;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* STARTER PROBLEM 3: fixed hero height */
+.hero {
+  background: url("../images/hero-hills.svg") center / cover no-repeat;
+  min-height: 50vh;
+  padding: 1rem;
+}
+
+/* STARTER PROBLEM 4: floated fixed-width cards */
+.card-grid {
+  overflow: hidden;
+}
+
+.card {
+  margin: 0 10px 1rem 0;
+}
+
+/* STARTER PROBLEM 5: fixed-width text block */
+.article-body {
+}
+
+@media (min-width: 600px) {
+  .article-body {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .article-body {
+    column-count: 3;
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Driftless Cycle Co.</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/5-1.css">
+</head>
+<body>
+  <!--
+    LAB 5.1 (index.html): Mobile-first and media queries. This page is intentionally BROKEN (desktop only).
+    Steps are in STEPS_5.1.md. The only HTML change in the whole lab: add the viewport meta tag in the <head>.
+  -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="container">
+
+    <header class="site-header">
+      <h1>Driftless Cycle Co.</h1>
+      <p>Family-owned bike shop in Viroqua &middot; Lab 5.1: mobile-first and media queries</p>
+    </header>
+
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#">Group Rides</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-content">
+      <section class="hero">
+        <div class="hero-text">
+          <h2>Ride season starts here</h2>
+          <p>Eleven group rides, three new bike lines, and a shop full of people who like talking gears.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="bikes-h">
+        <h2 id="bikes-h">This season's bikes</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Ridgeline Road</h3>
+            <p>A light aluminum frame for weekend centuries and Tuesday hill repeats.</p>
+            <a href="#">See specs</a>
+          </article>
+          <article class="card">
+            <h3>Bluff Country Gravel</h3>
+            <p>Wide tires and a relaxed frame for the gravel roads of the Driftless.</p>
+            <a href="#">See specs</a>
+          </article>
+          <article class="card">
+            <h3>Coulee E-Bike</h3>
+            <p>A quiet mid-drive motor and up to 60 miles of range. Flatten the hills.</p>
+            <a href="#">See specs</a>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="story-h">
+        <h2 id="story-h">The Driftless story</h2>
+        <img src="images/trail-map.svg" alt="Illustration of the gravel route from Viroqua to Wildcat Mountain" width="1000" height="400">
+        <div class="article-body">
+          <p>In the spring of 1987, Walt Hollander cleared a corner of his garage in Viroqua, hung a hand-painted sign, and began fixing neighborhood bikes for a few dollars and a cup of coffee. Word travelled fast, and by summer there was a line out the garage door.</p>
+          <p>The Driftless Region escaped the last glaciers, so its ridges and coulees are steep and its roads wind to match. That is hard on legs and wonderful on a bike. Riders come from Madison, La Crosse, and Minneapolis to climb the same hills the shop sits among.</p>
+          <p>Today his daughter Pat runs the shop on Main Street. The tools are newer and the bikes are fancier, but the idea is the same: treat every rider like a neighbor, explain every repair, and send people home happier than they arrived.</p>
+          <p>Group rides leave from the shop every Tuesday, Thursday, Saturday, and Sunday. Helmets are required and all paces are welcome. Nobody gets dropped, and the coffee is always on afterward.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Driftless Cycle Co. practice site. A course project.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
