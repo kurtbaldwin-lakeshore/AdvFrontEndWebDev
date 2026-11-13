@@ -114,14 +114,69 @@ textarea:focus-visible {
 /* ---------- 4.3  Pseudo-elements & advanced backgrounds  (about.html) ---------- */
 
 /* Step 1: accent line above every section title, no HTML added */
+main h2 {
+  position: relative;
+  padding-top: 1rem;
+}
+
+main h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6rem;
+  height: 4px;
+  background: linear-gradient(90deg, #0d7a8a, #c04020);
+  border-radius: 2px;
+}
 
 /* Step 2: decorative opening quote mark on the blockquote */
+blockquote::before {
+  content: "\201C";
+  display: block;
+  font-size: 5rem;
+  line-height: 0.6;
+  height: 2.5rem;
+  color: #0d7a8a;
+}
 
 /* Step 3: gradient text on the page's main heading (large text, 3:1 needed at the weakest point) */
+header h1 {
+  background: linear-gradient(135deg, #0d7a8a, #c04020);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
 /* Step 4: multi-layer background on the hero band: gradient overlay FIRST (on top), photo second */
 
+#banner {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+    url("images/workshop-banner.svg");
+
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 3rem 1.5rem;
+}
+
 /* Step 5: card header accent on each team card */
+#team article {
+  position: relative;
+  padding-top: 1rem;
+}
+
+#team article::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #0d7a8a, #c04020);
+  border-radius: 4px;
+}
 
 /* ---------- 4.4  @font-face & web typography  (history.html) ---------- */
 
@@ -186,11 +241,12 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-family: "oswald", "Arial Narrow", sans-serif;
   line-height: 1.2;
 }
 
 /* Step 4: a simple type scale (ratio 1.25) */
+
 h1 {
   font-size: 2.441rem;
 }
@@ -203,5 +259,5 @@ h3 {
 
 /* Step 5: readable line length, about 60-75 characters */
 main p {
-  max-width: 55ch;
+  max-width: 60ch;
 }
