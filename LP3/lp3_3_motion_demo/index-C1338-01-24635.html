@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A motion-heavy demo page for showing how the prefers-reduced-motion media query calms animations while keeping hover changes.">
+  <title>Motion Overload | Reduced Motion Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="hero">
+    <div class="float float--1" aria-hidden="true"></div>
+    <div class="float float--2" aria-hidden="true"></div>
+    <div class="float float--3" aria-hidden="true"></div>
+    <h1>Motion Overload</h1>
+    <p class="hero-sub">Everything on this page is moving. Some people feel sick when that happens.</p>
+    <a class="cta" href="#zoo">See the animations</a>
+  </header>
+
+  <div class="marquee" aria-hidden="true">
+    <span class="marquee-text">REDUCE MOTION DEMO &#9733; WATCH WHAT STOPS &#9733; WATCH WHAT STAYS &#9733;</span>
+  </div>
+
+  <main id="main-content">
+
+    <section aria-labelledby="enter-title">
+      <h2 id="enter-title">1. Entrance animations (play once)</h2>
+      <p>These slide and fade in with a stagger when the page loads. Reload the page to replay them.</p>
+      <div class="enter-row">
+        <article class="enter-card">
+          <h3>Card one</h3>
+          <p>Starts 60px low and invisible, then rises into place.</p>
+        </article>
+        <article class="enter-card">
+          <h3>Card two</h3>
+          <p>Same animation, but it waits a little longer before it starts.</p>
+        </article>
+        <article class="enter-card">
+          <h3>Card three</h3>
+          <p>The last in the stagger. Each card has its own delay.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="zoo" aria-labelledby="zoo-title">
+      <h2 id="zoo-title">2. The animation zoo (never stop)</h2>
+      <p>Six animations that loop forever. All of them use only <code>transform</code> or <code>opacity</code>.</p>
+      <div class="zoo">
+
+        <article class="tile">
+          <div class="stage"><div class="spinner" aria-hidden="true"></div></div>
+          <h3>Spin</h3>
+          <p>rotate 360&deg;, 1s, linear, infinite</p>
+        </article>
+
+        <article class="tile">
+          <div class="stage"><div class="ball" aria-hidden="true"></div></div>
+          <h3>Bounce</h3>
+          <p>translateY up and down, 0.8s, infinite</p>
+        </article>
+
+        <article class="tile">
+          <div class="stage"><div class="pulse-dot" aria-hidden="true"></div></div>
+          <h3>Pulse</h3>
+          <p>scale 1 to 1.25 and back, 1.2s, infinite</p>
+        </article>
+
+        <article class="tile">
+          <div class="stage"><div class="wiggle-bar" aria-hidden="true"></div></div>
+          <h3>Wiggle</h3>
+          <p>rotate -18&deg; to 18&deg;, 0.5s, infinite</p>
+        </article>
+
+        <article class="tile">
+          <div class="stage"><div class="slider" aria-hidden="true"></div></div>
+          <h3>Slide</h3>
+          <p>translateX back and forth, 1.5s, alternate</p>
+        </article>
+
+        <article class="tile">
+          <div class="stage"><div class="blinker" aria-hidden="true"></div></div>
+          <h3>Blink</h3>
+          <p>opacity 1 to 0.15, 1s, infinite</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section aria-labelledby="hover-title">
+      <h2 id="hover-title">3. Hover and focus changes (these should stay)</h2>
+      <p>Hover over, or Tab to, each item. The color changes are helpful feedback, not motion for its own sake.</p>
+      <div class="hover-row">
+        <a class="hover-card" href="#hover-title">
+          <h3>Color change</h3>
+          <p>The background and text color swap.</p>
+        </a>
+        <a class="hover-card hover-card--lift" href="#hover-title">
+          <h3>Color and lift</h3>
+          <p>The color swaps and the card also rises 8px.</p>
+        </a>
+        <a class="btn" href="#hover-title">Button hover</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>LP3 demo: animations to test with <code>prefers-reduced-motion</code>.</p>
+  </footer>
+</body>
+</html>

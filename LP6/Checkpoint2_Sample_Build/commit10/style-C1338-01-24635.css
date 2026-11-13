@@ -1,0 +1,278 @@
+/* Step 3: tokens, reset, skip link, focus */
+:root {
+  --color-primary: #9b1c1c;
+  --color-primary-dark: #5c0f0f;
+  --color-nav: #1f3a5f;
+  --color-text: #1a1a1a;
+  --color-surface: #ffffff;
+  --color-sidebar: #fff4d6;
+  --color-focus: #1d4ed8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: #f4f4f1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+
+/* Step 4: CSS Grid page layout with named areas (mobile first: one column) */
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "sidebar"
+    "footer";
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.site-header { grid-area: header; }
+.site-nav    { grid-area: nav; }
+.content     { grid-area: main; }
+.sidebar     { grid-area: sidebar; }
+.site-footer { grid-area: footer; }
+
+/* Breakpoint 2 (desktop): redefine the areas, main beside sidebar */
+@media (min-width: 900px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr) 18rem;
+    grid-template-areas:
+      "header  header"
+      "nav     nav"
+      "main    sidebar"
+      "footer  footer";
+  }
+}
+
+
+/* Step 5: Flexbox for components */
+.site-nav ul,
+.quick-links,
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  flex: 1 1 280px;
+}
+
+
+/* Step 6: CSS3 visuals (border-radius, box-shadow, gradient) */
+.site-header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.site-header h1 {
+  margin: 0;
+}
+
+.site-header p {
+  margin: 0.25rem 0 0;
+}
+
+.quick-links {
+  margin-top: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+  text-decoration: underline;
+}
+
+.site-nav {
+  background: var(--color-nav);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+}
+
+.site-nav a {
+  color: #fff;
+}
+
+.content {
+  background: var(--color-surface);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.hero {
+  margin: 0 0 1rem;
+}
+
+.hero img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.hero figcaption {
+  font-size: 0.875rem;
+  color: #555;
+  margin-top: 0.25rem;
+}
+
+.card {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.card h3 {
+  margin: 0.75rem 0 0.25rem;
+}
+
+.sidebar {
+  background: linear-gradient(180deg, #fff4d6, #ffe7a8);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.site-footer {
+  background: #222;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+.site-footer p {
+  margin: 1rem 0 0;
+}
+
+.site-header a:focus-visible,
+.site-nav a:focus-visible,
+.site-footer a:focus-visible {
+  outline-color: #ffbf47;
+}
+
+
+/* Step 7: Breakpoint 1 (tablet, 600px) */
+@media (min-width: 600px) {
+  body {
+    font-size: 1.0625rem;
+  }
+
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .quick-links {
+    margin-top: 0;
+  }
+
+  .site-nav {
+    padding: 1rem 1.5rem;
+  }
+}
+
+
+/* Step 8: @keyframes animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+
+.site-header h1 {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.quick-links li:first-child .btn {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+
+/* Step 9: prefers-reduced-motion reset */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:root {
+  --ink: #1f2937;
+  --paper: #f8fafc;
+  --row1: #1d4ed8;   /* blue:   desktop row 1 */
+  --row2: #c2410c;   /* orange: desktop row 2 */
+  --row3: #15803d;   /* green:  desktop row 3 */
+}
+
+/* ---------- Skip link: hidden until it gets keyboard focus ---------- */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 20;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+.page {
+display: grid;
+
+}
+
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: nav;
+}
+
+
+
+footer {
+    grid-area: footer;
+}
+
+main {
+    grid-area: main;
+}
+
+aside {
+    grid-area: aside;
+}
+    .page {
+    grid-template-columns: 1fr;
+
+grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "aside"
+    "footer";
+
+}
+
+
+@media (min-width: 900px) {
+
+    .page {
+    grid-template-columns: 200px 1fr 200px;
+grid-template-rows: auto 1fr auto auto;
+
+grid-template-areas:
+    "header header header"
+    
+    "main main aside"
+    "nav nav nav"
+    "footer footer footer";
+min-height: 100vh;
+}
+
+}
+
