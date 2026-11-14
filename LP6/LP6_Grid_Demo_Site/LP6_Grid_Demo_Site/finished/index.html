@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Driftless Cycle Co.</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/6-1.css">
+</head>
+<body>
+  <!--
+    LAB 6.1 (index.html): CSS Grid fundamentals. The page is already one long column. YOU build the grid.
+    The HTML does not change in this lab. Steps are in STEPS_6.1.md.
+  -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="page-grid">
+
+    <header class="site-header">
+      <h1>Driftless Cycle Co.</h1>
+      <p>Family-owned bike shop in Viroqua &middot; Lab 6.1: CSS Grid fundamentals</p>
+    </header>
+
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#">Group Rides</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-content">
+      <h2>This season's bikes</h2>
+      <div class="card-grid">
+        <article class="card featured">
+          <img src="images/bike-gravel.svg" alt="Illustration of the Bluff Country Gravel bike" width="640" height="400">
+          <h3>Bluff Country Gravel</h3>
+          <p>Wide tires and a relaxed frame for the gravel roads of the Driftless. Our most popular bike this season.</p>
+          <a href="products.html">See the lineup</a>
+        </article>
+        <article class="card">
+          <h3>Ridgeline Road</h3>
+          <p>A light aluminum frame for weekend centuries and Tuesday hill repeats.</p>
+          <a href="products.html">See specs</a>
+        </article>
+        <article class="card">
+          <h3>Coulee E-Bike</h3>
+          <p>A quiet mid-drive motor and up to 60 miles of range. Flatten the hills.</p>
+          <a href="products.html">See specs</a>
+        </article>
+      </div>
+    </main>
+
+    <aside aria-labelledby="hours-h">
+      <h2 id="hours-h">Shop hours</h2>
+      <ul class="plain">
+        <li>Tue to Fri: 9 to 6</li>
+        <li>Saturday: 8 to 4</li>
+        <li>Sunday: 10 to 3</li>
+        <li>Monday: closed</li>
+      </ul>
+      <p><a href="#">Join Saturday's group ride</a></p>
+    </aside>
+
+    <section class="services" aria-labelledby="svc-h">
+      <h2 id="svc-h">Service menu</h2>
+      <div class="service-grid">
+        <div class="service">
+          <h3>Basic tune-up</h3>
+          <p>Brakes, gears, tire pressure.</p>
+        </div>
+        <div class="service">
+          <h3>Full overhaul</h3>
+          <p>Drivetrain, bearings, wheels.</p>
+        </div>
+        <div class="service">
+          <h3>Bike fitting</h3>
+          <p>One hour with a trained fitter.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Driftless Cycle Co. practice site. A course project.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

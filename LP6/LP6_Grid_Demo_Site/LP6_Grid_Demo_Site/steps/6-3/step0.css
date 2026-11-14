@@ -1,0 +1,159 @@
+/* ===== 6.3 Checkpoint 2 audit (css/6-3.css) ===== */
+
+/* Look and feel (finished) */
+header {
+  background: var(--green);
+  color: #fff;
+  padding: 1.25rem 1rem;
+}
+
+header h1 {
+  margin: 0 0 0.25rem;
+}
+
+header p {
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--green-dark);
+}
+
+.nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.nav a:hover {
+  background: var(--green);
+}
+
+.nav a[aria-current="page"] {
+  border-bottom-color: #ffbf47;
+  font-weight: 700;
+}
+
+.nav a:focus-visible {
+  outline-color: #ffbf47;
+}
+
+.shop-photo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.crew {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  flex: 1 1 200px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.card h3 {
+  margin: 0 0 0.25rem;
+}
+
+.card p {
+  margin: 0 0 0.5rem;
+}
+
+.sidebar {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+  align-self: start;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.plain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 1rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* FLAW 1: grid-template-columns only, with line numbers. No grid-template-areas and no mobile layout. */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+}
+
+header,
+nav,
+footer {
+  grid-column: 1 / -1;
+}
+
+.sidebar {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+main {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* FLAW 2: transition: all (it also animates the focus ring) and the card only reacts to :hover */
+.card {
+  transition: all 0.3s;
+  animation: fade-in 0.6s ease-out both;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* FLAW 3: someone removed the focus outline on card links */
+.card a:focus {
+  outline: none;
+}
+
+/* FLAW 4: gray text on white, about 3.5 to 1 */
+.meta {
+  color: #8a8a8a;
+}

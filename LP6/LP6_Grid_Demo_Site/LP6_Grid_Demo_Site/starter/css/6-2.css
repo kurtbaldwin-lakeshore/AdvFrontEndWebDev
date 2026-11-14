@@ -1,0 +1,113 @@
+/* ===== 6.2 Grid areas and named regions (css/6-2.css) ===== */
+
+/* Look and feel (finished) */
+header {
+  background: var(--green);
+  color: #fff;
+  padding: 1.25rem 1rem;
+}
+
+header h1 {
+  margin: 0 0 0.25rem;
+}
+
+header p {
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--green-dark);
+}
+
+.nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.nav a:hover {
+  background: var(--green);
+}
+
+.nav a[aria-current="page"] {
+  border-bottom-color: #ffbf47;
+  font-weight: 700;
+}
+
+.nav a:focus-visible {
+  outline-color: #ffbf47;
+}
+
+.bike-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  flex: 1 1 220px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.75rem;
+  border-radius: 4px;
+}
+
+.sidebar {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.sidebar h2 + ul + h2 {
+  margin-top: 1.5rem;
+}
+
+.plain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 1rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* STARTER: .page is only a centered wrapper. Everything stacks in one column. */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
