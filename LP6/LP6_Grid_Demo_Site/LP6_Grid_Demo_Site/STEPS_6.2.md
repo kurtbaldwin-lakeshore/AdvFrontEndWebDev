@@ -9,11 +9,17 @@ The HTML source order is header, nav, main, sidebar, footer. Say this on camera.
 | Step | Change in `css/6-2.css` | What you will see (measured) |
 |---|---|---|
 | 1 | Make `.page` a grid with the mobile map: `display: grid; gap: 1.5rem; grid-template-areas: 'header' 'nav' 'main' 'sidebar' 'footer';` | The page looks almost the same, with the 1.5rem gap added between regions. The map names areas, but no element has been assigned to one yet. Say that out loud |
+
 | 2 | Add `header { grid-area: header; }`, `nav { grid-area: nav; }`, `main { grid-area: main; }`, `.sidebar { grid-area: sidebar; }` and `footer { grid-area: footer; }` | Still one column, now properly mapped. This is the moment to turn on the Grid overlay and show the area names |
+
 | 3 | Add `@media (min-width: 900px) { .page { grid-template-columns: 220px 1fr; grid-template-areas: 'header header' 'nav nav' 'sidebar main' 'footer footer'; } }` | At 1200px: header and nav span the full 1068px, sidebar is 220px on the left, main is 824px on the right, footer spans. Only the map changed. The five `grid-area` lines were not touched |
+
 | 4 | DevTools: turn the Grid overlay on, tick "Display area names" | The names header, nav, sidebar, main and footer appear on the page |
+
 | 5 | Resize to 320px | One column, 288px wide, nothing scrolls sideways, reading order header, nav, main, sidebar, footer |
+
 | 6 | Resize to 900px | Sidebar appears beside main |
+
 | 7 | Add `min-height: 100vh` to `.page`, add `grid-template-rows: auto auto 1fr auto auto` to the mobile rule and `grid-template-rows: auto auto 1fr auto` to the 900px rule | In a 1600px-tall window the footer now ends at the bottom of the window (1600px). Before step 7 the footer ended at 727px with blank space under it. The `1fr` row for main stretches |
 
 Note on the map: the deck's desktop example leaves out the `nav` row. This page has a nav, so the map has `'nav nav'`. See the next section for what happens if you leave it out.
