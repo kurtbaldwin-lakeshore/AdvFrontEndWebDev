@@ -1,0 +1,7 @@
+/* style.css: YOUR rules. This file loads AFTER bootstrap.min.css so it wins ties. */
+
+/* 7.2 step 6: custom class on one card overrides Bootstrap's card background */
+.card-featured {
+  background-color: #fffaf0;
+  border: 2px solid #9a4a00;
+}

@@ -1,0 +1,82 @@
+/* style.css: YOUR rules. This file loads AFTER bootstrap.min.css so it wins ties. */
+
+/* 7.3 steps 1-3: override Bootstrap's CSS variables (one place, whole site) */
+:root {
+  --bs-primary: #0f5c4d;
+  --bs-primary-rgb: 15, 92, 77;            /* always change these two together */
+  --bs-link-color: #0f5c4d;
+  --bs-link-color-rgb: 15, 92, 77;
+  --bs-link-hover-color: #0a3f35;
+  --bs-link-hover-color-rgb: 10, 63, 53;
+  --bs-body-font-family: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --bs-border-radius: 0.75rem;
+  --bs-border-radius-lg: 1rem;
+  --color-accent: #9a4a00;                 /* our own variable, not Bootstrap's */
+}
+
+/* Bootstrap 5.3 buttons carry their own colour variables, so point them at the brand */
+.btn-primary {
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-bg: #0a3f35;
+  --bs-btn-hover-border-color: #0a3f35;
+  --bs-btn-active-bg: #083229;
+  --bs-btn-active-border-color: #083229;
+  --bs-btn-disabled-bg: var(--bs-primary);
+  --bs-btn-disabled-border-color: var(--bs-primary);
+  --bs-btn-focus-shadow-rgb: 15, 92, 77;
+}
+
+.card-featured {
+  background-color: #fffaf0;
+  border: 2px solid var(--color-accent);
+}
+
+/* Form focus ring is hard-coded blue in Bootstrap 5.3, so it needs its own override */
+.form-control:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+/* 7.3 step 4: transitions (LP3) */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary {
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+/* 7.3 step 5: shadow on hover (LP2) */
+.card:hover {
+  box-shadow: 0 0.75rem 1.5rem rgba(27, 36, 32, 0.18);
+  transform: translateY(-4px);
+}
+
+/* Reduced motion: covers every transition above */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card:hover, .btn-primary:hover { transform: none; }
+}
+
+/* 7.4: the new components carry their own hard-coded blues too. Point them at the brand. */
+.progress {
+  --bs-progress-bar-bg: var(--bs-primary);
+}
+.accordion {
+  --bs-accordion-active-color: #0a3f35;
+  --bs-accordion-active-bg: #e3efec;
+  --bs-accordion-btn-focus-border-color: var(--bs-primary);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(15, 92, 77, 0.25);
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230a3f35'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: var(--bs-primary);
+}

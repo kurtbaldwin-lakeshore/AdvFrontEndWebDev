@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Driftless Cycle Co.</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container">
+      <h1>Driftless Cycle Co.</h1>
+      <p>Bikes, repairs and group rides in southwest Wisconsin.</p>
+    </div>
+  </header>
+  <nav class="plain-nav" aria-label="Main">
+    <div class="container"><ul>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="nav-demo.html">Nav demo</a></li>
+    </ul></div>
+  </nav>
+
+  <main id="main" class="container py-4">
+    <h2 class="fw-bold mt-0">Welcome to the shop</h2>
+    <p class="text-muted fs-5">Bikes, repairs and group rides, built on Bootstrap.</p>
+
+    <!-- 7.1: container > row > col. Full width on phones, half at 768px, a third at 992px -->
+    <div class="row g-3">
+      <div class="col-12 col-md-6 col-lg-4"><div class="bg-primary text-white p-4">Column one</div></div>
+      <div class="col-12 col-md-6 col-lg-4"><div class="bg-primary text-white p-4">Column two</div></div>
+      <div class="col-12 col-md-6 col-lg-4"><div class="bg-primary text-white p-4">Column three</div></div>
+    </div>
+
+    <!-- 7.1: utilities, no custom CSS -->
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-2 px-3 py-2 bg-light border">
+      <span class="fw-bold">Utility classes at work</span>
+      <span class="d-none d-md-block">Hidden on phones, shown from 768px</span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container py-3">
+      <p>&copy; 2026 Driftless Cycle Co. Teaching demo.</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

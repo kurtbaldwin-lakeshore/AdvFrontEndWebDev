@@ -1,0 +1,258 @@
+/* custom.css — hand-written styles for the same HTML that Bootstrap styles.
+   Everything Bootstrap does with classes, this file does by hand. */
+
+:root {
+  --navy: #0d1b2a;
+  --teal: #095f6e;
+  --orange: #c04020;
+  --cream: #faf6ef;
+  --ink: #1f2937;
+  --border: #94a3b8;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: 0.5rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: #fff;
+  color: var(--navy);
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-0 { margin-bottom: 0; }
+.list-unstyled { list-style: none; margin: 0; padding: 0; }
+
+/* ---------- Header and nav ---------- */
+header {
+  background: var(--navy);
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1rem;
+}
+
+.navbar-brand {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 0.25rem 0;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  border-bottom-color: var(--orange);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 4.5rem 1rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--teal), var(--navy));
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.hero .lead {
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-lg { padding: 0.8rem 1.75rem; font-size: 1.1rem; }
+.btn-sm { padding: 0.3rem 0.9rem; font-size: 0.95rem; }
+
+.btn-primary {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #9c3219;
+  border-color: #9c3219;
+}
+
+.btn-outline-dark {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-outline-dark:hover {
+  background: #fff;
+  color: var(--navy);
+}
+
+.btn-outline-primary {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+.btn-outline-primary:hover {
+  background: var(--teal);
+  color: #fff;
+}
+
+/* ---------- Sections ---------- */
+.services,
+.contact {
+  padding: 3.5rem 0;
+}
+
+.contact {
+  background: #fff;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  height: 100%;
+  background: #fff;
+  border-top: 6px solid var(--orange);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.card-text {
+  margin: 0 0 1.25rem;
+}
+
+/* ---------- Form ---------- */
+.form-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 2rem 0;
+  text-align: center;
+  color: #e2e8f0;
+  background: var(--navy);
+}
+
+/* ---------- Focus (keyboard users) ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+}
+
+header a:focus-visible,
+footer a:focus-visible,
+.hero a:focus-visible {
+  outline-color: #fde68a;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
